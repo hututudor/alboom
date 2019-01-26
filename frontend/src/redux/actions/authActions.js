@@ -1,14 +1,14 @@
 import { UPDATE_USER, LOGOUT } from '../types';
 
-export function updateUser(user) {
+export const updateUser = user => {
 	return {
 		type: UPDATE_USER,
 		user
 	};
-}
+};
 
-export function logout() {
+export const logout = () => {
 	return {
 		type: LOGOUT
 	};
-}
+};

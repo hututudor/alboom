@@ -7,6 +7,7 @@ import * as auth from './services/authService';
 import * as token from './services/tokenService';
 import App from './App';
 import actions from './redux/actions';
+import 'semantic-ui-css/semantic.min.css';
 
 window.store = store;
 
@@ -21,6 +22,15 @@ const rend = () => {
 	);
 };
 
+const supportedLanguages = ['en', 'ro'];
+
+// check if the user has any language preferences and then if it is a supported language
+const lang = localStorage.getItem('lang');
+if (lang && supportedLanguages.includes(lang)) {
+	store.dispatch(actions.lang.updateLanguage(lang));
+}
+
+// chaeck if the token exists and then check if it is valid
 if (token.exists()) {
 	auth
 		.getUser()

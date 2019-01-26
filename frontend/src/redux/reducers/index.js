@@ -1,7 +1,9 @@
 import { combineReducers } from 'redux';
 
 import authReducer from './authReducer';
+import languageReducer from './languageReducer';
 
 export default combineReducers({
-	auth: authReducer
+	auth: authReducer,
+	lang: languageReducer
 });

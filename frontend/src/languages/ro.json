@@ -1,4 +1,15 @@
 {
+	"home": {
+		"title": "Stocheaza-ti fisierele media in albume virtuale.",
+		"subtitle": "Facut de dezvoltatori pentru dezvoltatori.",
+		"buttons": {
+			"home": "Acasa"
+		}
+	},
+	"languages": {
+		"en": "Engleza",
+		"ro": "Romana"
+	},
 	"404": {
 		"message": "Ati ajuns la capatul internetului"
 	}

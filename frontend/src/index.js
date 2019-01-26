@@ -8,6 +8,7 @@ import * as token from './services/tokenService';
 import App from './App';
 import actions from './redux/actions';
 import 'semantic-ui-css/semantic.min.css';
+import languages from './languages';
 
 window.store = store;
 
@@ -22,11 +23,9 @@ const rend = () => {
 	);
 };
 
-const supportedLanguages = ['en', 'ro'];
-
 // check if the user has any language preferences and then if it is a supported language
 const lang = localStorage.getItem('lang');
-if (lang && supportedLanguages.includes(lang)) {
+if (lang && languages.supported.includes(lang)) {
 	store.dispatch(actions.lang.updateLanguage(lang));
 }
 

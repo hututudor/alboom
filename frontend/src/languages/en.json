@@ -1,4 +1,15 @@
 {
+	"home": {
+		"title": "Store your media files in virtual albums.",
+		"subtitle": "Made by developers for developers.",
+		"buttons": {
+			"home": "Home"
+		}
+	},
+	"languages": {
+		"en": "English",
+		"ro": "Romanian"
+	},
 	"404": {
 		"message": "There is the end of the internet"
 	}

@@ -10,6 +10,7 @@ function languageReducer(state = initialState, action) {
 	switch (action.type) {
 		case UPDATE_LANGUAGE:
 			newState.name = action.name;
+			localStorage.setItem('lang', action.name);
 			break;
 		default:
 			break;

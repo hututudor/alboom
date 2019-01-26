@@ -1,0 +1,142 @@
+{
+	"_type": "export",
+	"__export_format": 3,
+	"__export_date": "2019-01-26T13:42:21.577Z",
+	"__export_source": "insomnia.desktop.app:v6.3.2",
+	"resources": [
+		{
+			"_id": "wrk_4c8bdbb194a14962b320d0cf02c75649",
+			"created": 1548505968516,
+			"description": "",
+			"modified": 1548505968516,
+			"name": "AlBoom",
+			"parentId": null,
+			"_type": "workspace"
+		},
+		{
+			"_id": "env_cbe700c674544e068744448fbff8a197",
+			"color": null,
+			"created": 1548505968701,
+			"data": {
+				"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTU0ODUwOTk0NCwiZXhwIjoxNTQ4NTEzNTQ0LCJuYmYiOjE1NDg1MDk5NDQsImp0aSI6IjNqaEZBaVVCTWNsNFhhSGkiLCJzdWIiOjEsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.zOsCEhUpB0WdXHuiLv9DunHotZYguQb1M6U_f0Lr31c",
+				"url": "http://localhost:8000/api"
+			},
+			"isPrivate": false,
+			"metaSortKey": 1548505968701,
+			"modified": 1548509994112,
+			"name": "New Environment",
+			"parentId": "wrk_4c8bdbb194a14962b320d0cf02c75649",
+			"_type": "environment"
+		},
+		{
+			"_id": "jar_aa909e09749348f0a0667b1e2a969e84",
+			"cookies": [],
+			"created": 1548505968706,
+			"modified": 1548505968706,
+			"name": "Default Jar",
+			"parentId": "wrk_4c8bdbb194a14962b320d0cf02c75649",
+			"_type": "cookie_jar"
+		},
+		{
+			"_id": "fld_e9ffcd4e06a24b6bad8d3be437e49df1",
+			"created": 1548505980366,
+			"description": "",
+			"environment": {},
+			"metaSortKey": -1548505980366,
+			"modified": 1548505980366,
+			"name": "Auth",
+			"parentId": "wrk_4c8bdbb194a14962b320d0cf02c75649",
+			"_type": "request_group"
+		},
+		{
+			"_id": "req_1258ea509ebe46a5b56307d08f78fd66",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"name\": \"Tudor\",\n\t\"email\": \"hutu.tudor@yahoo.com\",\n\t\"password\": \"tudor12345\"\n}"
+			},
+			"created": 1548505988512,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_57074c6912be4fd9a8b8b0cc3508a8d9",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1548505988512,
+			"method": "POST",
+			"modified": 1548509775700,
+			"name": "Register",
+			"parameters": [],
+			"parentId": "fld_e9ffcd4e06a24b6bad8d3be437e49df1",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{url}}/register",
+			"_type": "request"
+		},
+		{
+			"_id": "req_8704d7b6e9c346a09874f50b35f0ebbb",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"email\": \"hutu.tudor@yahoo.com\",\n\t\"password\": \"tudor12345\"\n}"
+			},
+			"created": 1548509812960,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_b0705b4673a14196847ba04686f5ecdc",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1548509812960,
+			"method": "POST",
+			"modified": 1548509943105,
+			"name": "Login",
+			"parameters": [],
+			"parentId": "fld_e9ffcd4e06a24b6bad8d3be437e49df1",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{url}}/login",
+			"_type": "request"
+		},
+		{
+			"_id": "req_d9332b090d25407d89c805dc4b791ffa",
+			"authentication": {
+				"token": "{{token}}",
+				"type": "bearer"
+			},
+			"body": {},
+			"created": 1548509955200,
+			"description": "",
+			"headers": [],
+			"isPrivate": false,
+			"metaSortKey": -1548509955200,
+			"method": "GET",
+			"modified": 1548509976331,
+			"name": "Info",
+			"parameters": [],
+			"parentId": "fld_e9ffcd4e06a24b6bad8d3be437e49df1",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{url}}/user",
+			"_type": "request"
+		}
+	]
+}

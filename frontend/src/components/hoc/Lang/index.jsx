@@ -9,9 +9,13 @@ class Lang extends Component {
 	}
 
 	render() {
-		return _.get(
-			languages[this.props.lang].default,
-			this.props.children + (this.props.extra ? '.' + this.props.extra : '')
+		return (
+			<React.Fragment>
+				{_.get(
+					languages[this.props.lang].default,
+					this.props.children + (this.props.extra ? '.' + this.props.extra : '')
+				)}
+			</React.Fragment>
 		);
 	}
 }

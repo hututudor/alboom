@@ -19,6 +19,7 @@ import { connect } from 'react-redux';
 import actions from '../../../redux/actions';
 import * as auth from '../../../services/authService';
 import { toast } from 'react-toastify';
+import * as lang from '../../../services/langService';
 
 class Login extends FormClass {
 	state = {
@@ -69,7 +70,7 @@ class Login extends FormClass {
 								name="email"
 								icon="mail"
 								iconPosition="left"
-								placeholder="Email Adress"
+								placeholder={lang.get('auth.placeholders.email')}
 								onChange={this.handleChange}
 								value={this.state.data.email}
 								className={this.getClass('email')}
@@ -81,7 +82,7 @@ class Login extends FormClass {
 								name="password"
 								icon="lock"
 								iconPosition="left"
-								placeholder="Password"
+								placeholder={lang.get('auth.placeholders.password')}
 								onChange={this.handleChange}
 								value={this.state.data.password}
 								className={this.getClass('password')}
@@ -121,7 +122,9 @@ class Login extends FormClass {
 						''
 					) : (
 						<Message error>
-							<h3>Error</h3>
+							<h3>
+								<Lang>auth.errors</Lang>
+							</h3>
 							{this.displayErrors()}
 						</Message>
 					)}

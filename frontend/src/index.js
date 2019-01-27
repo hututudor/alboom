@@ -12,6 +12,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import languages from './languages';
 
 window.store = store;
+window.languages = languages;
 
 const rend = () => {
 	ReactDOM.render(

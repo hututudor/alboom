@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Joi from 'joi-browser';
+import Lang from '../Lang';
 
 class FormClass extends Component {
 	state = {
@@ -65,7 +66,9 @@ class FormClass extends Component {
 	displayErrors = () => {
 		console.log(Object.entries(this.state.errors));
 		return Object.entries(this.state.errors).map((error, index) => (
-			<p key={index}>{error[1]}</p>
+			<p key={index}>
+				<Lang extra={error[1]}>auth.messages</Lang>
+			</p>
 		));
 	};
 

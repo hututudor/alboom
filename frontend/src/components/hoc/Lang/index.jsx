@@ -5,18 +5,13 @@ import languages from '../../../languages';
 
 class Lang extends Component {
 	componentDidMount() {
-		console.log(languages[this.props.lang].default);
+		// console.log(languages[this.props.lang].default);
 	}
 
 	render() {
-		return (
-			<React.Fragment>
-				{_.get(
-					languages[this.props.lang].default,
-					this.props.children,
-					'Something went wrong'
-				)}
-			</React.Fragment>
+		return _.get(
+			languages[this.props.lang].default,
+			this.props.children + (this.props.extra ? '.' + this.props.extra : '')
 		);
 	}
 }

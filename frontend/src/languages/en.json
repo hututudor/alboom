@@ -13,6 +13,7 @@
 		}
 	},
 	"auth": {
+		"errors": "Errors",
 		"login": {
 			"title": "Login",
 			"button": "Submit",
@@ -28,7 +29,15 @@
 			"back": "Back"
 		},
 		"messages": {
-			"taken": "Email is already taken"
+			"taken": "Email is already taken",
+			"\"Email\" is not allowed to be empty": "Email is not allowed to be empty",
+			"\"Email\" must be a valid email": "Email must be valid",
+			"\"Password\" is not allowed to be empty": "Password is not allowed to be empty"
+		},
+		"placeholders": {
+			"email": "Email adress",
+			"name": "Name",
+			"password": "Password"
 		}
 	},
 	"languages": {

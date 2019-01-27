@@ -85,7 +85,7 @@ class Register extends FormClass {
 								name="name"
 								icon="user"
 								iconPosition="left"
-								placeholder="Name"
+								placeholder={lang.get('auth.placeholders.name')}
 								onChange={this.handleChange}
 								value={this.state.data.name}
 								className={this.getClass('name')}
@@ -96,7 +96,7 @@ class Register extends FormClass {
 								name="email"
 								icon="mail"
 								iconPosition="left"
-								placeholder="Email Adress"
+								placeholder={lang.get('auth.placeholders.email')}
 								onChange={this.handleChange}
 								value={this.state.data.email}
 								className={this.getClass('email')}
@@ -108,7 +108,7 @@ class Register extends FormClass {
 								name="password"
 								icon="lock"
 								iconPosition="left"
-								placeholder="Password"
+								placeholder={lang.get('auth.placeholders.password')}
 								onChange={this.handleChange}
 								value={this.state.data.password}
 								className={this.getClass('password')}

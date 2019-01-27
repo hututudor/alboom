@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Menu, Container, Dropdown, Flag } from 'semantic-ui-react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Logo from '../hoc/Logo';
 import actions from '../../redux/actions';
@@ -9,6 +9,10 @@ import Lang from '../hoc/Lang';
 class Navbar extends Component {
 	changeLanguage = name => {
 		this.props.updateLanguage(name);
+	};
+
+	logout = () => {
+		this.props.logout();
 	};
 
 	render() {
@@ -62,14 +66,29 @@ class Navbar extends Component {
 						</Dropdown>
 
 						<Dropdown
-							text={this.props.user.auth ? this.props.user.name : 'Account'}
+							text={
+								this.props.user.auth ? (
+									this.props.user.name
+								) : (
+									<Lang>home.account.account</Lang>
+								)
+							}
 							item
 						>
 							<Dropdown.Menu>
 								{this.props.user.auth ? (
-									<Dropdown.Item text="Logout" />
+									<Dropdown.Item onClick={() => this.logout()}>
+										<Lang>home.account.logout</Lang>
+									</Dropdown.Item>
 								) : (
-									<Dropdown.Item text="User" />
+									<React.Fragment>
+										<Dropdown.Item as={Link} to="/login">
+											<Lang>home.account.login</Lang>
+										</Dropdown.Item>
+										<Dropdown.Item as={Link} to="/register">
+											<Lang>home.account.register</Lang>
+										</Dropdown.Item>
+									</React.Fragment>
 								)}
 							</Dropdown.Menu>
 						</Dropdown>
@@ -89,7 +108,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
 	return {
-		updateLanguage: name => dispatch(actions.lang.updateLanguage(name))
+		updateLanguage: name => dispatch(actions.lang.updateLanguage(name)),
+		logout: () => dispatch(actions.auth.logout())
 	};
 };
 

@@ -8,6 +8,7 @@ import * as token from './services/tokenService';
 import App from './App';
 import actions from './redux/actions';
 import 'semantic-ui-css/semantic.min.css';
+import 'react-toastify/dist/ReactToastify.css';
 import languages from './languages';
 
 window.store = store;

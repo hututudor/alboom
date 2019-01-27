@@ -1,9 +1,10 @@
 import { UPDATE_USER, LOGOUT } from '../types';
 
-export const updateUser = user => {
+export const updateUser = (user, token) => {
 	return {
 		type: UPDATE_USER,
-		user
+		user,
+		token
 	};
 };
 

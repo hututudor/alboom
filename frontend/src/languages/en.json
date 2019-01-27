@@ -4,6 +4,31 @@
 		"subtitle": "Made by developers for developers.",
 		"buttons": {
 			"home": "Home"
+		},
+		"account": {
+			"account": "Account",
+			"login": "Login",
+			"register": "Register",
+			"logout": "Logout"
+		}
+	},
+	"auth": {
+		"login": {
+			"title": "Login",
+			"button": "Submit",
+			"message": "Dont't have an account?",
+			"register": "Register",
+			"back": "Back"
+		},
+		"register": {
+			"title": "Register",
+			"button": "Submit",
+			"message": "Already have an account?",
+			"login": "Login",
+			"back": "Back"
+		},
+		"messages": {
+			"taken": "Email is already taken"
 		}
 	},
 	"languages": {

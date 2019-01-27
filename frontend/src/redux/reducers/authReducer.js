@@ -1,4 +1,5 @@
 import { UPDATE_USER, LOGOUT } from '../types';
+import * as token from '../../services/tokenService';
 
 const initialState = {
 	user: {
@@ -12,9 +13,12 @@ function authReducer(state = initialState, action) {
 	switch (action.type) {
 		case UPDATE_USER:
 			newState.user = action.user;
+			newState.user.auth = true;
+			token.set(action.token);
 			break;
 		case LOGOUT:
 			newState.user = { auth: false };
+			token.remove();
 			break;
 		default:
 			break;

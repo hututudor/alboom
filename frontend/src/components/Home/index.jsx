@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Navbar from '../Navbar';
-import { Placeholder } from 'semantic-ui-react';
 import Logo from '../hoc/Logo';
 import './style.scss';
 import Lang from '../hoc/Lang';

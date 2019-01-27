@@ -4,6 +4,31 @@
 		"subtitle": "Facut de dezvoltatori pentru dezvoltatori.",
 		"buttons": {
 			"home": "Acasa"
+		},
+		"account": {
+			"account": "Cont",
+			"login": "Autentificare",
+			"register": "Inregistrare",
+			"logout": "Deconectare"
+		}
+	},
+	"auth": {
+		"login": {
+			"title": "Autentificare",
+			"button": "Trimite",
+			"message": "Nu ai un cont?",
+			"register": "Inregistrare",
+			"back": "Inapoi"
+		},
+		"register": {
+			"title": "Inregistrare",
+			"button": "Trimite",
+			"message": "Ai deja un cont?",
+			"login": "Autentificare",
+			"back": "Inapoi"
+		},
+		"messages": {
+			"taken": "Email-ul este deja luat"
 		}
 	},
 	"languages": {

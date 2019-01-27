@@ -12,3 +12,7 @@ export const getPrivate = url => {
 export const getPublic = url => {
 	return axios.get(apiUrl + url);
 };
+
+export const postPublic = (url, data) => {
+	return axios.post(apiUrl + url, data);
+};

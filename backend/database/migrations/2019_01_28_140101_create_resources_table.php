@@ -15,7 +15,7 @@ class CreateResourcesTable extends Migration
     {
         Schema::create('resources', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('album_id');
+            $table->integer('album_id')->unsigned();
             $table->string('uuid');
             $table->string('name');
             $table->string('location');
@@ -26,7 +26,7 @@ class CreateResourcesTable extends Migration
             $table->boolean('muted')->default(false);
             $table->timestamps();
 
-            $table->foreign('album_id')->refrences('id')->on('albums');
+            $table->foreign('album_id')->references('id')->on('albums');
         });
     }
 

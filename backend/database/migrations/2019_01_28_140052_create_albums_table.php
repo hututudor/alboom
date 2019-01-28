@@ -15,7 +15,7 @@ class CreateAlbumsTable extends Migration
     {
         Schema::create('albums', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('user_id');
+            $table->integer('user_id')->unsigned();
             $table->string('uuid');
             $table->string('name');
             $table->string('color');
@@ -24,7 +24,7 @@ class CreateAlbumsTable extends Migration
             $table->boolean('autoplay')->default(false);
             $table->timestamps();
 
-            $table->foreign('user_id')->refrences('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

@@ -15,31 +15,34 @@ window.store = store;
 window.languages = languages;
 
 const rend = () => {
-	ReactDOM.render(
-		<Provider store={store}>
-			<BrowserRouter>
-				<App />
-			</BrowserRouter>
-		</Provider>,
-		document.getElementById('root')
-	);
+  ReactDOM.render(
+    <Provider store={store}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </Provider>,
+    document.getElementById('root')
+  );
 };
 
 // check if the user has any language preferences and then if it is a supported language
+// if it is not a supported language, save it in the redux store
 const lang = localStorage.getItem('lang');
 if (lang && languages.supported.includes(lang)) {
-	store.dispatch(actions.lang.updateLanguage(lang));
+  store.dispatch(actions.lang.updateLanguage(lang));
+} else {
+  store.dispatch(actions.lang.updateLanguage('en'));
 }
 
 // chaeck if the token exists and then check if it is valid
 if (token.exists()) {
-	auth
-		.getUser()
-		.then(res => {
-			store.dispatch(actions.auth.updateUser({ auth: true, ...res.data.user }));
-			rend();
-		})
-		.catch(err => rend());
+  auth
+    .getUser()
+    .then(res => {
+      store.dispatch(actions.auth.updateUser({ auth: true, ...res.data.user }));
+      rend();
+    })
+    .catch(err => rend());
 } else {
-	rend();
+  rend();
 }

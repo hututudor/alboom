@@ -1,50 +1,57 @@
 {
-	"home": {
-		"title": "Stocheaza-ti fisierele media in albume virtuale.",
-		"subtitle": "Facut de dezvoltatori pentru dezvoltatori.",
-		"buttons": {
-			"home": "Acasa"
-		},
-		"account": {
-			"account": "Cont",
-			"login": "Autentificare",
-			"register": "Inregistrare",
-			"logout": "Deconectare"
-		}
-	},
-	"auth": {
-		"errors": "Erori",
-		"login": {
-			"title": "Autentificare",
-			"button": "Trimite",
-			"message": "Nu ai un cont?",
-			"register": "Inregistrare",
-			"back": "Inapoi"
-		},
-		"register": {
-			"title": "Inregistrare",
-			"button": "Trimite",
-			"message": "Ai deja un cont?",
-			"login": "Autentificare",
-			"back": "Inapoi"
-		},
-		"messages": {
-			"taken": "Email-ul este deja luat",
-			"\"Email\" is not allowed to be empty": "Email-ul nu trebuie sa fie gol",
-			"\"Email\" must be a valid email": "Email-ul trebuie sa fie valid",
-			"\"Password\" is not allowed to be empty": "Parola nu poate fi goala"
-		},
-		"placeholders": {
-			"email": "Adresa de email",
-			"name": "Nume",
-			"password": "Parola"
-		}
-	},
-	"languages": {
-		"en": "Engleza",
-		"ro": "Romana"
-	},
-	"404": {
-		"message": "Ati ajuns la capatul internetului"
-	}
+  "home": {
+    "title": "Stocheaza-ti fisierele media in albume virtuale.",
+    "subtitle": "Facut de dezvoltatori pentru dezvoltatori.",
+    "buttons": {
+      "home": "Acasa",
+      "dashboard": "Panou de control"
+    },
+    "account": {
+      "account": "Cont",
+      "login": "Autentificare",
+      "register": "Inregistrare",
+      "logout": "Deconectare"
+    }
+  },
+  "dashboard": {
+    "buttons": {
+      "back": "Inapoi acasa",
+      "logout": "Deconectare"
+    }
+  },
+  "auth": {
+    "errors": "Erori",
+    "login": {
+      "title": "Autentificare",
+      "button": "Trimite",
+      "message": "Nu ai un cont?",
+      "register": "Inregistrare",
+      "back": "Inapoi"
+    },
+    "register": {
+      "title": "Inregistrare",
+      "button": "Trimite",
+      "message": "Ai deja un cont?",
+      "login": "Autentificare",
+      "back": "Inapoi"
+    },
+    "messages": {
+      "taken": "Email-ul este deja luat",
+      "\"Email\" is not allowed to be empty": "Email-ul nu trebuie sa fie gol",
+      "\"Email\" must be a valid email": "Email-ul trebuie sa fie valid",
+      "\"Password\" is not allowed to be empty": "Parola nu poate fi goala"
+    },
+    "placeholders": {
+      "email": "Adresa de email",
+      "name": "Nume",
+      "password": "Parola"
+    }
+  },
+  "languages": {
+    "en": "Engleza",
+    "ro": "Romana"
+  },
+  "404": {
+    "message": "Ati ajuns la capatul internetului"
+  }
 }

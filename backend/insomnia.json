@@ -1,7 +1,7 @@
 {
 	"_type": "export",
 	"__export_format": 3,
-	"__export_date": "2019-01-26T13:42:21.577Z",
+	"__export_date": "2019-01-29T20:20:54.091Z",
 	"__export_source": "insomnia.desktop.app:v6.3.2",
 	"resources": [
 		{
@@ -18,12 +18,12 @@
 			"color": null,
 			"created": 1548505968701,
 			"data": {
-				"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTU0ODUwOTk0NCwiZXhwIjoxNTQ4NTEzNTQ0LCJuYmYiOjE1NDg1MDk5NDQsImp0aSI6IjNqaEZBaVVCTWNsNFhhSGkiLCJzdWIiOjEsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.zOsCEhUpB0WdXHuiLv9DunHotZYguQb1M6U_f0Lr31c",
+				"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTU0ODc2MzI4MiwiZXhwIjoxNTU2NTM5MjgyLCJuYmYiOjE1NDg3NjMyODIsImp0aSI6InBzZFduVU9MeHNUWFVEZzEiLCJzdWIiOjEsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.ufRPZURzHLC2Rdf7wSJBkaZ6uMU5w8ccYyKlksnIwfo",
 				"url": "http://localhost:8000/api"
 			},
 			"isPrivate": false,
 			"metaSortKey": 1548505968701,
-			"modified": 1548509994112,
+			"modified": 1548763306131,
 			"name": "New Environment",
 			"parentId": "wrk_4c8bdbb194a14962b320d0cf02c75649",
 			"_type": "environment"
@@ -45,6 +45,17 @@
 			"metaSortKey": -1548505980366,
 			"modified": 1548505980366,
 			"name": "Auth",
+			"parentId": "wrk_4c8bdbb194a14962b320d0cf02c75649",
+			"_type": "request_group"
+		},
+		{
+			"_id": "fld_66f4e2fecc3848178f37da38551cc086",
+			"created": 1548762017830,
+			"description": "",
+			"environment": {},
+			"metaSortKey": -1548762017830,
+			"modified": 1548762017830,
+			"name": "Albums",
 			"parentId": "wrk_4c8bdbb194a14962b320d0cf02c75649",
 			"_type": "request_group"
 		},
@@ -125,7 +136,7 @@
 			"isPrivate": false,
 			"metaSortKey": -1548509955200,
 			"method": "GET",
-			"modified": 1548509976331,
+			"modified": 1548748651798,
 			"name": "Info",
 			"parameters": [],
 			"parentId": "fld_e9ffcd4e06a24b6bad8d3be437e49df1",
@@ -136,6 +147,172 @@
 			"settingSendCookies": true,
 			"settingStoreCookies": true,
 			"url": "{{url}}/user",
+			"_type": "request"
+		},
+		{
+			"_id": "req_a3301872fc69407f92c69644f84ec26b",
+			"authentication": {
+				"token": "{{ token  }}",
+				"type": "bearer"
+			},
+			"body": {
+				"mimeType": "application/json",
+				"text": ""
+			},
+			"created": 1548762030874,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_7cb755493c4c49fcb2af84ba8c832796",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1548762030874,
+			"method": "GET",
+			"modified": 1548763364159,
+			"name": "Get",
+			"parameters": [],
+			"parentId": "fld_66f4e2fecc3848178f37da38551cc086",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{url}}/albums/dsfdsfdsfdsffdsfd",
+			"_type": "request"
+		},
+		{
+			"_id": "req_1aa7e46334b04d00a3b96589f2fe34c9",
+			"authentication": {
+				"token": "{{ token  }}",
+				"type": "bearer"
+			},
+			"body": {
+				"mimeType": "application/json",
+				"text": ""
+			},
+			"created": 1548763376512,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_a902492c77ba478d8c2ec5e381042508",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1548762030824,
+			"method": "GET",
+			"modified": 1548763751455,
+			"name": "Get All",
+			"parameters": [],
+			"parentId": "fld_66f4e2fecc3848178f37da38551cc086",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{url}}/albums",
+			"_type": "request"
+		},
+		{
+			"_id": "req_321edc771b3a4484b29dcf8902b30373",
+			"authentication": {
+				"token": "{{ token  }}",
+				"type": "bearer"
+			},
+			"body": {},
+			"created": 1548765868643,
+			"description": "",
+			"headers": [],
+			"isPrivate": false,
+			"metaSortKey": -1548762030924,
+			"method": "DELETE",
+			"modified": 1548765899669,
+			"name": "Delete",
+			"parameters": [],
+			"parentId": "fld_66f4e2fecc3848178f37da38551cc086",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{url}}/albums/dsfdsfdsfdsffdsfd",
+			"_type": "request"
+		},
+		{
+			"_id": "req_d30d33db9fd74ee99c15ff7dc00d334d",
+			"authentication": {
+				"token": "{{ token  }}",
+				"type": "bearer"
+			},
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"name\": \"Lil Teo\",\n\t\"color\": \"depresie\",\n\t\"public\": 1,\n\t\"controls\": 1,\n\t\"autoplay\": 1\n}"
+			},
+			"created": 1548765916315,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_8fe1a5b0f8d9495e9e73bb0750a6ad16",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1548765916315,
+			"method": "POST",
+			"modified": 1548766706278,
+			"name": "Add",
+			"parameters": [],
+			"parentId": "fld_66f4e2fecc3848178f37da38551cc086",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ url  }}/albums",
+			"_type": "request"
+		},
+		{
+			"_id": "req_2a47ce69db714e43866b5f0e20ab7941",
+			"authentication": {
+				"token": "{{ token  }}",
+				"type": "bearer"
+			},
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"name\": \"Lil Teo23\",\n\t\"color\": \"depresie\",\n\t\"public\": 1,\n\t\"controls\": 1,\n\t\"autoplay\": 1\n}"
+			},
+			"created": 1548767350563,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_54ea98fa5a064b759915838e154db9b5",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1548767350563,
+			"method": "PUT",
+			"modified": 1548767403877,
+			"name": "Edit",
+			"parameters": [],
+			"parentId": "fld_66f4e2fecc3848178f37da38551cc086",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ url }}/albums/92a9df80f18a4fd699ffff863c8fd315",
 			"_type": "request"
 		}
 	]

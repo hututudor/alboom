@@ -19,4 +19,10 @@ Route::post('login', 'AuthController@authenticate');
 // middleware for auth-only routes
 Route::group(['middleware' => ['jwt.verify']], function() {
     Route::get('user', 'AuthController@getAuthenticatedUser');
+
+    Route::get('albums/{uuid}', 'AlbumsController@get');
+    Route::get('albums', 'AlbumsController@getall');
+    Route::post('albums', 'AlbumsController@add');
+    Route::put('albums/{uuid}', 'AlbumsController@edit');
+    Route::delete('albums/{uuid}', 'AlbumsController@delete');
 });

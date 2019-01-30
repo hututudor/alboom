@@ -1,57 +1,66 @@
 import React, { Component } from 'react';
 import FormClass from '../../../../../../hoc/FormClass';
-import { Modal, Form, Segment, Icon, Grid, Message } from 'semantic-ui-react';
+import {
+	Modal,
+	Form,
+	Segment,
+	Icon,
+	Grid,
+	Message,
+	Select
+} from 'semantic-ui-react';
 import Lang from '../../../../../../hoc/Lang';
 import * as lang from '../../../../../../../services/langService';
 import _ from 'lodash';
 import Joi from 'joi-browser';
+import * as color from '../../../../../../../services/colorService';
 
 class AddAlbumModalForm extends FormClass {
 	state = {
-		data: { email: '', password: '' },
+		data: { name: '', color: '' },
 		errors: {}
 	};
 
 	schema = {
-		email: Joi.string()
-			.email()
+		name: Joi.string()
 			.required()
-			.label('Email'),
-		password: Joi.string()
+			.label('Name'),
+		color: Joi.string()
 			.required()
-			.label('Password')
+			.label('Color')
 	};
 
 	render() {
 		return (
 			<React.Fragment>
-				<Modal.Content scrolling>
+				<Modal.Content>
 					<Modal.Description>
 						<Form onSubmit={this.handleSubmit} size="large">
 							<Form.Input
 								fluid
-								name="email"
-								icon="mail"
-								iconPosition="left"
-								placeholder={lang.get('auth.placeholders.email')}
+								name="name"
+								placeholder={lang.get('dashboard.albums.modals.add.name')}
+								label={lang.get('dashboard.albums.modals.add.name')}
 								onChange={this.handleChange}
-								value={this.state.data.email}
-								className={this.getClass('email')}
+								value={this.state.data.name}
+								className={this.getClass('name')}
 								type="email"
 							/>
 
-							<Form.Input
-								fluid
-								name="password"
-								icon="lock"
-								iconPosition="left"
-								placeholder={lang.get('auth.placeholders.password')}
-								onChange={this.handleChange}
-								value={this.state.data.password}
-								className={this.getClass('password')}
-								type="password"
-							/>
-							<br />
+							<Form.Field>
+								<Form.Field>
+									<Lang>dashboard.albums.modals.add.color</Lang>
+								</Form.Field>
+								<Select
+									fluid
+									name="color"
+									placeholder={lang.get('dashboard.albums.modals.add.color')}
+									onChange={this.handleChange}
+									value={this.state.data.color}
+									className={this.getClass('color')}
+									options={color.colorSelect}
+								/>
+							</Form.Field>
 
 							{/* <Grid columns={1} textAlign="center">
 									<Button.Group fluid>

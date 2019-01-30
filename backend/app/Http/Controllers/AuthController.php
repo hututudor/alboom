@@ -53,6 +53,11 @@ class AuthController extends Controller
 
     public function getAuthenticatedUser() {
         $user = self::getUser();
+
+        if(!$user) {
+            return response()->json('', 403);
+        }
+
         return response()->json(compact('user'));
     }
 

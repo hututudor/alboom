@@ -1,7 +1,7 @@
 {
 	"_type": "export",
 	"__export_format": 3,
-	"__export_date": "2019-01-29T20:20:54.091Z",
+	"__export_date": "2019-01-30T14:02:07.994Z",
 	"__export_source": "insomnia.desktop.app:v6.3.2",
 	"resources": [
 		{
@@ -18,12 +18,12 @@
 			"color": null,
 			"created": 1548505968701,
 			"data": {
-				"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTU0ODc2MzI4MiwiZXhwIjoxNTU2NTM5MjgyLCJuYmYiOjE1NDg3NjMyODIsImp0aSI6InBzZFduVU9MeHNUWFVEZzEiLCJzdWIiOjEsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.ufRPZURzHLC2Rdf7wSJBkaZ6uMU5w8ccYyKlksnIwfo",
+				"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTU0ODg0NjMyMCwiZXhwIjoxNTU2NjIyMzIwLCJuYmYiOjE1NDg4NDYzMjAsImp0aSI6ImdYOEhMSHBlT1U5U05wRHciLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.4LTrF9L0Ej9G9Hpo6FV26t_8UqORA3H9lczDAnpDEYU",
 				"url": "http://localhost:8000/api"
 			},
 			"isPrivate": false,
 			"metaSortKey": 1548505968701,
-			"modified": 1548763306131,
+			"modified": 1548846331563,
 			"name": "New Environment",
 			"parentId": "wrk_4c8bdbb194a14962b320d0cf02c75649",
 			"_type": "environment"
@@ -42,8 +42,8 @@
 			"created": 1548505980366,
 			"description": "",
 			"environment": {},
-			"metaSortKey": -1548505980366,
-			"modified": 1548505980366,
+			"metaSortKey": -1548825437434.5,
+			"modified": 1548846586844,
 			"name": "Auth",
 			"parentId": "wrk_4c8bdbb194a14962b320d0cf02c75649",
 			"_type": "request_group"
@@ -53,8 +53,8 @@
 			"created": 1548762017830,
 			"description": "",
 			"environment": {},
-			"metaSortKey": -1548762017830,
-			"modified": 1548762017830,
+			"metaSortKey": -1548825437384.5,
+			"modified": 1548846582705,
 			"name": "Albums",
 			"parentId": "wrk_4c8bdbb194a14962b320d0cf02c75649",
 			"_type": "request_group"
@@ -64,7 +64,7 @@
 			"authentication": {},
 			"body": {
 				"mimeType": "application/json",
-				"text": "{\n\t\"name\": \"Tudor\",\n\t\"email\": \"hutu.tudor@yahoo.com\",\n\t\"password\": \"tudor12345\"\n}"
+				"text": "{\n\t\"name\": \"Andrei\",\n\t\"email\": \"andreibaroncea@yahoo.com\",\n\t\"password\": \"andrei\"\n}"
 			},
 			"created": 1548505988512,
 			"description": "",
@@ -78,7 +78,7 @@
 			"isPrivate": false,
 			"metaSortKey": -1548505988512,
 			"method": "POST",
-			"modified": 1548509775700,
+			"modified": 1548846293603,
 			"name": "Register",
 			"parameters": [],
 			"parentId": "fld_e9ffcd4e06a24b6bad8d3be437e49df1",
@@ -96,7 +96,7 @@
 			"authentication": {},
 			"body": {
 				"mimeType": "application/json",
-				"text": "{\n\t\"email\": \"hutu.tudor@yahoo.com\",\n\t\"password\": \"tudor12345\"\n}"
+				"text": "{\n\t\"email\": \"andreibaroncea@yahoo.com\",\n\t\"password\": \"andrei\"\n}"
 			},
 			"created": 1548509812960,
 			"description": "",
@@ -110,7 +110,7 @@
 			"isPrivate": false,
 			"metaSortKey": -1548509812960,
 			"method": "POST",
-			"modified": 1548509943105,
+			"modified": 1548846318234,
 			"name": "Login",
 			"parameters": [],
 			"parentId": "fld_e9ffcd4e06a24b6bad8d3be437e49df1",
@@ -148,6 +148,17 @@
 			"settingStoreCookies": true,
 			"url": "{{url}}/user",
 			"_type": "request"
+		},
+		{
+			"_id": "fld_39e3eaf8c86d44beba6575159f69e187",
+			"created": 1548846577236,
+			"description": "",
+			"environment": {},
+			"metaSortKey": -1548762030774,
+			"modified": 1548846591193,
+			"name": "Resources",
+			"parentId": "fld_66f4e2fecc3848178f37da38551cc086",
+			"_type": "request_group"
 		},
 		{
 			"_id": "req_a3301872fc69407f92c69644f84ec26b",
@@ -313,6 +324,183 @@
 			"settingSendCookies": true,
 			"settingStoreCookies": true,
 			"url": "{{ url }}/albums/92a9df80f18a4fd699ffff863c8fd315",
+			"_type": "request"
+		},
+		{
+			"_id": "req_8989198c7af9428fa49f037098889c7a",
+			"authentication": {
+				"token": "{{ token  }}",
+				"type": "bearer"
+			},
+			"body": {},
+			"created": 1548846599197,
+			"description": "",
+			"headers": [],
+			"isPrivate": false,
+			"metaSortKey": -1548846599197,
+			"method": "DELETE",
+			"modified": 1548847305459,
+			"name": "Delete",
+			"parameters": [],
+			"parentId": "fld_39e3eaf8c86d44beba6575159f69e187",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ url  }}/resources/asdasdassfgfgsdfsadffsd",
+			"_type": "request"
+		},
+		{
+			"_id": "req_9ac27167a73a43a09902860d402b7cc1",
+			"authentication": {
+				"token": "{{ token  }}",
+				"type": "bearer"
+			},
+			"body": {
+				"mimeType": "multipart/form-data",
+				"params": [
+					{
+						"fileName": "D:\\1920px-Ideal_gas_law_relationships.svg.png",
+						"id": "pair_cd50a22094074958acb5f2044fd85424",
+						"name": "location",
+						"type": "file",
+						"value": ""
+					}
+				]
+			},
+			"created": 1548855324571,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_b20bb609bb324df183dc862e8cace6ab",
+					"name": "Content-Type",
+					"value": "multipart/form-data"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1548855324571,
+			"method": "POST",
+			"modified": 1548855462580,
+			"name": "Add",
+			"parameters": [],
+			"parentId": "fld_39e3eaf8c86d44beba6575159f69e187",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{url}}/resources/d94f781a79c947748d8f4184c6ed6b24/",
+			"_type": "request"
+		},
+		{
+			"_id": "req_8bb9fbe7352a46f2a607e20b13ce6c04",
+			"authentication": {
+				"token": "{{token}}",
+				"type": "bearer"
+			},
+			"body": {
+				"mimeType": "application/x-www-form-urlencoded",
+				"params": [
+					{
+						"id": "pair_99560c89fb6e434c873196862ae4a8aa",
+						"name": "loop",
+						"value": "1"
+					},
+					{
+						"id": "pair_ee918d288f8945479facfb0d36bef531",
+						"name": "mute",
+						"value": "1"
+					},
+					{
+						"id": "pair_1e1ed54cda894387a106b999c33fdae7",
+						"name": "transition",
+						"value": "zoom"
+					},
+					{
+						"id": "pair_d1454501e2994ebebba1b35b7a6aa83e",
+						"name": "muted",
+						"value": "0"
+					}
+				]
+			},
+			"created": 1548855674841,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_30ec79b93b8049579c6d7019ac340188",
+					"name": "Content-Type",
+					"value": "application/x-www-form-urlencoded"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1548855674841,
+			"method": "PUT",
+			"modified": 1548855922321,
+			"name": "Edit",
+			"parameters": [],
+			"parentId": "fld_39e3eaf8c86d44beba6575159f69e187",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{url}}/resources/6cd64b83b4244809a7983ce36ddefcf6",
+			"_type": "request"
+		},
+		{
+			"_id": "req_74d4458c988f48839aca7a0e8a4314a7",
+			"authentication": {
+				"token": "{{token}}",
+				"type": "bearer"
+			},
+			"body": {},
+			"created": 1548856223739,
+			"description": "",
+			"headers": [],
+			"isPrivate": false,
+			"metaSortKey": -1548856223739,
+			"method": "GET",
+			"modified": 1548856264506,
+			"name": "Get",
+			"parameters": [],
+			"parentId": "fld_39e3eaf8c86d44beba6575159f69e187",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{url}}/resources/6cd64b83b4244809a7983ce36ddefcf6",
+			"_type": "request"
+		},
+		{
+			"_id": "req_b9335dec5e6e4cd49b514eb722c05506",
+			"authentication": {
+				"token": "{{token}}",
+				"type": "bearer"
+			},
+			"body": {},
+			"created": 1548856641785,
+			"description": "",
+			"headers": [],
+			"isPrivate": false,
+			"metaSortKey": -1548856641785,
+			"method": "GET",
+			"modified": 1548856822439,
+			"name": "Get All",
+			"parameters": [],
+			"parentId": "fld_39e3eaf8c86d44beba6575159f69e187",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{url}}/resources/d94f781a79c947748d8f4184c6ed6b24",
 			"_type": "request"
 		}
 	]

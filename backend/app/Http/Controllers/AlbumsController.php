@@ -37,7 +37,7 @@ class AlbumsController extends Controller
         if($request->autoplay)
             $album->autoplay = $request->autoplay;
         $album->save();
-        return response()->json(['album' => $album], 200);
+        return response()->json(compact('album'), 200);
     }
 
     public function edit(Request $request){
@@ -62,8 +62,6 @@ class AlbumsController extends Controller
         if($album->user_id != $user->id){
             return response()->json('', 403);
         }
-        $album->user_id = $user->id;
-        $album->uuid =str_replace('-', '', Uuid::generate(4));
         $album->name = $request->name;
         $album->color = $request->color;
         $album->public = $request->public;

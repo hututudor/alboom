@@ -25,4 +25,10 @@ Route::group(['middleware' => ['jwt.verify']], function() {
     Route::post('albums', 'AlbumsController@add');
     Route::put('albums/{uuid}', 'AlbumsController@edit');
     Route::delete('albums/{uuid}', 'AlbumsController@delete');
+
+    Route::get('resources/{uuid}', 'ResourcesController@get');
+    Route::get('resources/{album_uuid}', 'ResourcesController@getAll');
+    Route::post('resources/{album_uuid}', 'ResourcesController@add');
+    Route::put('resources/{uuid}', 'ResourcesController@edit');
+    Route::delete('resources/{uuid}', 'ResourcesController@delete');
 });

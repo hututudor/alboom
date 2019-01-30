@@ -16,7 +16,25 @@
   "dashboard": {
     "buttons": {
       "back": "Back to home",
-      "logout": "Logout"
+      "albums": "Albums",
+      "logout": "Logout",
+      "dashboard": "Dashboard"
+    },
+    "titles": {
+      "dashboard": "Dashboard",
+      "albums": "Albums"
+    },
+    "albums": {
+      "add": "Add new",
+      "modals": {
+        "add": {
+          "title": "Add new album"
+        },
+        "delete": {
+          "title": "Delete album",
+          "message": "Are you sure you want to do this. This action is irreversile"
+        }
+      }
     }
   },
   "auth": {

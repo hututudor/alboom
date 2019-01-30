@@ -5,12 +5,9 @@ import { connect } from 'react-redux';
 import Logo from '../hoc/Logo';
 import actions from '../../redux/actions';
 import Lang from '../hoc/Lang';
+import LanguageDropdown from '../hoc/LanguageDropdown';
 
 class Navbar extends Component {
-  changeLanguage = name => {
-    this.props.updateLanguage(name);
-  };
-
   logout = () => {
     this.props.logout();
   };
@@ -40,37 +37,7 @@ class Navbar extends Component {
             ''
           )}
           <Menu.Menu position="right">
-            <Dropdown
-              text={
-                <React.Fragment>
-                  <Flag
-                    name={
-                      this.props.lang.name === 'en'
-                        ? 'us'
-                        : this.props.lang.name
-                    }
-                  />{' '}
-                  {this.props.lang.name === 'en' ? (
-                    <Lang>languages.en</Lang>
-                  ) : null}
-                  {this.props.lang.name === 'ro' ? (
-                    <Lang>languages.ro</Lang>
-                  ) : null}
-                </React.Fragment>
-              }
-              item
-            >
-              <Dropdown.Menu>
-                <Dropdown.Item onClick={() => this.changeLanguage('en')}>
-                  <Flag name="us" />
-                  <Lang>languages.en</Lang>
-                </Dropdown.Item>
-                <Dropdown.Item onClick={() => this.changeLanguage('ro')}>
-                  <Flag name="ro" />
-                  <Lang>languages.ro</Lang>
-                </Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>
+            <LanguageDropdown />
 
             <Dropdown
               text={
@@ -108,14 +75,12 @@ class Navbar extends Component {
 
 const mapStateToProps = state => {
   return {
-    user: state.auth.user,
-    lang: state.lang
+    user: state.auth.user
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    updateLanguage: name => dispatch(actions.lang.updateLanguage(name)),
     logout: () => dispatch(actions.auth.logout())
   };
 };

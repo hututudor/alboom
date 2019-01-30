@@ -1,7 +1,43 @@
 .dashboard-grid {
-  background-color: #eee;
+  // background-color: #eee;
+  // margin-left: 18rem !important;
+  // padding: 1em;
 }
 
-.sidemenuitem {
-  // padding: 1em !important;
+.ui.left.visible.sidebar,
+.ui.right.visible.sidebar {
+  box-shadow: none !important;
+  width: 18rem !important;
+}
+
+.ui.grid {
+  margin: 0 !important;
+}
+
+.contain {
+  box-sizing: border-box;
+  padding: 3rem 1rem 0 0.5rem;
+}
+
+.navbar {
+  border-radius: 0 !important;
+  margin: 0 !important;
+  border: 0;
+  box-sizing: border-box;
+  border-left: 1px solid rgba(black, 0.2) !important;
+  margin-left: 18rem !important;
+  font-size: 1.2rem !important;
+}
+
+.centered-buttons {
+  text-align: right;
+}
+
+.centered-buttons .button {
+  margin: 0 !important;
+  text-align: center !important;
+}
+
+.centered-buttons .button i {
+  margin: 0 !important;
 }

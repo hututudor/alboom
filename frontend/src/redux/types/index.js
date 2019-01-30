@@ -4,3 +4,9 @@ export const LOGOUT = 'LOGOUT';
 
 // Language
 export const UPDATE_LANGUAGE = 'UPDATE_LANGUAGE';
+
+// Albums
+export const GET_ALBUMS = 'GET_ALBUMS';
+
+// Dashboard
+export const SET_TITLE = 'SET_TITLE';

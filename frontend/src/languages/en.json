@@ -16,7 +16,16 @@
   "dashboard": {
     "buttons": {
       "back": "Back to home",
-      "logout": "Logout"
+      "albums": "Albums",
+      "logout": "Logout",
+      "dashboard": "Dashboard"
+    },
+    "titles": {
+      "dashboard": "Dashboard",
+      "albums": "Albums"
+    },
+    "albums": {
+      "add": "Add new"
     }
   },
   "auth": {

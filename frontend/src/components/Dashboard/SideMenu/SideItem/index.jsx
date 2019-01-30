@@ -28,7 +28,7 @@ SideItem.defaultProps = {
 };
 
 SideItem.propTypes = {
-  children: PropTypes.string.isRequired,
+  children: PropTypes.object.isRequired,
   to: PropTypes.string.isRequired,
   exact: PropTypes.bool,
   icon: PropTypes.string.isRequired

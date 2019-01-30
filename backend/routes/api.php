@@ -31,4 +31,7 @@ Route::group(['middleware' => ['jwt.verify']], function() {
     Route::post('resources/{album_uuid}', 'ResourcesController@add');
     Route::put('resources/{uuid}', 'ResourcesController@edit');
     Route::delete('resources/{uuid}', 'ResourcesController@delete');
+
+    Route::get('preferences', 'PreferencesController@getall');
+    Route::put('preferences', 'PreferencesController@edit');
 });

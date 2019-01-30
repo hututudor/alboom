@@ -10,3 +10,6 @@ export const GET_ALBUMS = 'GET_ALBUMS';
 
 // Dashboard
 export const SET_TITLE = 'SET_TITLE';
+
+// Modals
+export const TOGGLE_MODAL = 'TOGGLE_MODAL';

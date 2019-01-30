@@ -5,6 +5,8 @@ import * as albums from '../../../../services/albumsService';
 import { connect } from 'react-redux';
 import actions from '../../../../redux/actions';
 import AddAlbumButton from './Album/AddAlbumButton';
+import AddAlbumModal from './Modals/AddAlbumModal/AddAlbumModal';
+import DeleteAlbumModal from './Modals/DeleteAlbumModal/DeleteAlbumModal';
 
 class Albums extends Component {
   componentDidMount() {
@@ -23,6 +25,8 @@ class Albums extends Component {
     return (
       <Card.Group centered stackable itemsPerRow={4}>
         <AddAlbumButton />
+        <DeleteAlbumModal />
+        <AddAlbumModal />
         {this.props.albums.map((album, index) => (
           <Album key={index} data={album} />
         ))}

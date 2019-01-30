@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 import { Card } from 'semantic-ui-react';
 import Lang from '../../../../../hoc/Lang/index';
 import './style.scss';
+import actions from '../../../../../../redux/actions';
+import { connect } from 'react-redux';
 
 class AddAlbumButton extends Component {
   openAddModal = () => {
-    console.log('a');
+    this.props.toggleAddModal();
   };
 
   render() {
@@ -21,4 +23,13 @@ class AddAlbumButton extends Component {
   }
 }
 
-export default AddAlbumButton;
+const mapDispatchToProps = dispath => {
+  return {
+    toggleAddModal: () => dispath(actions.modals.toggleModal('addAlbums', true))
+  };
+};
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(AddAlbumButton);

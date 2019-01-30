@@ -6,34 +6,34 @@ import actions from '../../../redux/actions';
 import LanguageDropdown from '../../hoc/LanguageDropdown';
 
 class Navbar extends Component {
-  render() {
-    return (
-      <Menu className="navbar" color="orange" inverted borderless>
-        <Menu.Item>
-          <Lang>{this.props.title}</Lang>
-        </Menu.Item>
-        <Menu.Menu position="right">
-          <LanguageDropdown />
-        </Menu.Menu>
-      </Menu>
-    );
-  }
+	render() {
+		return (
+			<Menu className="navbar" color="orange" inverted borderless>
+				<Menu.Item>
+					<Lang>{this.props.title}</Lang>
+				</Menu.Item>
+				<Menu.Menu position="right">
+					<LanguageDropdown />
+				</Menu.Menu>
+			</Menu>
+		);
+	}
 }
 
 const mapStateToProps = state => {
-  return {
-    title: state.dashboard.title,
-    lang: state.lang
-  };
+	return {
+		title: state.dashboard.title,
+		lang: state.lang
+	};
 };
 
 const mapDispatchToProps = dispatch => {
-  return {
-    updateLanguage: name => dispatch(actions.lang.updateLanguage(name))
-  };
+	return {
+		updateLanguage: name => dispatch(actions.lang.updateLanguage(name))
+	};
 };
 
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+	mapStateToProps,
+	mapDispatchToProps
 )(Navbar);

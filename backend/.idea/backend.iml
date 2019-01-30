@@ -192,7 +192,6 @@
           <root url="file://$MODULE_DIR$/vendor/tymon/jwt-auth" />
           <root url="file://$MODULE_DIR$/vendor/vlucas/phpdotenv" />
           <root url="file://$MODULE_DIR$/vendor/webmozart/assert" />
-          <root url="file://$MODULE_DIR$/vendor/webpatser/laravel-uuid" />
           <root url="file://$MODULE_DIR$/vendor/zendframework/zend-diactoros" />
         </CLASSES>
         <SOURCES>
@@ -286,7 +285,6 @@
           <root url="file://$MODULE_DIR$/vendor/tymon/jwt-auth" />
           <root url="file://$MODULE_DIR$/vendor/vlucas/phpdotenv" />
           <root url="file://$MODULE_DIR$/vendor/webmozart/assert" />
-          <root url="file://$MODULE_DIR$/vendor/webpatser/laravel-uuid" />
           <root url="file://$MODULE_DIR$/vendor/zendframework/zend-diactoros" />
         </SOURCES>
       </library>

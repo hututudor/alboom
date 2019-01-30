@@ -9,46 +9,47 @@ import AddAlbumModal from './Modals/AddAlbumModal/AddAlbumModal';
 import DeleteAlbumModal from './Modals/DeleteAlbumModal/DeleteAlbumModal';
 
 class Albums extends Component {
-  componentDidMount() {
-    this.props.setTitle('dashboard.titles.albums');
+	componentDidMount() {
+		this.props.setTitle('dashboard.titles.albums');
 
-    albums
-      .getAll()
-      .then(res => {
-        console.log(res);
-        this.props.getAlbums(res.data.albums);
-      })
-      .catch(err => {});
-  }
+		albums
+			.getAll()
+			.then(res => {
+				console.log(res);
+				this.props.getAlbums(res.data.albums);
+			})
+			.catch(err => {});
+	}
 
-  render() {
-    return (
-      <Card.Group centered stackable itemsPerRow={4}>
-        <AddAlbumButton />
-        <DeleteAlbumModal />
-        <AddAlbumModal />
-        {this.props.albums.map((album, index) => (
-          <Album key={index} data={album} />
-        ))}
-      </Card.Group>
-    );
-  }
+	render() {
+		console.log('rerendered', this.props.albums);
+		return (
+			<Card.Group centered stackable itemsPerRow={3}>
+				<AddAlbumButton />
+				<DeleteAlbumModal />
+				<AddAlbumModal />
+				{this.props.albums.map((album, index) => (
+					<Album key={index} data={album} />
+				))}
+			</Card.Group>
+		);
+	}
 }
 
 const mapStateToProps = state => {
-  return {
-    albums: state.albums.albums
-  };
+	return {
+		albums: state.albums.albums
+	};
 };
 
 const mapDispatchToProps = dispatch => {
-  return {
-    getAlbums: albums => dispatch(actions.albums.getAlbums(albums)),
-    setTitle: title => dispatch(actions.dashboard.setTitle(title))
-  };
+	return {
+		getAlbums: albums => dispatch(actions.albums.getAlbums(albums)),
+		setTitle: title => dispatch(actions.dashboard.setTitle(title))
+	};
 };
 
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+	mapStateToProps,
+	mapDispatchToProps
 )(Albums);

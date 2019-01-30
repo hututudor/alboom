@@ -3,16 +3,24 @@ import * as token from './tokenService';
 
 export const apiUrl = '';
 
+const getAuth = () => {
+  return {
+    headers: { Authorization: 'Bearer ' + token.get() }
+  };
+};
+
 export const getPrivate = url => {
-	return axios.get(apiUrl + url, {
-		headers: { Authorization: 'Bearer ' + token.get() }
-	});
+  return axios.get(apiUrl + url, getAuth());
 };
 
 export const getPublic = url => {
-	return axios.get(apiUrl + url);
+  return axios.get(apiUrl + url);
 };
 
 export const postPublic = (url, data) => {
-	return axios.post(apiUrl + url, data);
+  return axios.post(apiUrl + url, data);
+};
+
+export const deletePrivate = url => {
+  return axios.delete(apiUrl + url, getAuth());
 };

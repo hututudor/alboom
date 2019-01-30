@@ -7,6 +7,7 @@ export const UPDATE_LANGUAGE = 'UPDATE_LANGUAGE';
 
 // Albums
 export const GET_ALBUMS = 'GET_ALBUMS';
+export const DELETE_ALBUM = 'DELETE_ALBUM';
 
 // Dashboard
 export const SET_TITLE = 'SET_TITLE';

@@ -32,7 +32,7 @@
         },
         "delete": {
           "title": "Delete album",
-          "message": "Are you sure you want to do this. This action is irreversile"
+          "message": "Are you sure you want to do this. This action is irreversible."
         }
       }
     }

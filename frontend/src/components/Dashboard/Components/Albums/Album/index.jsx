@@ -23,6 +23,13 @@ class Album extends Component {
           <Card.Header>{this.props.data.name}</Card.Header>
           <Card.Meta>{moment(this.props.data.created_at).calendar()}</Card.Meta>
           <Card.Content className="centered-buttons">
+            <Button
+              color="blue"
+              as={Link}
+              to={'dashboard/albums/' + this.props.data.uuid}
+            >
+              <Icon name="eye" />
+            </Button>{' '}
             <Button color="yellow">
               <Icon name="cog" />
             </Button>{' '}

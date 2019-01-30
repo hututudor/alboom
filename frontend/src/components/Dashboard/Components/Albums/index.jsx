@@ -22,6 +22,7 @@ class Albums extends Component {
   }
 
   render() {
+    console.log('rerendered', this.props.albums);
     return (
       <Card.Group centered stackable itemsPerRow={4}>
         <AddAlbumButton />

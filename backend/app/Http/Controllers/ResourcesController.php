@@ -81,12 +81,9 @@ class ResourcesController extends Controller
         }
 
         $resource->transition = $request->transition;
-        if($request->loop)
-            $resource->loop = $request->loop;
-        if($request->mute)
-            $resource->mute = $request->mute;
-        if($request->muted)
-            $resource->muted = $request->muted;
+        $resource->loop = $request->loop;
+        $resource->mute = $request->mute;
+        $resource->muted = $request->muted;
         $resource->save();
         return response()->json(compact('resource'), 200);
     }

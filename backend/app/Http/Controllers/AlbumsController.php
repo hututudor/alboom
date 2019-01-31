@@ -30,12 +30,9 @@ class AlbumsController extends Controller
         $album->uuid =str_replace('-', '', Uuid::generate(4));
         $album->name = $request->name;
         $album->color = $request->color;
-        if($request->public)
-            $album->public = $request->public;
-        if($request->controls)
-            $album->controls = $request->controls;
-        if($request->autoplay)
-            $album->autoplay = $request->autoplay;
+        $album->public = $request->public;
+        $album->controls = $request->controls;
+        $album->autoplay = $request->autoplay;
         $album->save();
         return response()->json(compact('album'), 200);
     }

@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import FormClass from '../../../../../../hoc/FormClass';
 import {
-	Modal,
-	Form,
-	Segment,
-	Icon,
-	Grid,
-	Message,
-	Select
+  Modal,
+  Form,
+  Segment,
+  Icon,
+  Grid,
+  Message,
+  Select
 } from 'semantic-ui-react';
 import Lang from '../../../../../../hoc/Lang';
 import * as lang from '../../../../../../../services/langService';
@@ -16,53 +16,122 @@ import Joi from 'joi-browser';
 import * as color from '../../../../../../../services/colorService';
 
 class AddAlbumModalForm extends FormClass {
-	state = {
-		data: { name: '', color: '' },
-		errors: {}
-	};
+  state = {
+    data: { name: '', color: '', public: true, controls: true, autoplay: true },
+    errors: {}
+  };
 
-	schema = {
-		name: Joi.string()
-			.required()
-			.label('Name'),
-		color: Joi.string()
-			.required()
-			.label('Color')
-	};
+  schema = {
+    name: Joi.string()
+      .required()
+      .label('Name'),
+    color: Joi.string()
+      .required()
+      .label('Color'),
+    public: Joi.boolean()
+      .required()
+      .label('Public'),
+    controls: Joi.boolean()
+      .required()
+      .label('Controls'),
+    autoplay: Joi.boolean()
+      .required()
+      .label('Autoplay')
+  };
 
-	render() {
-		return (
-			<React.Fragment>
-				<Modal.Content>
-					<Modal.Description>
-						<Form onSubmit={this.handleSubmit} size="large">
-							<Form.Input
-								fluid
-								name="name"
-								placeholder={lang.get('dashboard.albums.modals.add.name')}
-								label={lang.get('dashboard.albums.modals.add.name')}
-								onChange={this.handleChange}
-								value={this.state.data.name}
-								className={this.getClass('name')}
-								type="email"
-							/>
+  render() {
+    return (
+      <React.Fragment>
+        <Modal.Content>
+          <Modal.Description>
+            <Form onSubmit={this.handleSubmit} size="large">
+              <Form.Input
+                fluid
+                name="name"
+                placeholder={lang.get('dashboard.albums.modals.add.name')}
+                label={lang.get('dashboard.albums.modals.add.name')}
+                onChange={this.handleChange}
+                value={this.state.data.name}
+                className={this.getClass('name')}
+                type="email"
+              />
 
-							<Form.Field>
-								<Form.Field>
-									<Lang>dashboard.albums.modals.add.color</Lang>
-								</Form.Field>
-								<Select
-									fluid
-									name="color"
-									placeholder={lang.get('dashboard.albums.modals.add.color')}
-									onChange={this.handleChange}
-									value={this.state.data.color}
-									className={this.getClass('color')}
-									options={color.colorSelect}
-								/>
-							</Form.Field>
+              <Form.Field>
+                <Form.Field>
+                  <Lang>dashboard.albums.modals.add.color</Lang>
+                </Form.Field>
+                <select
+                  className="ui fluid dropdown"
+                  name="color"
+                  onChange={this.handleChange}
+                  value={this.state.data.color}
+                  className={this.getClass('color')}
+                >
+                  <option value="" />
+                  {color.colors.map((color, index) => (
+                    <option key={index} value={color}>
+                      {color.charAt(0).toUpperCase() + color.slice(1)}
+                    </option>
+                  ))}
+                </select>
 
-							{/* <Grid columns={1} textAlign="center">
+                {/* <Select
+                  fluid
+                  name="color"
+                  placeholder={lang.get('dashboard.albums.modals.add.color')}
+                  onChange={this.handleChange}
+                  value={this.state.data.color}
+                  className={this.getClass('color')}
+                  options={color.colorSelect}
+                /> */}
+              </Form.Field>
+
+              <div className="ui toggle checkbox">
+                <input
+                  type="checkbox"
+                  name="public"
+                  onChange={this.handleChange}
+                  checked={this.state.data.public}
+                  className={this.getClass('public')}
+                />
+                <label>
+                  <Lang>dashboard.albums.modals.add.public</Lang>
+                </label>
+              </div>
+
+              <br />
+
+              <h3>Slider settings</h3>
+
+              <div className="ui toggle checkbox">
+                <input
+                  type="checkbox"
+                  name="controls"
+                  onChange={this.handleChange}
+                  checked={this.state.data.controls}
+                  className={this.getClass('controls')}
+                />
+                <label>
+                  <Lang>dashboard.albums.modals.add.controls</Lang>
+                </label>
+              </div>
+
+              <br />
+              <br />
+
+              <div className="ui toggle checkbox">
+                <input
+                  type="checkbox"
+                  name="autoplay"
+                  onChange={this.handleChange}
+                  checked={this.state.data.autoplay}
+                  className={this.getClass('autoplay')}
+                />
+                <label>
+                  <Lang>dashboard.albums.modals.add.autoplay</Lang>
+                </label>
+              </div>
+              {/* <Grid columns={1} textAlign="center">
 									<Button.Group fluid>
 										<Button
 											color="green"
@@ -88,22 +157,22 @@ class AddAlbumModalForm extends FormClass {
 										</Button>
 									</Button.Group>
 								</Grid> */}
-						</Form>
-						{_.isEmpty(this.state.errors) ? (
-							''
-						) : (
-							<Message error>
-								<h3>
-									<Lang>auth.errors</Lang>
-								</h3>
-								{this.displayErrors()}
-							</Message>
-						)}
-					</Modal.Description>
-				</Modal.Content>
-			</React.Fragment>
-		);
-	}
+            </Form>
+            {_.isEmpty(this.state.errors) ? (
+              ''
+            ) : (
+              <Message error>
+                <h3>
+                  <Lang>auth.errors</Lang>
+                </h3>
+                {this.displayErrors()}
+              </Message>
+            )}
+          </Modal.Description>
+        </Modal.Content>
+      </React.Fragment>
+    );
+  }
 }
 
 export default AddAlbumModalForm;

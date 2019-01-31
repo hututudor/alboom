@@ -18,11 +18,13 @@
 			"back": "Back to home",
 			"albums": "Albums",
 			"logout": "Logout",
-			"dashboard": "Dashboard"
+			"dashboard": "Dashboard",
+			"user": "User settings"
 		},
 		"titles": {
 			"dashboard": "Dashboard",
-			"albums": "Albums"
+			"albums": "Albums",
+			"user": "User settings"
 		},
 		"albums": {
 			"add": "Add new",
@@ -44,6 +46,12 @@
 					"title": "Delete album",
 					"message": "Are you sure you want to do this. This action is irreversible."
 				}
+			}
+		},
+		"user": {
+			"tabs": {
+				"basic": "Basic settings",
+				"password": "Password settings"
 			}
 		}
 	},

@@ -8,6 +8,7 @@ import Albums from './Components/Albums';
 import Navbar from './Navbar';
 import actions from '../../redux/actions';
 import { connect } from 'react-redux';
+import UserSettings from './Components/UserSettings';
 
 class Dashboard extends Component {
 	render() {
@@ -16,10 +17,10 @@ class Dashboard extends Component {
 				<SideMenu />
 				<Navbar />
 				{/* <SidebarPusher style={{ width: 'calc(100% - 252px)' }}> */}
-
 				{/* <Grid className="dashboard-grid" columns="equal"> */}
 				<Switch>
 					<Route path="/dashboard" exact component={FirstPage} />
+					<Route path="/dashboard/user" exact component={UserSettings} />
 					<Route path="/dashboard/albums" exact component={Albums} />
 					<Redirect to="/404" />
 				</Switch>

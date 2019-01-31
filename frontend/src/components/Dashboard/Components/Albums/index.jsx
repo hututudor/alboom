@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Album from './Album';
-import { Grid, Card } from 'semantic-ui-react';
+import { Grid, Card, Container } from 'semantic-ui-react';
 import * as albums from '../../../../services/albumsService';
 import { connect } from 'react-redux';
 import actions from '../../../../redux/actions';
@@ -25,15 +25,19 @@ class Albums extends Component {
 	render() {
 		console.log('rerendered', this.props.albums);
 		return (
-			<Card.Group centered stackable itemsPerRow={3}>
-				<AddAlbumButton />
-				<EditAlbumModal />
-				<DeleteAlbumModal />
-				<AddAlbumModal />
-				{this.props.albums.map((album, index) => (
-					<Album key={index} data={album} color={album.color} />
-				))}
-			</Card.Group>
+			<div className="contain dash">
+				<Container>
+					<Card.Group centered stackable itemsPerRow={3}>
+						<AddAlbumButton />
+						<EditAlbumModal />
+						<DeleteAlbumModal />
+						<AddAlbumModal />
+						{this.props.albums.map((album, index) => (
+							<Album key={index} data={album} color={album.color} />
+						))}
+					</Card.Group>
+				</Container>
+			</div>
 		);
 	}
 }

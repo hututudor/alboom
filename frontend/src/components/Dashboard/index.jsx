@@ -16,17 +16,15 @@ class Dashboard extends Component {
 				<SideMenu />
 				<Navbar />
 				{/* <SidebarPusher style={{ width: 'calc(100% - 252px)' }}> */}
-				<div className="contain dash">
-					<Container>
-						{/* <Grid className="dashboard-grid" columns="equal"> */}
-						<Switch>
-							<Route path="/dashboard" exact component={FirstPage} />
-							<Route path="/dashboard/albums" exact component={Albums} />
-							<Redirect to="/404" />
-						</Switch>
-						{/* </Grid> */}
-					</Container>
-				</div>
+
+				{/* <Grid className="dashboard-grid" columns="equal"> */}
+				<Switch>
+					<Route path="/dashboard" exact component={FirstPage} />
+					<Route path="/dashboard/albums" exact component={Albums} />
+					<Redirect to="/404" />
+				</Switch>
+				{/* </Grid> */}
+
 				{/* </Container> */}
 				{/* </SidebarPusher> */}
 			</React.Fragment>

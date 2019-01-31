@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Modal, Image, Header } from 'semantic-ui-react';
 import actions from '../../../../../../redux/actions';
 import Lang from '../../../../../hoc/Lang/index';
-import AddAlbumModalForm from './AddAlbumModalForm/AddAlbumModalForm';
+import AddAlbumModalForm from './AddAlbumModalForm';
 
 class AddAlbumModal extends Component {
 	closeModal = () => {

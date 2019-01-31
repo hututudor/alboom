@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import actions from '../../../../../../redux/actions';
-import { Image, Modal, Header, Button } from 'semantic-ui-react';
+import { Image, Modal, Header, Button, Icon } from 'semantic-ui-react';
 import Lang from '../../../../../hoc/Lang/index';
 import * as albums from '../../../../../../services/albumsService';
 import { toast } from 'react-toastify';
@@ -42,18 +42,22 @@ class DeleteAlbumModal extends Component {
 				<Modal.Actions>
 					<Button
 						labelPosition="left"
-						icon="close"
+						icon
 						negative
-						content="No"
 						onClick={() => this.closeModal()}
-					/>
+					>
+						<Icon name="remove" />
+						<Lang>actions.no</Lang>
+					</Button>
 					<Button
 						labelPosition="right"
-						icon="checkmark"
-						content="Yes"
+						icon
 						positive
 						onClick={() => this.deleteAlbum()}
-					/>
+					>
+						<Icon name="checkmark" />
+						<Lang>actions.yes</Lang>
+					</Button>
 				</Modal.Actions>
 			</Modal>
 		);

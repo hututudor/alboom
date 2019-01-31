@@ -12,11 +12,16 @@ class Album extends Component {
 		this.props.openDeleteModal();
 	};
 
+	openEditModal = event => {
+		event.preventDefault();
+		this.props.openEditModal();
+	};
+
 	render() {
 		console.log(this.props.data);
 		return (
 			<Card
-				color={this.props.data.color}
+				color={this.props.color}
 				as={Link}
 				to={'dashboard/albums/' + this.props.data.uuid}
 			>
@@ -24,14 +29,7 @@ class Album extends Component {
 					<Card.Header>{this.props.data.name}</Card.Header>
 					<Card.Meta>{moment(this.props.data.created_at).calendar()}</Card.Meta>
 					<Card.Content className="centered-buttons">
-						{/* <Button
-							color="blue"
-							as={Link}
-							to={'dashboard/albums/' + this.props.data.uuid}
-						>
-							<Icon name="eye" />
-						</Button>{' '} */}
-						<Button color="yellow">
+						<Button color="yellow" onClick={event => this.openEditModal(event)}>
 							<Icon name="cog" />
 						</Button>{' '}
 						<Button color="red" onClick={event => this.openDeleteModal(event)}>
@@ -51,7 +49,12 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 				actions.modals.toggleModal('deleteAlbums', true, {
 					uuid: ownProps.data.uuid
 				})
-			)
+			),
+		openEditModal: () => {
+			dispatch(
+				actions.modals.toggleModal('editAlbums', true, { ...ownProps.data })
+			);
+		}
 	};
 };
 

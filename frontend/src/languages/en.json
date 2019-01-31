@@ -1,105 +1,114 @@
 {
-  "home": {
-    "title": "Store your media files in virtual albums.",
-    "subtitle": "Made by developers for developers.",
-    "buttons": {
-      "home": "Home",
-      "dashboard": "Dashboard"
-    },
-    "account": {
-      "account": "Account",
-      "login": "Login",
-      "register": "Register",
-      "logout": "Logout"
-    }
-  },
-  "dashboard": {
-    "buttons": {
-      "back": "Back to home",
-      "albums": "Albums",
-      "logout": "Logout",
-      "dashboard": "Dashboard"
-    },
-    "titles": {
-      "dashboard": "Dashboard",
-      "albums": "Albums"
-    },
-    "albums": {
-      "add": "Add new",
-      "modals": {
-        "add": {
-          "title": "Add new album",
-          "name": "Name",
-          "color": "Color",
-          "public": "Make this album public (can be accessed from the CLI)",
-          "controls": "Enable controls",
-          "autoplay": "The slider needs to be clicked to be played"
-        },
-        "delete": {
-          "title": "Delete album",
-          "message": "Are you sure you want to do this. This action is irreversible."
-        }
-      }
-    }
-  },
-  "actions": {
-    "add": "Add",
-    "cancel": "Cancel"
-  },
-  "messages": {
-    "album": {
-      "add": "The album was added successfully"
-    },
-    "error": "Something went wrong. Please retry or refresh the page"
-  },
-  "colors": {
-    "red": "Red",
-    "orange": "Orange",
-    "yellow": "Yellow",
-    "olive": "Olive",
-    "green": "Green",
-    "teal": "Teal",
-    "blue": "Blue",
-    "violet": "violet",
-    "purple": "Purple",
-    "pink": "Pink",
-    "brown": "Brown",
-    "grey": "Grey",
-    "black": "Black"
-  },
-  "auth": {
-    "errors": "Errors",
-    "login": {
-      "title": "Login",
-      "button": "Submit",
-      "message": "Dont't have an account?",
-      "register": "Register",
-      "back": "Back"
-    },
-    "register": {
-      "title": "Register",
-      "button": "Submit",
-      "message": "Already have an account?",
-      "login": "Login",
-      "back": "Back"
-    },
-    "messages": {
-      "taken": "Email is already taken",
-      "\"Email\" is not allowed to be empty": "Email is not allowed to be empty",
-      "\"Email\" must be a valid email": "Email must be valid",
-      "\"Password\" is not allowed to be empty": "Password is not allowed to be empty"
-    },
-    "placeholders": {
-      "email": "Email adress",
-      "name": "Name",
-      "password": "Password"
-    }
-  },
-  "languages": {
-    "en": "English",
-    "ro": "Romanian"
-  },
-  "404": {
-    "message": "There is the end of the internet"
-  }
+	"home": {
+		"title": "Store your media files in virtual albums.",
+		"subtitle": "Made by developers for developers.",
+		"buttons": {
+			"home": "Home",
+			"dashboard": "Dashboard"
+		},
+		"account": {
+			"account": "Account",
+			"login": "Login",
+			"register": "Register",
+			"logout": "Logout"
+		}
+	},
+	"dashboard": {
+		"buttons": {
+			"back": "Back to home",
+			"albums": "Albums",
+			"logout": "Logout",
+			"dashboard": "Dashboard"
+		},
+		"titles": {
+			"dashboard": "Dashboard",
+			"albums": "Albums"
+		},
+		"albums": {
+			"add": "Add new",
+			"modals": {
+				"add": {
+					"title": "Add new album"
+				},
+				"edit": {
+					"title": "Edit album"
+				},
+				"all": {
+					"name": "Name",
+					"color": "Color",
+					"public": "Make this album public (can be accessed from the CLI)",
+					"controls": "Enable controls",
+					"autoplay": "The slider needs to be clicked to be played"
+				},
+				"delete": {
+					"title": "Delete album",
+					"message": "Are you sure you want to do this. This action is irreversible."
+				}
+			}
+		}
+	},
+	"actions": {
+		"add": "Add",
+		"update": "Update",
+		"cancel": "Cancel",
+		"yes": "Yes",
+		"no": "No"
+	},
+	"messages": {
+		"album": {
+			"add": "The album was added successfully",
+			"edit": "The album was saved successfully"
+		},
+		"error": "Something went wrong. Please retry or refresh the page"
+	},
+	"colors": {
+		"red": "Red",
+		"orange": "Orange",
+		"yellow": "Yellow",
+		"olive": "Olive",
+		"green": "Green",
+		"teal": "Teal",
+		"blue": "Blue",
+		"violet": "violet",
+		"purple": "Purple",
+		"pink": "Pink",
+		"brown": "Brown",
+		"grey": "Grey",
+		"black": "Black"
+	},
+	"auth": {
+		"errors": "Errors",
+		"login": {
+			"title": "Login",
+			"button": "Submit",
+			"message": "Dont't have an account?",
+			"register": "Register",
+			"back": "Back"
+		},
+		"register": {
+			"title": "Register",
+			"button": "Submit",
+			"message": "Already have an account?",
+			"login": "Login",
+			"back": "Back"
+		},
+		"messages": {
+			"taken": "Email is already taken",
+			"\"Email\" is not allowed to be empty": "Email is not allowed to be empty",
+			"\"Email\" must be a valid email": "Email must be valid",
+			"\"Password\" is not allowed to be empty": "Password is not allowed to be empty"
+		},
+		"placeholders": {
+			"email": "Email adress",
+			"name": "Name",
+			"password": "Password"
+		}
+	},
+	"languages": {
+		"en": "English",
+		"ro": "Romanian"
+	},
+	"404": {
+		"message": "There is the end of the internet"
+	}
 }

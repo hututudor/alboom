@@ -33,7 +33,7 @@
           "color": "Color",
           "public": "Make this album public (can be accessed from the CLI)",
           "controls": "Enable controls",
-          "autoplay": "The slider starts when it is loaded"
+          "autoplay": "The slider needs to be clicked to be played"
         },
         "delete": {
           "title": "Delete album",
@@ -41,6 +41,16 @@
         }
       }
     }
+  },
+  "actions": {
+    "add": "Add",
+    "cancel": "Cancel"
+  },
+  "messages": {
+    "album": {
+      "add": "The album was added successfully"
+    },
+    "error": "Something went wrong. Please retry or refresh the page"
   },
   "colors": {
     "red": "Red",

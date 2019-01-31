@@ -1,9 +1,16 @@
-import { GET_ALBUMS, DELETE_ALBUM } from '../types';
+import { GET_ALBUMS, DELETE_ALBUM, ADD_ALBUM } from '../types';
 
 export const getAlbums = albums => {
   return {
     type: GET_ALBUMS,
     albums
+  };
+};
+
+export const addAlbum = album => {
+  return {
+    type: ADD_ALBUM,
+    album
   };
 };
 

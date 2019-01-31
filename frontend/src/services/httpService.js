@@ -21,6 +21,10 @@ export const postPublic = (url, data) => {
   return axios.post(apiUrl + url, data);
 };
 
+export const postPrivate = (url, data) => {
+  return axios.post(apiUrl + url, data, getAuth());
+};
+
 export const deletePrivate = url => {
   return axios.delete(apiUrl + url, getAuth());
 };

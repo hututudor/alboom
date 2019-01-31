@@ -1,23 +1,25 @@
 import React, { Component } from 'react';
 import FormClass from '../../../../../../hoc/FormClass';
-import {
-  Modal,
-  Form,
-  Segment,
-  Icon,
-  Grid,
-  Message,
-  Select
-} from 'semantic-ui-react';
+import { Modal, Form, Icon, Message, Button } from 'semantic-ui-react';
 import Lang from '../../../../../../hoc/Lang';
 import * as lang from '../../../../../../../services/langService';
 import _ from 'lodash';
 import Joi from 'joi-browser';
 import * as color from '../../../../../../../services/colorService';
+import { connect } from 'react-redux';
+import actions from '../../../../../../../redux/actions';
+import * as album from '../../../../../../../services/albumsService';
+import * as notification from '../../../../../../../services/notificationService';
 
 class AddAlbumModalForm extends FormClass {
   state = {
-    data: { name: '', color: '', public: true, controls: true, autoplay: true },
+    data: {
+      name: '',
+      color: '',
+      public: true,
+      controls: true,
+      autoplay: false
+    },
     errors: {}
   };
 
@@ -37,6 +39,30 @@ class AddAlbumModalForm extends FormClass {
     autoplay: Joi.boolean()
       .required()
       .label('Autoplay')
+  };
+
+  closeModal = () => {
+    this.props.closeModal();
+  };
+
+  doSubmit = () => {
+    album
+      .add({
+        name: this.state.data.name,
+        color: this.state.data.color,
+        public: this.state.data.public ? 1 : 0,
+        controls: this.state.data.controls ? 1 : 0,
+        autoplay: this.state.data.autoplay ? 1 : 0
+      })
+      .then(res => {
+        this.props.addAlbum(res.data.album);
+        notification.success('messages.album.add');
+        this.closeModal();
+      })
+      .catch(err => {
+        console.log(err);
+        notification.error();
+      });
   };
 
   render() {
@@ -170,9 +196,39 @@ class AddAlbumModalForm extends FormClass {
             )}
           </Modal.Description>
         </Modal.Content>
+        <Modal.Actions>
+          <Button
+            labelPosition="left"
+            icon
+            negative
+            onClick={() => this.closeModal()}
+          >
+            <Icon name="remove" />
+            <Lang>actions.cancel</Lang>
+          </Button>
+          <Button
+            labelPosition="right"
+            icon
+            positive
+            onClick={event => this.handleSubmit(event)}
+          >
+            <Icon name="plus" />
+            <Lang>actions.add</Lang>
+          </Button>
+        </Modal.Actions>
       </React.Fragment>
     );
   }
 }
 
-export default AddAlbumModalForm;
+const mapDispatchToProps = dispatch => {
+  return {
+    closeModal: () => dispatch(actions.modals.toggleModal('addAlbums', false)),
+    addAlbum: album => dispatch(actions.albums.addAlbum(album))
+  };
+};
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(AddAlbumModalForm);

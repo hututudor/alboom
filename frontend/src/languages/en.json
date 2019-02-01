@@ -49,6 +49,27 @@
 				}
 			}
 		},
+		"resources": {
+			"modals": {
+				"add": {
+					"title": "Add new resource"
+				},
+				"edit": {
+					"title": "Edit album"
+				},
+				"all": {
+					"name": "Name",
+					"color": "Color",
+					"public": "Make this album public (can be accessed from the CLI)",
+					"controls": "Enable controls",
+					"autoplay": "The slider needs to be clicked to be played"
+				},
+				"delete": {
+					"title": "Delete album",
+					"message": "Are you sure you want to do this. This action is irreversible."
+				}
+			}
+		},
 		"user": {
 			"tabs": {
 				"basic": "Basic settings",

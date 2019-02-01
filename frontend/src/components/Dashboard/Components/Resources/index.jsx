@@ -6,6 +6,8 @@ import * as notification from '../../../../services/notificationService';
 import * as resource from '../../../../services/resourcesService';
 import { Card, Container } from 'semantic-ui-react';
 import Resource from './Resource';
+import AddResourceButton from './Resource/AddResourceButton';
+import AddResourceModal from './Modals/AddResourceModal';
 
 class Resources extends Component {
 	componentDidMount() {
@@ -43,8 +45,9 @@ class Resources extends Component {
 			<div className="contain dash">
 				<Container>
 					<Card.Group centered stackable itemsPerRow={3}>
-						{/* <AddAlbumButton />
-						<EditAlbumModal />
+						<AddResourceButton />
+						<AddResourceModal />
+						{/* <EditAlbumModal />
 						<DeleteAlbumModal /> */}
 						{/* <AddAlbumModal /> */}
 						{this.props.resources.map((resource, index) => (

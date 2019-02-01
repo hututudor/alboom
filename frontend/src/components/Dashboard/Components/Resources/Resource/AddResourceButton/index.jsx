@@ -4,7 +4,7 @@ import Lang from '../../../../../hoc/Lang/index';
 import actions from '../../../../../../redux/actions';
 import { connect } from 'react-redux';
 
-class AddAlbumButton extends Component {
+class AddResourceButton extends Component {
 	openAddModal = () => {
 		this.props.toggleAddModal();
 	};
@@ -24,11 +24,12 @@ class AddAlbumButton extends Component {
 
 const mapDispatchToProps = dispath => {
 	return {
-		toggleAddModal: () => dispath(actions.modals.toggleModal('addAlbums', true))
+		toggleAddModal: () =>
+			dispath(actions.modals.toggleModal('addResources', true))
 	};
 };
 
 export default connect(
 	null,
 	mapDispatchToProps
-)(AddAlbumButton);
+)(AddResourceButton);

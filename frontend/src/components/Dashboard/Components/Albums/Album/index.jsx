@@ -18,12 +18,11 @@ class Album extends Component {
 	};
 
 	render() {
-		console.log(this.props.data);
 		return (
 			<Card
 				color={this.props.color}
 				as={Link}
-				to={'dashboard/albums/' + this.props.data.uuid}
+				to={'/dashboard/albums/' + this.props.data.uuid}
 			>
 				<Card.Content>
 					<Card.Header>{this.props.data.name}</Card.Header>

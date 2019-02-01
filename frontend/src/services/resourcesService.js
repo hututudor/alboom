@@ -1,11 +1,7 @@
 import * as http from './httpService';
 
-export const get = uuid => {
-	return http.getPrivate('/albums/' + uuid);
-};
-
-export const getAll = () => {
-	return http.getPrivate('/albums');
+export const getAll = uuid => {
+	return http.getPrivate('/resources/album/' + uuid);
 };
 
 export const remove = uuid => {

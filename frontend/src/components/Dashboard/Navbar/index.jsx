@@ -10,7 +10,7 @@ class Navbar extends Component {
 		return (
 			<Menu className="navbar" color="orange" inverted borderless>
 				<Menu.Item>
-					<Lang>{this.props.title}</Lang>
+					<Lang>{this.props.title}</Lang> {this.props.param}
 				</Menu.Item>
 				<Menu.Menu position="right">
 					<LanguageDropdown />
@@ -23,6 +23,7 @@ class Navbar extends Component {
 const mapStateToProps = state => {
 	return {
 		title: state.dashboard.title,
+		param: state.dashboard.param,
 		lang: state.lang
 	};
 };

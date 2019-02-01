@@ -9,6 +9,7 @@ import Navbar from './Navbar';
 import actions from '../../redux/actions';
 import { connect } from 'react-redux';
 import UserSettings from './Components/UserSettings';
+import Resources from './Components/Resources';
 
 class Dashboard extends Component {
 	render() {
@@ -22,6 +23,7 @@ class Dashboard extends Component {
 					<Route path="/dashboard" exact component={FirstPage} />
 					<Route path="/dashboard/user" exact component={UserSettings} />
 					<Route path="/dashboard/albums" exact component={Albums} />
+					<Route path="/dashboard/albums/:uuid" exact component={Resources} />
 					<Redirect to="/404" />
 				</Switch>
 				{/* </Grid> */}

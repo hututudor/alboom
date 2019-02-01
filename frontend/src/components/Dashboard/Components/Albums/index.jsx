@@ -23,7 +23,6 @@ class Albums extends Component {
 	}
 
 	render() {
-		console.log('rerendered', this.props.albums);
 		return (
 			<div className="contain dash">
 				<Container>

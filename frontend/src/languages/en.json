@@ -24,6 +24,7 @@
 		"titles": {
 			"dashboard": "Dashboard",
 			"albums": "Albums",
+			"album": "Album",
 			"user": "User settings"
 		},
 		"albums": {

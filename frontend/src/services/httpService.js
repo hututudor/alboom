@@ -1,7 +1,8 @@
 import axios from 'axios';
 import * as token from './tokenService';
 
-export const apiUrl = '';
+export const apiUrl = '/api';
+export const imageUrl = 'http://localhost:8000/image';
 
 const getAuth = () => {
 	return {

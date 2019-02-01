@@ -10,7 +10,7 @@ use Webpatser\Uuid\Uuid;
 
 class ResourcesController extends Controller {
 
-    private $extensions = 'mimes:jpeg,jpg,png,mp4,mpeg,mp3';
+    private $extensions = 'mimes:jpeg,jpg,png,mp4,mpeg,mp3,mpg,mpga';
 
     public function add(Request $request, $album_uuid) {
         $validator = Validator::make($request->all(), [

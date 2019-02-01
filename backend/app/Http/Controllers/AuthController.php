@@ -77,4 +77,27 @@ class AuthController extends Controller
 
         return $user;
     }
+
+    public function changePass(Request $request){
+        $user = AuthController::getUser();
+        if(!$user) {
+            return response()->json('', 404);
+        }
+        if(!Hash::check($request->password, $user->password)){
+            return response()->json('', 403);
+        }
+        $user->password = Hash::make($request->new);
+        $user->save();
+        return response()->json('', 200);
+    }
+
+    public function changeName(Request $request){
+        $user = AuthController::getUser();
+        if(!$user) {
+            return response()->json('', 404);
+        }
+        $user->name = $request->name;
+        $user->save();
+        return response()->json(array(['name' => $user->name]), 200);
+    }
 }

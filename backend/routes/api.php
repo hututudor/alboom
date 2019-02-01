@@ -34,4 +34,7 @@ Route::group(['middleware' => ['jwt.verify']], function() {
 
     Route::get('preferences', 'PreferencesController@getall');
     Route::put('preferences', 'PreferencesController@edit');
+
+    Route::post('user', 'AuthController@changeName');
+    Route::put('user', 'AuthController@changePass');
 });

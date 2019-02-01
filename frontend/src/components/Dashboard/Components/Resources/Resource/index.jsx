@@ -10,7 +10,9 @@ class Resource extends Component {
 			// to={'/dashboard/albums/' + this.props.data.uuid}
 			>
 				<Card.Content>
-					<Card.Header>{this.props.data.name}</Card.Header>
+					<Card.Header image>
+						{this.props.data.name}.{this.props.data.type}
+					</Card.Header>
 					<Card.Meta>{moment(this.props.data.created_at).calendar()}</Card.Meta>
 					<Card.Content className="centered-buttons">
 						<Button color="yellow" onClick={event => this.openEditModal(event)}>

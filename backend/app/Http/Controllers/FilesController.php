@@ -6,14 +6,14 @@ use Illuminate\Http\Request;
 
 class FilesController extends Controller
 {
-    //    function postPicture($file_name){
-    //        $extension = explode('.', $file_name)[count(explode('.', $file_name)) - 1];
-    //        $file = base_path().'/storage/app/pictures/' . $file_name;
-    //        $type = 'image/' . $extension;
-    //        header('Content-Type:' . $type);
-    //        header('Content-Length: ' . filesize($file));
-    //        readfile($file);
-    //    }
+        function getPicture($file_name){
+            $extension = explode('.', $file_name)[count(explode('.', $file_name)) - 1];
+            $file = base_path().'/storage/app/files/' . $file_name;
+            $type = 'image/' . $extension;
+            header('Content-Type:' . $type);
+            header('Content-Length: ' . filesize($file));
+            readfile($file);
+        }
 
     static function uploadFile($request, $field_name, $directory, $allowed_extensions = array(), $multiple = false) {
         if ($multiple == false) {

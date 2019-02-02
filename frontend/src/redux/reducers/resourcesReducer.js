@@ -17,9 +17,9 @@ function albumsReducer(state = initialState, action) {
 		case GET_RESOURCES:
 			newState.resources = action.resources;
 			break;
-		// case ADD_ALBUM:
-		// 	newState.albums = [action.album, ...state.albums];
-		// 	break;
+		case ADD_RESOURCE:
+			newState.resources = [action.resource, ...state.resources];
+			break;
 		// case EDIT_ALBUM:
 		// 	newState.albums = newState.albums.map((album, index) => {
 		// 		if (album.uuid !== action.uuid) {

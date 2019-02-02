@@ -32,7 +32,6 @@ class Resources extends Component {
 			})
 			.catch(err => {
 				console.log(err);
-				notification.error();
 			});
 	}
 
@@ -46,7 +45,7 @@ class Resources extends Component {
 				<Container>
 					<Card.Group centered stackable itemsPerRow={3}>
 						<AddResourceButton />
-						<AddResourceModal />
+						<AddResourceModal uuid={this.props.match.params.uuid} />
 						{/* <EditAlbumModal />
 						<DeleteAlbumModal /> */}
 						{/* <AddAlbumModal /> */}

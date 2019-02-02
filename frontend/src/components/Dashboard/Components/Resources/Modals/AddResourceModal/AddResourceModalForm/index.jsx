@@ -8,61 +8,67 @@ import Joi from 'joi-browser';
 import * as color from '../../../../../../../services/colorService';
 import { connect } from 'react-redux';
 import actions from '../../../../../../../redux/actions';
-import * as album from '../../../../../../../services/albumsService';
+import * as resource from '../../../../../../../services/resourcesService';
 import * as notification from '../../../../../../../services/notificationService';
+import Dropzone from 'react-dropzone';
+import classNames from 'classnames';
+import File from './File';
 
 class AddResourceModalForm extends FormClass {
 	state = {
-		data: {
-			name: '',
-			color: '',
-			public: true,
-			controls: true,
-			autoplay: false
-		},
-		errors: {}
-	};
-
-	schema = {
-		name: Joi.string()
-			.required()
-			.label('Name'),
-		color: Joi.string()
-			.required()
-			.label('Color'),
-		public: Joi.boolean()
-			.required()
-			.label('Public'),
-		controls: Joi.boolean()
-			.required()
-			.label('Controls'),
-		autoplay: Joi.boolean()
-			.required()
-			.label('Autoplay')
+		files: [],
+		stats: {}
 	};
 
 	closeModal = () => {
 		this.props.closeModal();
 	};
 
-	doSubmit = () => {
-		album
-			.add({
-				name: this.state.data.name,
-				color: this.state.data.color,
-				public: this.state.data.public ? 1 : 0,
-				controls: this.state.data.controls ? 1 : 0,
-				autoplay: this.state.data.autoplay ? 1 : 0
-			})
-			.then(res => {
-				this.props.addAlbum(res.data.album);
-				notification.success('messages.album.add');
-				this.closeModal();
-			})
-			.catch(err => {
-				console.log(err);
-				notification.error();
-			});
+	add = () => {
+		this.state.files.map(file => {
+			let index = this.state.files.indexOf(file);
+			// console.log(file);
+			let data = new FormData();
+			data.append('location', file, file.name);
+			resource
+				.add(this.props.uuid, data)
+				.then(res => {
+					console.log(res);
+					notification.success('messages.resource.add');
+					let stats = { ...this.state.stats };
+					stats[index] = 1;
+					this.setState({ stats });
+					this.props.addResource(res.data.resource);
+
+					setTimeout(() => {
+						this.removeItem(file);
+					}, 2000);
+				})
+				.catch(err => {
+					console.error(err);
+					notification.errorN('messages.resource.adderror');
+					let stats = { ...this.state.stats };
+					stats[index] = 2;
+					this.setState({ stats });
+				});
+		});
+	};
+
+	onDrop = (acceptedFiles, rejectedFiles) => {
+		this.setState({
+			files: this.state.files.concat(acceptedFiles)
+		});
+	};
+
+	removeItem = file => {
+		let index = this.state.files.indexOf(file);
+		let st = { ...this.state };
+		st.files.splice(index, 1);
+
+		let sts = { ...this.state };
+		sts.stats[index] = 0;
+
+		this.setState({ files: st.files, stats: sts.stats });
 	};
 
 	render() {
@@ -70,131 +76,39 @@ class AddResourceModalForm extends FormClass {
 			<React.Fragment>
 				<Modal.Content>
 					<Modal.Description>
-						<Form onSubmit={this.handleSubmit} size="large">
-							<Form.Input
-								fluid
-								name="name"
-								placeholder={lang.get('dashboard.albums.modals.all.name')}
-								label={lang.get('dashboard.albums.modals.all.name')}
-								onChange={this.handleChange}
-								value={this.state.data.name}
-								className={this.getClass('name')}
-								type="email"
-							/>
-
-							<Form.Field>
-								<Form.Field>
-									<Lang>dashboard.albums.modals.all.color</Lang>
-								</Form.Field>
-								<select
-									className="ui fluid dropdown"
-									name="color"
-									onChange={this.handleChange}
-									value={this.state.data.color}
-									className={this.getClass('color')}
-								>
-									<option value="" />
-									{color.colors.map((color, index) => (
-										<option key={index} value={color}>
-											{color.charAt(0).toUpperCase() + color.slice(1)}
-										</option>
-									))}
-								</select>
-
-								{/* <Select
-                  fluid
-                  name="color"
-                  placeholder={lang.get('dashboard.albums.modals.add.color')}
-                  onChange={this.handleChange}
-                  value={this.state.data.color}
-                  className={this.getClass('color')}
-                  options={color.colorSelect}
-                /> */}
-							</Form.Field>
-
-							<div className="ui toggle checkbox">
-								<input
-									type="checkbox"
-									name="public"
-									onChange={this.handleChange}
-									checked={this.state.data.public}
-									className={this.getClass('public')}
-								/>
-								<label>
-									<Lang>dashboard.albums.modals.all.public</Lang>
-								</label>
-							</div>
-
-							<br />
-
-							<h3>Slider settings</h3>
-
-							<div className="ui toggle checkbox">
-								<input
-									type="checkbox"
-									name="controls"
-									onChange={this.handleChange}
-									checked={this.state.data.controls}
-									className={this.getClass('controls')}
-								/>
-								<label>
-									<Lang>dashboard.albums.modals.all.controls</Lang>
-								</label>
-							</div>
-
-							<br />
-							<br />
-
-							<div className="ui toggle checkbox">
-								<input
-									type="checkbox"
-									name="autoplay"
-									onChange={this.handleChange}
-									checked={this.state.data.autoplay}
-									className={this.getClass('autoplay')}
-								/>
-								<label>
-									<Lang>dashboard.albums.modals.all.autoplay</Lang>
-								</label>
-							</div>
-							{/* <Grid columns={1} textAlign="center">
-									<Button.Group fluid>
-										<Button
-											color="green"
-											size="large"
-											icon
-											labelPosition="left"
-											as={link}
-											to="/"
-										>
-											<Icon name="arrow left" />
-											<Lang>auth.login.back</Lang>
-										</Button>
-										<Button
-											disabled={this.state.loading}
-											className={this.state.loading ? 'loading' : ''}
-											color="orange"
-											size="large"
-											icon
-											labelPosition="right"
-										>
-											<Icon name="arrow right" />
-											<Lang>auth.login.button</Lang>
-										</Button>
-									</Button.Group>
-								</Grid> */}
-						</Form>
-						{_.isEmpty(this.state.errors) ? (
-							''
-						) : (
-							<Message error>
-								<h3>
-									<Lang>auth.errors</Lang>
-								</h3>
-								{this.displayErrors()}
-							</Message>
-						)}
+						<Dropzone onDrop={this.onDrop}>
+							{({ getRootProps, getInputProps, isDragActive }) => {
+								return (
+									<div
+										{...getRootProps()}
+										className={classNames('dropzone', {
+											'dropzone--isActive': isDragActive
+										})}
+									>
+										<input {...getInputProps()} />
+										{isDragActive ? (
+											<p>
+												<Lang>dashboard.resources.modals.add.drop.on</Lang>
+											</p>
+										) : (
+											<p>
+												<Lang>dashboard.resources.modals.add.drop.off</Lang>
+											</p>
+										)}
+									</div>
+								);
+							}}
+						</Dropzone>
 					</Modal.Description>
+					{this.state.files.map((file, index) => (
+						<File
+							key={index}
+							data={file}
+							index={index}
+							onDelete={this.removeItem}
+							stat={this.state.stats[index]}
+						/>
+					))}
 				</Modal.Content>
 				<Modal.Actions>
 					<Button
@@ -210,7 +124,7 @@ class AddResourceModalForm extends FormClass {
 						labelPosition="right"
 						icon
 						positive
-						onClick={event => this.handleSubmit(event)}
+						onClick={() => this.add()}
 					>
 						<Icon name="plus" />
 						<Lang>actions.add</Lang>
@@ -225,7 +139,7 @@ const mapDispatchToProps = dispatch => {
 	return {
 		closeModal: () =>
 			dispatch(actions.modals.toggleModal('addResources', false)),
-		addAlbum: album => dispatch(actions.albums.addAlbum(album))
+		addResource: resource => dispatch(actions.resources.addResource(resource))
 	};
 };
 

@@ -13,6 +13,13 @@ export const getResources = resources => {
 	};
 };
 
+export const addResource = resource => {
+	return {
+		type: ADD_RESOURCE,
+		resource
+	};
+};
+
 export const removeResources = () => {
 	return {
 		type: REMOVE_RESOURCES

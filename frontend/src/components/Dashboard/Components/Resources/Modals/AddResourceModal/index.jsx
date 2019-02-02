@@ -20,7 +20,7 @@ class AddResourceModal extends Component {
 				<Modal.Header>
 					<Lang>dashboard.resources.modals.add.title</Lang>
 				</Modal.Header>
-				<AddResourceModalForm />
+				<AddResourceModalForm uuid={this.props.uuid} />
 			</Modal>
 		);
 	}

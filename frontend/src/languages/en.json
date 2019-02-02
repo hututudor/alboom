@@ -15,7 +15,7 @@
 	},
 	"dashboard": {
 		"buttons": {
-			"back": "Back to home",
+			"back": "Back",
 			"albums": "Albums",
 			"logout": "Logout",
 			"dashboard": "Dashboard",
@@ -52,7 +52,11 @@
 		"resources": {
 			"modals": {
 				"add": {
-					"title": "Add new resource"
+					"title": "Add new resource",
+					"drop": {
+						"on": "Drop files here...",
+						"off": "Try dropping some files here, or click to select files to upload."
+					}
 				},
 				"edit": {
 					"title": "Edit album"
@@ -88,6 +92,10 @@
 		"album": {
 			"add": "The album was added successfully",
 			"edit": "The album was saved successfully"
+		},
+		"resource": {
+			"add": "The file was added successfully",
+			"adderror": "The file was not uploaded. Maybe it was not the correct type."
 		},
 		"error": "Something went wrong. Please retry or refresh the page"
 	},

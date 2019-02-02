@@ -3,6 +3,7 @@ import { Menu, Divider, Sidebar } from 'semantic-ui-react';
 import Logo from '../../hoc/Logo/index';
 import SideItem from './SideItem';
 import Lang from '../../hoc/Lang/index';
+import { withRouter } from 'react-router-dom';
 
 class SideMenu extends Component {
 	render() {
@@ -27,7 +28,11 @@ class SideMenu extends Component {
 							<Logo size={30} />
 						</span>
 					</Menu.Item>
-					<SideItem to="/" icon="arrow left">
+					<SideItem
+						onClick={() => this.props.history.goBack()}
+						to=""
+						icon="arrow left"
+					>
 						<Lang>dashboard.buttons.back</Lang>
 					</SideItem>
 
@@ -52,4 +57,4 @@ class SideMenu extends Component {
 	}
 }
 
-export default SideMenu;
+export default withRouter(SideMenu);

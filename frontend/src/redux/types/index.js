@@ -10,6 +10,7 @@ export const GET_ALBUMS = 'GET_ALBUMS';
 export const ADD_ALBUM = 'ADD_ALBUM';
 export const EDIT_ALBUM = 'EDIT_ALBUM';
 export const DELETE_ALBUM = 'DELETE_ALBUM';
+export const CURRENT_ALBUM = 'CURRENT_ALBUM';
 
 // Resources
 export const GET_RESOURCES = 'GET_RESOURCES';

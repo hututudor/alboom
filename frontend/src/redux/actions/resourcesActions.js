@@ -25,3 +25,10 @@ export const removeResources = () => {
 		type: REMOVE_RESOURCES
 	};
 };
+
+export const deleteResource = uuid => {
+	return {
+		type: DELETE_RESOURCE,
+		uuid
+	};
+};

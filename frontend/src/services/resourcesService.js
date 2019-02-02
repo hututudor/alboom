@@ -5,7 +5,7 @@ export const getAll = uuid => {
 };
 
 export const remove = uuid => {
-	return http.deletePrivate('/albums/' + uuid);
+	return http.deletePrivate('/resources/' + uuid);
 };
 
 export const add = (uuid, data) => {

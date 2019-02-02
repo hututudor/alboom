@@ -4,6 +4,8 @@ import moment from 'moment';
 import * as file from '../../../../../services/fileTypesService';
 import { imageUrl } from '../../../../../services/httpService';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import actions from '../../../../../redux/actions';
 
 class Resource extends Component {
 	getSrc() {
@@ -31,6 +33,11 @@ class Resource extends Component {
 		}
 	}
 
+	openDeleteModal = event => {
+		event.preventDefault();
+		this.props.openDeleteModal(this.props.data.uuid);
+	};
+
 	render() {
 		return (
 			<Card href={imageUrl + '/' + this.props.data.location} target="_blank">
@@ -54,4 +61,18 @@ class Resource extends Component {
 	}
 }
 
-export default Resource;
+const mapDispatchToProps = (dispatch, ownProps) => {
+	return {
+		openDeleteModal: uuid =>
+			dispatch(
+				actions.modals.toggleModal('deleteResources', true, {
+					uuid: ownProps.data.uuid
+				})
+			)
+	};
+};
+
+export default connect(
+	null,
+	mapDispatchToProps
+)(Resource);

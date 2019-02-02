@@ -29,9 +29,11 @@ function albumsReducer(state = initialState, action) {
 		// 		}
 		// 	});
 		// 	break;
-		// case DELETE_ALBUM:
-		// 	newState.albums = state.albums.filter(obj => obj.uuid !== action.uuid);
-		// 	break;
+		case DELETE_RESOURCE:
+			newState.resources = state.resources.filter(
+				obj => obj.uuid !== action.uuid
+			);
+			break;
 		case REMOVE_RESOURCES:
 			newState.resources = [];
 			break;

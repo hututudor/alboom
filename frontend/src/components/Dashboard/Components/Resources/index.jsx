@@ -8,6 +8,7 @@ import { Card, Container } from 'semantic-ui-react';
 import Resource from './Resource';
 import AddResourceButton from './Resource/AddResourceButton';
 import AddResourceModal from './Modals/AddResourceModal';
+import DeleteResourceModal from './Modals/DeleteResourceModal';
 
 class Resources extends Component {
 	componentDidMount() {
@@ -46,6 +47,7 @@ class Resources extends Component {
 					<Card.Group centered stackable itemsPerRow={3}>
 						<AddResourceButton />
 						<AddResourceModal uuid={this.props.match.params.uuid} />
+						<DeleteResourceModal />
 						{/* <EditAlbumModal />
 						<DeleteAlbumModal /> */}
 						{/* <AddAlbumModal /> */}
@@ -65,7 +67,7 @@ const mapStateToProps = state => {
 	};
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch, ownProps) => {
 	return {
 		setTitle: (title, param) =>
 			dispatch(actions.dashboard.setTitle(title, param)),

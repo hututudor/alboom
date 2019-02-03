@@ -3,13 +3,22 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class FilesController extends Controller
 {
-    function getPicture($file_name){
+    function getFile($file_name){
         $extension = explode('.', $file_name)[count(explode('.', $file_name)) - 1];
         $file = base_path().'/storage/app/files/' . $file_name;
-        $type = 'image/' . $extension;
+        $type = Storage::mimeType('/files/' . $file_name);
+        header('Content-Type:' . $type);
+        header('Content-Length: ' . filesize($file));
+        readfile($file);
+    }
+
+    function downloadFile($file_name){
+        $file = base_path().'/storage/app/files/' . $file_name;
+        $type = 'application/octet-stream';
         header('Content-Type:' . $type);
         header('Content-Length: ' . filesize($file));
         readfile($file);

@@ -15,4 +15,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/image/{file_name}', 'FilesController@getPicture');
+Route::get('/image/{file_name}', 'FilesController@getFile');
+Route::get('/image/download/{file_name}', 'FilesController@downloadFile');

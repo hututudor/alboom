@@ -13,5 +13,5 @@ export const add = (uuid, data) => {
 };
 
 export const edit = data => {
-	return http.putPrivate('/albums/' + data.uuid, data);
+	return http.putPrivate('/resources/' + data.uuid, data);
 };

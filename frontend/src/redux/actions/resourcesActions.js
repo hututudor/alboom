@@ -20,6 +20,14 @@ export const addResource = resource => {
 	};
 };
 
+export const editResource = (uuid, resource) => {
+	return {
+		type: EDIT_RESOURCE,
+		uuid,
+		resource
+	};
+};
+
 export const removeResources = () => {
 	return {
 		type: REMOVE_RESOURCES

@@ -5,10 +5,10 @@ import Lang from '../../../../../../hoc/Lang';
 import * as lang from '../../../../../../../services/langService';
 import _ from 'lodash';
 import Joi from 'joi-browser';
-import * as color from '../../../../../../../services/colorService';
 import { connect } from 'react-redux';
 import actions from '../../../../../../../redux/actions';
-import * as album from '../../../../../../../services/albumsService';
+import * as transition from '../../../../../../../services/transitionService';
+import * as resource from '../../../../../../../services/resourcesService';
 import * as notification from '../../../../../../../services/notificationService';
 
 class EditResourceModalForm extends FormClass {
@@ -58,7 +58,7 @@ class EditResourceModalForm extends FormClass {
 	};
 
 	doSubmit = () => {
-		album
+		resource
 			.edit({
 				name: this.state.data.name,
 				transition: this.state.data.transition,
@@ -68,12 +68,11 @@ class EditResourceModalForm extends FormClass {
 				uuid: this.props.options.uuid
 			})
 			.then(res => {
-				this.props.editAlbum(this.props.options.uuid, res.data.album);
-				notification.success('messages.album.edit');
+				this.props.editResource(this.props.options.uuid, res.data.resource);
+				notification.success('messages.resource.edit');
 				this.closeModal();
 			})
 			.catch(err => {
-				console.log('fdf', err);
 				notification.error();
 			});
 	};
@@ -92,7 +91,7 @@ class EditResourceModalForm extends FormClass {
 								onChange={this.handleChange}
 								value={this.state.data.name}
 								className={this.getClass('name')}
-								type="email"
+								type="text"
 							/>
 
 							<Form.Field>
@@ -107,9 +106,9 @@ class EditResourceModalForm extends FormClass {
 									className={this.getClass('transition')}
 								>
 									<option value="" />
-									{color.colors.map((color, index) => (
-										<option key={index} value={color}>
-											{color.charAt(0).toUpperCase() + color.slice(1)}
+									{transition.transitions.map((transition, index) => (
+										<option key={index} value={transition}>
+											{transition.charAt(0).toUpperCase() + transition.slice(1)}
 										</option>
 									))}
 								</select>
@@ -211,7 +210,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 	return {
 		closeModal: () =>
 			dispatch(actions.modals.toggleModal('editResources', false)),
-		editAlbum: (uuid, resource) =>
+		editResource: (uuid, resource) =>
 			dispatch(actions.resources.editResource(uuid, resource))
 	};
 };

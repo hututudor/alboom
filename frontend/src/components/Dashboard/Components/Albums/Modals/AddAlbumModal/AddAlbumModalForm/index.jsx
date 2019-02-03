@@ -79,7 +79,7 @@ class AddAlbumModalForm extends FormClass {
 								onChange={this.handleChange}
 								value={this.state.data.name}
 								className={this.getClass('name')}
-								type="email"
+								type="text"
 							/>
 
 							<Form.Field>

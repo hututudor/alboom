@@ -96,7 +96,8 @@
 		},
 		"resource": {
 			"add": "The file was added successfully",
-			"adderror": "The file was not uploaded. Maybe it was not the correct type."
+			"adderror": "The file was not uploaded. Maybe it was not the correct type.",
+			"edit": "The file was saved successfully"
 		},
 		"error": "Something went wrong. Please retry or refresh the page"
 	},
@@ -114,6 +115,11 @@
 		"brown": "Brown",
 		"grey": "Grey",
 		"black": "Black"
+	},
+	"transitions": {
+		"none": "None",
+		"zoom": "Zoom",
+		"slideUp": "Slide up"
 	},
 	"auth": {
 		"errors": "Errors",

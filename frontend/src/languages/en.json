@@ -63,13 +63,14 @@
 				},
 				"all": {
 					"name": "Name",
-					"color": "Color",
-					"public": "Make this album public (can be accessed from the CLI)",
-					"controls": "Enable controls",
-					"autoplay": "The slider needs to be clicked to be played"
+					"transition": "Transition type",
+					"mute": "Starts muted by default",
+					"muted": "Cannot be unmuted",
+					"loop": "Loop",
+					"settings": "Settings for movie or audio files"
 				},
 				"delete": {
-					"title": "Delete album",
+					"title": "Delete resource",
 					"message": "Are you sure you want to do this. This action is irreversible."
 				}
 			}

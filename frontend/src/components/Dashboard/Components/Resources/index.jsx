@@ -9,6 +9,7 @@ import Resource from './Resource';
 import AddResourceButton from './Resource/AddResourceButton';
 import AddResourceModal from './Modals/AddResourceModal';
 import DeleteResourceModal from './Modals/DeleteResourceModal';
+import EditResourceModal from './Modals/EditResourceModal';
 
 class Resources extends Component {
 	componentDidMount() {
@@ -48,6 +49,7 @@ class Resources extends Component {
 						<AddResourceButton />
 						<AddResourceModal uuid={this.props.match.params.uuid} />
 						<DeleteResourceModal />
+						<EditResourceModal />
 						{/* <EditAlbumModal />
 						<DeleteAlbumModal /> */}
 						{/* <AddAlbumModal /> */}

@@ -38,6 +38,11 @@ class Resource extends Component {
 		this.props.openDeleteModal(this.props.data.uuid);
 	};
 
+	openEditModal = event => {
+		event.preventDefault();
+		this.props.openEditModal();
+	};
+
 	render() {
 		return (
 			<Card href={imageUrl + '/' + this.props.data.location} target="_blank">
@@ -68,7 +73,12 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 				actions.modals.toggleModal('deleteResources', true, {
 					uuid: ownProps.data.uuid
 				})
-			)
+			),
+		openEditModal: () => {
+			dispatch(
+				actions.modals.toggleModal('editResources', true, { ...ownProps.data })
+			);
+		}
 	};
 };
 

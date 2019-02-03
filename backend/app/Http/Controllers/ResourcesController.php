@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Album;
 use App\Resource;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Webpatser\Uuid\Uuid;
 
@@ -56,7 +57,7 @@ class ResourcesController extends Controller {
 
     public function edit(Request $request, $uuid){
         $validator = Validator::make($request->all(), [
-            'location' => ['file', $this->extensions],
+            'name' => ['string', 'required'],
             'transition' => ['required', 'string', 'max:255'],
             'loop' => ['required', 'integer'],
             'mute' => ['required', 'integer'],
@@ -83,18 +84,8 @@ class ResourcesController extends Controller {
             return response()->json('', 403);
         }
 
-        if($request->file('location')){
-            $location = FilesController::uploadFile($request, 'location', '/files', config('extensions.allowed'), false);
 
-            if(!$location) {
-                return response()->json('', 400);
-            }
-
-            $resource->location = $location;
-            $resource->name = pathinfo($request->file('location')->getClientOriginalName());
-            $resource->type = $request->file('location')->getClientOriginalExtension();
-        }
-
+        $resource->name = $request->name;
         $resource->transition = $request->transition;
         $resource->loop = $request->loop;
         $resource->mute = $request->mute;
@@ -121,6 +112,7 @@ class ResourcesController extends Controller {
             return response()->json('', 403);
         }
 
+        Storage::delete('files/' . $resource->location);
         $resource->delete();
 
         return response()->json('', 200);

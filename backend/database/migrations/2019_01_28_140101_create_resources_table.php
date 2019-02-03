@@ -26,7 +26,7 @@ class CreateResourcesTable extends Migration
             $table->boolean('muted')->default(false);
             $table->timestamps();
 
-            $table->foreign('album_id')->references('id')->on('albums');
+            $table->foreign('album_id')->references('id')->on('albums')->onDelete('no action');
         });
     }
 

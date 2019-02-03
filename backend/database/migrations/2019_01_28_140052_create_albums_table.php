@@ -24,7 +24,7 @@ class CreateAlbumsTable extends Migration
             $table->boolean('autoplay')->default(false);
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('no action');
         });
     }
 

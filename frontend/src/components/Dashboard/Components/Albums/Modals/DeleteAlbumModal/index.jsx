@@ -5,6 +5,7 @@ import { Image, Modal, Header, Button, Icon } from 'semantic-ui-react';
 import Lang from '../../../../../hoc/Lang/index';
 import * as albums from '../../../../../../services/albumsService';
 import { toast } from 'react-toastify';
+import * as notification from '../../../../../../services/notificationService';
 
 class DeleteAlbumModal extends Component {
 	closeModal = () => {
@@ -18,10 +19,11 @@ class DeleteAlbumModal extends Component {
 			.remove(uuid)
 			.then(res => {
 				this.props.deleteAlbum(uuid);
+				notification.success('messages.album.delete');
 			})
 			.catch(err => {
 				console.log(err);
-				toast.error('An error occured while trying to remove this album.');
+				notification.error();
 			});
 		this.closeModal();
 	};

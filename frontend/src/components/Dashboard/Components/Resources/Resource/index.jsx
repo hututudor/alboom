@@ -43,6 +43,11 @@ class Resource extends Component {
 		this.props.openEditModal();
 	};
 
+	downloadFile = event => {
+		event.preventDefault();
+		window.location.href = imageUrl + '/download/' + this.props.data.location;
+	};
+
 	render() {
 		return (
 			<Card href={imageUrl + '/' + this.props.data.location} target="_blank">
@@ -53,6 +58,9 @@ class Resource extends Component {
 					</Card.Header>
 					<Card.Meta>{moment(this.props.data.created_at).calendar()}</Card.Meta>
 					<Card.Content className="centered-buttons">
+						<Button color="blue" onClick={event => this.downloadFile(event)}>
+							<Icon name="download" />
+						</Button>{' '}
 						<Button color="yellow" onClick={event => this.openEditModal(event)}>
 							<Icon name="cog" />
 						</Button>{' '}

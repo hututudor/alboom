@@ -130,7 +130,9 @@ class EditAlbumModalForm extends FormClass {
 
 							<br />
 
-							<h3>Slider settings</h3>
+							<h3>
+								<Lang>dashboard.albums.modals.all.settings</Lang>
+							</h3>
 
 							<div className="ui toggle checkbox">
 								<input

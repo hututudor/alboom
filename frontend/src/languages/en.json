@@ -41,7 +41,8 @@
 					"color": "Color",
 					"public": "Make this album public (can be accessed from the CLI)",
 					"controls": "Enable controls",
-					"autoplay": "The slider needs to be clicked to be played"
+					"autoplay": "The slider needs to be clicked to be played",
+					"settings": "Slider settings"
 				},
 				"delete": {
 					"title": "Delete album",
@@ -92,12 +93,14 @@
 	"messages": {
 		"album": {
 			"add": "The album was added successfully",
-			"edit": "The album was saved successfully"
+			"edit": "The album was saved successfully",
+			"delete": "The album was deleted successfully"
 		},
 		"resource": {
 			"add": "The file was added successfully",
 			"adderror": "The file was not uploaded. Maybe it was not the correct type.",
-			"edit": "The file was saved successfully"
+			"edit": "The file was saved successfully",
+			"delete": "The file was deleted successfully"
 		},
 		"error": "Something went wrong. Please retry or refresh the page"
 	},

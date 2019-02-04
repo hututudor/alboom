@@ -164,6 +164,9 @@
 		"en": "English",
 		"ro": "Romanian"
 	},
+	"loading": {
+		"title": "Loading"
+	},
 	"404": {
 		"message": "There is the end of the internet"
 	}

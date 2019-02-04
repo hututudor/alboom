@@ -10,8 +10,13 @@ import AddResourceButton from './Resource/AddResourceButton';
 import AddResourceModal from './Modals/AddResourceModal';
 import DeleteResourceModal from './Modals/DeleteResourceModal';
 import EditResourceModal from './Modals/EditResourceModal';
+import Spinner from '../../../hoc/Spinner';
 
 class Resources extends Component {
+	state = {
+		loading: true
+	};
+
 	componentDidMount() {
 		this.props.setTitle('dashboard.titles.album', '');
 
@@ -19,7 +24,10 @@ class Resources extends Component {
 			.get(this.props.match.params.uuid)
 			.then(res => {
 				console.log(res.data.album.name);
-				this.props.setTitle('dashboard.titles.album', res.data.album.name);
+				this.props.setTitle(
+					'dashboard.titles.album',
+					"'" + res.data.album.name + "'"
+				);
 			})
 			.catch(err => {
 				console.log(err);
@@ -31,6 +39,7 @@ class Resources extends Component {
 			.then(res => {
 				console.log(res);
 				this.props.getResources(res.data.resources);
+				this.setState({ loading: false });
 			})
 			.catch(err => {
 				console.log(err);
@@ -42,6 +51,8 @@ class Resources extends Component {
 	}
 
 	render() {
+		if (this.state.loading) return <Spinner />;
+
 		return (
 			<div className="contain dash">
 				<Container>

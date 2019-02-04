@@ -8,8 +8,13 @@ import AddAlbumButton from './Album/AddAlbumButton';
 import AddAlbumModal from './Modals/AddAlbumModal';
 import DeleteAlbumModal from './Modals/DeleteAlbumModal';
 import EditAlbumModal from './Modals/EditAlbumModal';
+import Spinner from '../../../hoc/Spinner';
 
 class Albums extends Component {
+	state = {
+		loading: true
+	};
+
 	componentDidMount() {
 		this.props.setTitle('dashboard.titles.albums');
 
@@ -18,11 +23,14 @@ class Albums extends Component {
 			.then(res => {
 				console.log(res);
 				this.props.getAlbums(res.data.albums);
+				this.setState({ loading: false });
 			})
 			.catch(err => {});
 	}
 
 	render() {
+		if (this.state.loading) return <Spinner />;
+
 		return (
 			<div className="contain dash">
 				<Container>

@@ -54,6 +54,7 @@
 			"modals": {
 				"add": {
 					"title": "Add new resource",
+					"message": "You can only upload files of type ",
 					"drop": {
 						"on": "Drop files here...",
 						"off": "Try dropping some files here, or click to select files to upload."

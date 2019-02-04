@@ -13,6 +13,8 @@ import * as notification from '../../../../../../../services/notificationService
 import Dropzone from 'react-dropzone';
 import classNames from 'classnames';
 import File from './File';
+import * as file from '../../../../../../../services/fileTypesService';
+import mime from 'mime-types';
 
 class AddResourceModalForm extends FormClass {
 	state = {
@@ -71,12 +73,50 @@ class AddResourceModalForm extends FormClass {
 		this.setState({ files: st.files, stats: sts.stats });
 	};
 
+	getAccepted = () => {
+		let acc = '';
+
+		Object.keys(file.types).map(types => {
+			file.types[types].map(type => {
+				acc += mime.lookup(type) + ', ';
+			});
+		});
+
+		acc = acc.substr(0, acc.length - 2);
+
+		return acc;
+	};
+
+	getTypes = () => {
+		let acc = '';
+
+		Object.keys(file.types).map(types => {
+			file.types[types].map(type => {
+				acc += type + ', ';
+			});
+		});
+
+		acc = acc.substr(0, acc.length - 2);
+		acc += '.';
+
+		return acc;
+	};
+
 	render() {
 		return (
 			<React.Fragment>
 				<Modal.Content>
 					<Modal.Description>
-						<Dropzone onDrop={this.onDrop}>
+						<b>
+							<p>
+								<Lang>dashboard.resources.modals.add.message</Lang>
+								{this.getTypes()}
+							</p>
+						</b>
+
+						<br />
+
+						<Dropzone accept={this.getAccepted()} onDrop={this.onDrop}>
 							{({ getRootProps, getInputProps, isDragActive }) => {
 								return (
 									<div

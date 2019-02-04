@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { Card, Icon } from 'semantic-ui-react';
+import { Card, Icon, Popup } from 'semantic-ui-react';
 import moment from 'moment';
 import { Link } from 'react-router-dom';
 import { Button } from 'semantic-ui-react';
 import actions from '../../../../../redux/actions';
 import { connect } from 'react-redux';
+import Lang from '../../../../hoc/Lang';
 
 class Album extends Component {
 	openDeleteModal = event => {
@@ -28,12 +29,34 @@ class Album extends Component {
 					<Card.Header>{this.props.data.name}</Card.Header>
 					<Card.Meta>{moment(this.props.data.created_at).calendar()}</Card.Meta>
 					<Card.Content className="centered-buttons">
-						<Button color="yellow" onClick={event => this.openEditModal(event)}>
-							<Icon name="cog" />
-						</Button>{' '}
-						<Button color="red" onClick={event => this.openDeleteModal(event)}>
-							<Icon name="remove" />
-						</Button>
+						<Popup
+							trigger={
+								<Button
+									color="yellow"
+									onClick={event => this.openEditModal(event)}
+								>
+									<Icon name="cog" />
+								</Button>
+							}
+						>
+							<Popup.Header>
+								<Lang>dashboard.popups.edit</Lang>
+							</Popup.Header>
+						</Popup>{' '}
+						<Popup
+							trigger={
+								<Button
+									color="red"
+									onClick={event => this.openDeleteModal(event)}
+								>
+									<Icon name="remove" />
+								</Button>
+							}
+						>
+							<Popup.Header>
+								<Lang>dashboard.popups.delete</Lang>
+							</Popup.Header>
+						</Popup>
 					</Card.Content>
 				</Card.Content>
 			</Card>

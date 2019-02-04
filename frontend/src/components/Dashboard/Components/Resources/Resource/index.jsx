@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import { Card, Button, Icon, Image } from 'semantic-ui-react';
+import { Card, Button, Icon, Image, Popup } from 'semantic-ui-react';
 import moment from 'moment';
 import * as file from '../../../../../services/fileTypesService';
 import { imageUrl } from '../../../../../services/httpService';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import actions from '../../../../../redux/actions';
+import Lang from '../../../../hoc/Lang';
 
 class Resource extends Component {
 	getSrc() {
@@ -58,15 +59,48 @@ class Resource extends Component {
 					</Card.Header>
 					<Card.Meta>{moment(this.props.data.created_at).calendar()}</Card.Meta>
 					<Card.Content className="centered-buttons">
-						<Button color="blue" onClick={event => this.downloadFile(event)}>
-							<Icon name="download" />
-						</Button>{' '}
-						<Button color="yellow" onClick={event => this.openEditModal(event)}>
-							<Icon name="cog" />
-						</Button>{' '}
-						<Button color="red" onClick={event => this.openDeleteModal(event)}>
-							<Icon name="remove" />
-						</Button>
+						<Popup
+							trigger={
+								<Button
+									color="blue"
+									onClick={event => this.downloadFile(event)}
+								>
+									<Icon name="download" />
+								</Button>
+							}
+						>
+							<Popup.Header>
+								<Lang>dashboard.popups.download</Lang>
+							</Popup.Header>
+						</Popup>{' '}
+						<Popup
+							trigger={
+								<Button
+									color="yellow"
+									onClick={event => this.openEditModal(event)}
+								>
+									<Icon name="cog" />
+								</Button>
+							}
+						>
+							<Popup.Header>
+								<Lang>dashboard.popups.edit</Lang>
+							</Popup.Header>
+						</Popup>{' '}
+						<Popup
+							trigger={
+								<Button
+									color="red"
+									onClick={event => this.openDeleteModal(event)}
+								>
+									<Icon name="remove" />
+								</Button>
+							}
+						>
+							<Popup.Header>
+								<Lang>dashboard.popups.delete</Lang>
+							</Popup.Header>
+						</Popup>
 					</Card.Content>
 				</Card.Content>
 			</Card>

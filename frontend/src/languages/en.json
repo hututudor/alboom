@@ -22,6 +22,11 @@
 			"dashboard": "Dashboard",
 			"user": "User settings"
 		},
+		"popups": {
+			"delete": "Delete",
+			"edit": "Edit",
+			"download": "Download"
+		},
 		"titles": {
 			"dashboard": "Dashboard",
 			"albums": "Albums",

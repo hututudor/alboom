@@ -16,6 +16,27 @@ import File from './File';
 import * as file from '../../../../../../../services/fileTypesService';
 import mime from 'mime-types';
 
+const baseStyle = {
+	width: '100%',
+	height: 50,
+	borderWidth: 2,
+	borderColor: '#666',
+	borderStyle: 'dashed',
+	borderRadius: 5,
+	textAlign: 'center'
+	// position: 'absolute'
+};
+const activeStyle = {
+	borderStyle: 'solid',
+	borderColor: '#6c6',
+	backgroundColor: '#eee'
+};
+const rejectStyle = {
+	borderStyle: 'solid',
+	borderColor: '#c66',
+	backgroundColor: '#eee'
+};
+
 class AddResourceModalForm extends FormClass {
 	state = {
 		files: [],
@@ -117,22 +138,39 @@ class AddResourceModalForm extends FormClass {
 						<br />
 
 						<Dropzone accept={this.getAccepted()} onDrop={this.onDrop}>
-							{({ getRootProps, getInputProps, isDragActive }) => {
+							{({
+								getRootProps,
+								getInputProps,
+								isDragActive,
+								isDragAccept,
+								isDragReject
+							}) => {
+								let styles = { ...baseStyle };
+								styles = isDragActive ? { ...styles, ...activeStyle } : styles;
+								styles = isDragReject ? { ...styles, ...rejectStyle } : styles;
+
 								return (
 									<div
 										{...getRootProps()}
+										style={styles}
 										className={classNames('dropzone', {
 											'dropzone--isActive': isDragActive
 										})}
 									>
 										<input {...getInputProps()} />
-										{isDragActive ? (
+										{!isDragActive ? (
 											<p>
-												<Lang>dashboard.resources.modals.add.drop.on</Lang>
+												<Lang>dashboard.resources.modals.add.drop.off</Lang>
+											</p>
+										) : isDragReject ? (
+											<p>
+												<Lang>
+													dashboard.resources.modals.add.drop.unsupported
+												</Lang>
 											</p>
 										) : (
 											<p>
-												<Lang>dashboard.resources.modals.add.drop.off</Lang>
+												<Lang>dashboard.resources.modals.add.drop.on</Lang>
 											</p>
 										)}
 									</div>

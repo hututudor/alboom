@@ -69,6 +69,10 @@
 	transform: translateY(-50%) !important;
 }
 
+.dropzone:focus {
+	outline: none !important;
+}
+
 // .add_album_button_container div {
 // 	position: relative;
 // 	top: 50% !important;

@@ -10,6 +10,7 @@ import actions from '../../../../../../../redux/actions';
 import * as transition from '../../../../../../../services/transitionService';
 import * as resource from '../../../../../../../services/resourcesService';
 import * as notification from '../../../../../../../services/notificationService';
+import * as file from '../../../../../../../services/fileTypesService';
 
 class EditResourceModalForm extends FormClass {
 	state = {
@@ -77,6 +78,14 @@ class EditResourceModalForm extends FormClass {
 			});
 	};
 
+	isImage = () => {
+		if (file.types.image.includes(this.props.options.type)) {
+			return true;
+		} else {
+			return false;
+		}
+	};
+
 	render() {
 		return (
 			<React.Fragment>
@@ -114,54 +123,60 @@ class EditResourceModalForm extends FormClass {
 								</select>
 							</Form.Field>
 
-							<h3>
-								<Lang>dashboard.resources.modals.all.settings</Lang>
-							</h3>
+							{this.isImage() ? (
+								''
+							) : (
+								<React.Fragment>
+									<h3>
+										<Lang>dashboard.resources.modals.all.settings</Lang>
+									</h3>
 
-							<div className="ui toggle checkbox">
-								<input
-									type="checkbox"
-									name="loop"
-									onChange={this.handleChange}
-									checked={this.state.data.loop}
-									className={this.getClass('loop')}
-								/>
-								<label>
-									<Lang>dashboard.resources.modals.all.loop</Lang>
-								</label>
-							</div>
+									<div className="ui toggle checkbox">
+										<input
+											type="checkbox"
+											name="loop"
+											onChange={this.handleChange}
+											checked={this.state.data.loop}
+											className={this.getClass('loop')}
+										/>
+										<label>
+											<Lang>dashboard.resources.modals.all.loop</Lang>
+										</label>
+									</div>
 
-							<br />
-							<br />
+									<br />
+									<br />
 
-							<div className="ui toggle checkbox">
-								<input
-									type="checkbox"
-									name="mute"
-									onChange={this.handleChange}
-									checked={this.state.data.mute}
-									className={this.getClass('mute')}
-								/>
-								<label>
-									<Lang>dashboard.resources.modals.all.mute</Lang>
-								</label>
-							</div>
+									<div className="ui toggle checkbox">
+										<input
+											type="checkbox"
+											name="mute"
+											onChange={this.handleChange}
+											checked={this.state.data.mute}
+											className={this.getClass('mute')}
+										/>
+										<label>
+											<Lang>dashboard.resources.modals.all.mute</Lang>
+										</label>
+									</div>
 
-							<br />
-							<br />
+									<br />
+									<br />
 
-							<div className="ui toggle checkbox">
-								<input
-									type="checkbox"
-									name="muted"
-									onChange={this.handleChange}
-									checked={this.state.data.muted}
-									className={this.getClass('muted')}
-								/>
-								<label>
-									<Lang>dashboard.resources.modals.all.muted</Lang>
-								</label>
-							</div>
+									<div className="ui toggle checkbox">
+										<input
+											type="checkbox"
+											name="muted"
+											onChange={this.handleChange}
+											checked={this.state.data.muted}
+											className={this.getClass('muted')}
+										/>
+										<label>
+											<Lang>dashboard.resources.modals.all.muted</Lang>
+										</label>
+									</div>
+								</React.Fragment>
+							)}
 						</Form>
 						{_.isEmpty(this.state.errors) ? (
 							''

@@ -36,6 +36,10 @@ class SideMenu extends Component {
 						<Lang>dashboard.buttons.back</Lang>
 					</SideItem>
 
+					<SideItem to="/" icon="home">
+						<Lang>dashboard.buttons.home</Lang>
+					</SideItem>
+
 					<SideItem to="/dashboard" icon="dashboard">
 						<Lang>dashboard.buttons.dashboard</Lang>
 					</SideItem>

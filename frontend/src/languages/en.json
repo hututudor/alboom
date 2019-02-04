@@ -15,6 +15,7 @@
 	},
 	"dashboard": {
 		"buttons": {
+			"home": "Home",
 			"back": "Back",
 			"albums": "Albums",
 			"logout": "Logout",

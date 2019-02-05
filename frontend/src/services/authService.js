@@ -11,3 +11,7 @@ export const login = data => {
 export const register = data => {
 	return http.postPublic('/register', data);
 };
+
+export const changePassword = (oldPassword, newPassword) => {
+	return http.putPrivate('/user', { password: oldPassword, new: newPassword });
+};

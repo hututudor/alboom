@@ -88,6 +88,12 @@
 			"tabs": {
 				"basic": "Basic settings",
 				"password": "Password settings"
+			},
+			"password": {
+				"password": "Current password",
+				"new": "New password",
+				"success": "Password changed successfully",
+				"error": "The password could not be changed. Check the current password field again"
 			}
 		}
 	},

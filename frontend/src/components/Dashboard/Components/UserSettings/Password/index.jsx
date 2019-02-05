@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
+import PasswordForm from './PasswordForm';
+import { Container } from 'semantic-ui-react';
 
 class Password extends Component {
 	render() {
-		return <div>pass</div>;
+		return (
+			<Container>
+				<PasswordForm />
+			</Container>
+		);
 	}
 }
 

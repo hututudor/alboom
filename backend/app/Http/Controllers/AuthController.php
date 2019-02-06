@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Preference;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -26,6 +27,13 @@ class AuthController extends Controller
 
         $user = User::where('email', $request->email)->first();
 
+        $prefs = [];
+        foreach ($user->preferences()->get() as $pref) {
+            $prefs[$pref->name] = $pref->value;
+        }
+
+        $user['preferences'] = $prefs;
+
         return response()->json(compact('user', 'token'));
     }
 
@@ -46,7 +54,20 @@ class AuthController extends Controller
             'password' => Hash::make($request->password)
         ]);
 
+        $preference = new Preference();
+        $preference->user_id = $user->id;
+        $preference->name = 'theme';
+        $preference->value = 'orange';
+        $preference->save();
+
         $token = JWTAuth::fromUser($user);
+
+        $prefs = [];
+        foreach ($user->preferences()->get() as $pref) {
+            $prefs[$pref->name] = $pref->value;
+        }
+
+        $user['preferences'] = $prefs;
 
         return response()->json(compact('user', 'token'), 201);
     }
@@ -57,6 +78,13 @@ class AuthController extends Controller
         if(!$user) {
             return response()->json('', 403);
         }
+
+        $prefs = [];
+        foreach ($user->preferences()->get() as $pref) {
+            $prefs[$pref->name] = $pref->value;
+        }
+
+        $user['preferences'] = $prefs;
 
         return response()->json(compact('user'));
     }

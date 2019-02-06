@@ -94,6 +94,11 @@
 				"new": "New password",
 				"success": "Password changed successfully",
 				"error": "The password could not be changed. Check the current password field again"
+			},
+			"basic": {
+				"name": "Name",
+				"theme": "Theme",
+				"success": "Settings saved successfully"
 			}
 		}
 	},

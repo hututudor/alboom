@@ -15,3 +15,7 @@ export const register = data => {
 export const changePassword = (oldPassword, newPassword) => {
 	return http.putPrivate('/user', { password: oldPassword, new: newPassword });
 };
+
+export const changeName = name => {
+	return http.postPrivate('/user', { name });
+};

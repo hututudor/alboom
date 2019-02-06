@@ -21,7 +21,7 @@ class Resource extends Component {
 			);
 		}
 
-		if (file.types.music.includes(type)) {
+		if (file.types.audio.includes(type)) {
 			return (
 				<Image src="https://via.placeholder.com/1920x1080.png/000000/FFFFFF?text=Music+File" />
 			);

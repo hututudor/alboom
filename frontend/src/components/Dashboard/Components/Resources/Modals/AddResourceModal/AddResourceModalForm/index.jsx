@@ -78,6 +78,8 @@ class AddResourceModalForm extends FormClass {
 	};
 
 	onDrop = (acceptedFiles, rejectedFiles) => {
+		console.log(rejectedFiles);
+
 		this.setState({
 			files: this.state.files.concat(acceptedFiles)
 		});
@@ -104,6 +106,11 @@ class AddResourceModalForm extends FormClass {
 		});
 
 		acc = acc.substr(0, acc.length - 2);
+
+		// optional types that mime does not get right
+		acc += ', audio/mp3';
+
+		console.log('acccc', acc);
 
 		return acc;
 	};

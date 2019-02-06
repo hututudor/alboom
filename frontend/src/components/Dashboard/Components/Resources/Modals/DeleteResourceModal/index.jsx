@@ -4,6 +4,7 @@ import actions from '../../../../../../redux/actions';
 import { Image, Modal, Header, Button, Icon } from 'semantic-ui-react';
 import Lang from '../../../../../hoc/Lang/index';
 import * as resources from '../../../../../../services/resourcesService';
+import * as notification from '../../../../../../services/notificationService';
 import { toast } from 'react-toastify';
 
 class DeleteAlbumModal extends Component {
@@ -18,10 +19,11 @@ class DeleteAlbumModal extends Component {
 			.remove(uuid)
 			.then(res => {
 				this.props.deleteResource(uuid);
+				notification.success('messages.resource.delete');
 			})
 			.catch(err => {
 				console.log(err);
-				toast.error('An error occured while trying to remove this resource.');
+				notification.error();
 			});
 		this.closeModal();
 	};

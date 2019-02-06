@@ -39,15 +39,15 @@
 
 .centered-buttons {
 	text-align: right;
-}
 
-.centered-buttons .button {
-	margin: 0 !important;
-	text-align: center !important;
-}
+	.button {
+		margin: 0 !important;
+		text-align: center !important;
 
-.centered-buttons .button i {
-	margin: 0 !important;
+		i {
+			margin: 0 !important;
+		}
+	}
 }
 
 .button-fix i {

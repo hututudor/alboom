@@ -107,6 +107,13 @@ class AuthController extends Controller
     }
 
     public function changePass(Request $request){
+        $validator = Validator::make($request->all(), [
+            'password' => ['required', 'string', 'max:255'],
+            'new' => ['required', 'string', 'max:255']
+        ]);
+        if($validator->fails() ) {
+            return response()->json($validator->errors(), 400);
+        }
         $user = AuthController::getUser();
         if(!$user) {
             return response()->json('', 404);
@@ -120,6 +127,12 @@ class AuthController extends Controller
     }
 
     public function changeName(Request $request){
+        $validator = Validator::make($request->all(), [
+            'name' => ['required', 'string', 'max:255']
+        ]);
+        if($validator->fails() ) {
+            return response()->json($validator->errors(), 400);
+        }
         $user = AuthController::getUser();
         if(!$user) {
             return response()->json('', 404);

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Album;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use PhpParser\Node\Expr\New_;
 use Webpatser\Uuid\Uuid;
@@ -79,6 +80,11 @@ class AlbumsController extends Controller
         }
         if($album->user_id != $user->id){
             return response()->json('', 403);
+        }
+        $resources = $album->resources;
+        foreach($resources as $resource){
+            Storage::delete('files/' . $resource->location);
+            $resource->delete();
         }
         $album->delete();
         return response()->json('', 200);

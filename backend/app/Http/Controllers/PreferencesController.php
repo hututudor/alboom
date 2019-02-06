@@ -17,6 +17,12 @@ class PreferencesController extends Controller
     }
 
     public function edit(Request $request){
+        $validator = Validator::make($request->all(), [
+            'value' => ['required', 'string', 'max:255']
+        ]);
+        if($validator->fails() ) {
+            return response()->json($validator->errors(), 400);
+        }
         $user = AuthController::getUser();
         if(!$user) {
             return response()->json('asd1', 404);

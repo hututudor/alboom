@@ -8,7 +8,7 @@ import LanguageDropdown from '../../hoc/LanguageDropdown';
 class Navbar extends Component {
 	render() {
 		return (
-			<Menu className="navbar" color="orange" inverted borderless>
+			<Menu className="navbar" color={this.props.theme} inverted borderless>
 				<Menu.Item>
 					<Lang>{this.props.title}</Lang> {this.props.param}
 				</Menu.Item>
@@ -24,7 +24,8 @@ const mapStateToProps = state => {
 	return {
 		title: state.dashboard.title,
 		param: state.dashboard.param,
-		lang: state.lang
+		lang: state.lang,
+		theme: state.auth.user.preferences.theme
 	};
 };
 

@@ -4,18 +4,19 @@ import Logo from '../../hoc/Logo/index';
 import SideItem from './SideItem';
 import Lang from '../../hoc/Lang/index';
 import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 class SideMenu extends Component {
 	render() {
 		return (
-			<Sidebar visible={true} color="orange">
+			<Sidebar visible={true} color={this.props.theme}>
 				<Menu
 					size="large"
 					inverted
 					fixed="left"
 					vertical
 					borderless
-					color="orange"
+					color={this.props.theme}
 				>
 					<Menu.Item
 						style={{
@@ -61,4 +62,10 @@ class SideMenu extends Component {
 	}
 }
 
-export default withRouter(SideMenu);
+const mapStateToProps = state => {
+	return {
+		theme: state.auth.user.preferences.theme
+	};
+};
+
+export default withRouter(connect(mapStateToProps)(SideMenu));

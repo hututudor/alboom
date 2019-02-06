@@ -35,7 +35,7 @@ class Dashboard extends Component {
 	}
 }
 
-export const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = dispatch => {
 	return {
 		setTitle: title => dispatch(actions.dashboard.setTitle(title))
 	};

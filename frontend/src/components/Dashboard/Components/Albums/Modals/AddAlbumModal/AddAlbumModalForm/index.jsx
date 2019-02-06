@@ -159,32 +159,6 @@ class AddAlbumModalForm extends FormClass {
 									<Lang>dashboard.albums.modals.all.autoplay</Lang>
 								</label>
 							</div>
-							{/* <Grid columns={1} textAlign="center">
-									<Button.Group fluid>
-										<Button
-											color="green"
-											size="large"
-											icon
-											labelPosition="left"
-											as={link}
-											to="/"
-										>
-											<Icon name="arrow left" />
-											<Lang>auth.login.back</Lang>
-										</Button>
-										<Button
-											disabled={this.state.loading}
-											className={this.state.loading ? 'loading' : ''}
-											color="orange"
-											size="large"
-											icon
-											labelPosition="right"
-										>
-											<Icon name="arrow right" />
-											<Lang>auth.login.button</Lang>
-										</Button>
-									</Button.Group>
-								</Grid> */}
 						</Form>
 						{_.isEmpty(this.state.errors) ? (
 							''

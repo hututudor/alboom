@@ -33,6 +33,15 @@
 			"album": "Album",
 			"user": "User settings"
 		},
+		"first": {
+			"title": "Dashboard",
+			"hello": "Hello",
+			"message": "what do you want to do today?",
+			"buttons": {
+				"albums": "Manage albums",
+				"settings": "Change your settings"
+			}
+		},
 		"albums": {
 			"add": "Add new",
 			"modals": {

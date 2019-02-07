@@ -25,7 +25,10 @@ class SideMenu extends Component {
 							marginTop: '1em'
 						}}
 					>
-						<span>
+						<span
+							onClick={() => this.props.history.push('/')}
+							style={{ cursor: 'pointer' }}
+						>
 							<Logo size={30} />
 						</span>
 					</Menu.Item>
@@ -37,9 +40,9 @@ class SideMenu extends Component {
 						<Lang>dashboard.buttons.back</Lang>
 					</SideItem>
 
-					<SideItem to="/" icon="home">
+					{/* <SideItem to="/" icon="home">
 						<Lang>dashboard.buttons.home</Lang>
-					</SideItem>
+					</SideItem> */}
 
 					<SideItem to="/dashboard" icon="dashboard">
 						<Lang>dashboard.buttons.dashboard</Lang>

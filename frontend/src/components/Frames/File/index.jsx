@@ -5,7 +5,7 @@ class File extends Component {
 		return (
 			<div className="frame_file">
 				<img
-					src="http://localhost:8000/image/464611549565413.jpg"
+					src="http://localhost:8000/image/980191549566487.jpg"
 					className="file"
 				/>
 			</div>

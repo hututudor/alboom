@@ -3,6 +3,7 @@ import ReactPlayer from 'react-player';
 import * as pub from '../../../services/publicService';
 import * as file from '../../../services/fileTypesService';
 import * as http from '../../../services/httpService';
+import { Icon } from 'semantic-ui-react';
 
 class Slider extends Component {
 	state = {
@@ -38,7 +39,7 @@ class Slider extends Component {
 				file.types.video.includes(
 					this.state.resources[this.state.index].type
 				) ||
-				file.types.video.audio(this.state.resources[this.state.index].type)
+				file.types.audio.includes(this.state.resources[this.state.index].type)
 			) {
 				console.log('vid');
 				return (
@@ -50,7 +51,7 @@ class Slider extends Component {
 							this.state.resources[this.state.index].loop == 1 ? true : false
 						}
 						muted={
-							this.state.resources[this.state.index].muted == 1 ? true : false
+							this.state.resources[this.state.index].mute == 1 ? true : false
 						}
 						className="file"
 					/>
@@ -63,8 +64,40 @@ class Slider extends Component {
 		return http.imageUrl + '/' + uuid;
 	};
 
+	goRight = () => {
+		if (this.state.index <= 0) {
+			this.setState({ index: this.state.resources.length - 1 });
+		} else {
+			this.setState({ index: this.state.index - 1 });
+		}
+	};
+
+	goLeft = () => {
+		if (this.state.index >= this.state.resources.length - 1) {
+			this.setState({ index: 0 });
+		} else {
+			this.setState({ index: this.state.index + 1 });
+		}
+	};
+
 	render() {
-		return <div className="frame_file">{this.renderFile()}</div>;
+		return (
+			<div className="frame_file">
+				<Icon
+					name="angle left"
+					size="huge"
+					fitted
+					onClick={() => this.goLeft()}
+				/>
+				<Icon
+					name="angle right"
+					size="huge"
+					fitted
+					onClick={() => this.goRight()}
+				/>
+				{this.renderFile()}
+			</div>
+		);
 	}
 }
 

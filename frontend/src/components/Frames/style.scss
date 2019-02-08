@@ -10,6 +10,35 @@
 	padding: 0 !important;
 	margin: 0 !important;
 	overflow: hidden;
+
+	i {
+		color: white;
+		background: black;
+		margin: 0 !important;
+		padding: 0 !important;
+		text-align: center;
+		padding: auto;
+		position: fixed;
+		padding: 0 10px !important;
+		cursor: pointer;
+		transition: all 0.2s !important;
+		z-index: 1000 !important;
+
+		&:hover {
+			color: #777;
+		}
+
+		&:first-child {
+			top: 50% !important;
+			transform: translate(0, 0);
+		}
+
+		&:nth-child(2) {
+			top: 50%;
+			right: 0;
+			transform: translate(0, 0);
+		}
+	}
 }
 
 .file {

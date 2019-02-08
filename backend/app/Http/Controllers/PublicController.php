@@ -12,6 +12,7 @@ class PublicController extends Controller
 
         $album = Album::where('uuid', $uuid)->with('resources')->first();
 
+
         if(!$album){
             return response()->json('', 404);
         }

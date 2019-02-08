@@ -16,6 +16,9 @@ use Illuminate\Http\Request;
 Route::post('register', 'AuthController@register');
 Route::post('login', 'AuthController@authenticate');
 
+Route::get('public/resources/{uuid}', 'PublicController@getResource');
+Route::get('public/albums/{uuid}', 'PublicController@getAlbum');
+
 // middleware for auth-only routes
 Route::group(['middleware' => ['jwt.verify']], function() {
     Route::get('user', 'AuthController@getAuthenticatedUser');

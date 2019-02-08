@@ -10,15 +10,10 @@ class File extends Component {
 	};
 
 	componentDidMount() {
-		pub
-			.getResource(this.props.match.params.uuid)
-			.then(res => {
-				console.log(res);
-				this.setState({ resource: res.data.resource });
-			})
-			.catch(err => {
-				console.error('unh');
-			});
+		pub.getResource(this.props.match.params.uuid).then(res => {
+			console.log(res);
+			this.setState({ resource: res.data.resource });
+		});
 	}
 
 	getSrc = uuid => {

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import File from './File';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import './style.scss';
+import Slider from './Slider';
 
 class Frame extends Component {
 	render() {
@@ -9,6 +10,7 @@ class Frame extends Component {
 			<React.Fragment>
 				<Switch>
 					<Route path="/frame/file/:uuid" exact component={File} />
+					<Route path="/frame/slider/:uuid" exact component={Slider} />
 					<Redirect to="/404" />
 				</Switch>
 			</React.Fragment>

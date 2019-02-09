@@ -3,7 +3,7 @@ import ReactPlayer from 'react-player';
 import * as pub from '../../../services/publicService';
 import * as file from '../../../services/fileTypesService';
 import * as http from '../../../services/httpService';
-import { Icon } from 'semantic-ui-react';
+import { Icon, Loader } from 'semantic-ui-react';
 
 class Slider extends Component {
 	state = {
@@ -95,7 +95,11 @@ class Slider extends Component {
 					fitted
 					onClick={() => this.goRight()}
 				/>
+				<i>
+					{this.state.index + 1} / {this.state.resources.length}
+				</i>
 				{this.renderFile()}
+				<Loader size="large" className="loader" color="white" active />
 			</div>
 		);
 	}

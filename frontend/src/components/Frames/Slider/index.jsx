@@ -11,6 +11,7 @@ class Slider extends Component {
 	state = {
 		index: 0,
 		resources: [],
+		album: null,
 		showing: false
 	};
 
@@ -19,6 +20,7 @@ class Slider extends Component {
 			console.log(res);
 			this.setState({
 				resources: res.data.album.resources,
+				album: res.data.album,
 				index: res.data.album.resources.length - 1
 			});
 		});
@@ -97,26 +99,32 @@ class Slider extends Component {
 				onSwipedRight={() => this.goRight()}
 			>
 				<div className="frame_file">
-					<Icon
-						name="angle left"
-						size={this.props.match.params.type === 's' ? 'big' : 'huge'}
-						fitted
-						onClick={() => this.goLeft()}
-					/>
-					<Icon
-						name="angle right"
-						size={this.props.match.params.type === 's' ? 'big' : 'huge'}
-						fitted
-						onClick={() => this.goRight()}
-					/>
-					<i
-						className={
-							this.props.match.params.type === 's' ? 'small-ic' : 'big-ic'
-						}
-					>
-						{this.state.resources.length - this.state.index} /{' '}
-						{this.state.resources.length}
-					</i>
+					{this.state.album && this.state.album.controls == 1 ? (
+						<React.Fragment>
+							<Icon
+								name="angle left"
+								size={this.props.match.params.type === 's' ? 'big' : 'huge'}
+								fitted
+								onClick={() => this.goLeft()}
+							/>
+							<Icon
+								name="angle right"
+								size={this.props.match.params.type === 's' ? 'big' : 'huge'}
+								fitted
+								onClick={() => this.goRight()}
+							/>
+							<i
+								className={
+									this.props.match.params.type === 's' ? 'small-ic' : 'big-ic'
+								}
+							>
+								{this.state.resources.length - this.state.index} /{' '}
+								{this.state.resources.length}
+							</i>
+						</React.Fragment>
+					) : (
+						''
+					)}
 					{this.renderFile()}
 					<Loader
 						size="large"

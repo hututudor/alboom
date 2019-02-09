@@ -1,7 +1,101 @@
-.slideUp-enter {
-	opacity: 0;
+$time: 1s;
+$curve: ease-out;
+$bounce-curve: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+.zoomIn-enter {
+  height: 200vh !important;
 }
+.zoomIn-enter-active {
+  height: 100vh !important;
+  transition: all $time $curve;
+}
+
+.zoomOut-enter {
+  height: 50vh !important;
+}
+
+.zoomOut-enter-active {
+  height: 100vh !important;
+  transition: all $time $curve;
+}
+
+.slideUp-enter {
+  margin-top: 100vh !important;
+}
+
 .slideUp-enter-active {
-	opacity: 1;
-	transition: all 1s;
+  margin-top: 0 !important;
+  transition: all $time $curve;
+}
+
+.slideDown-enter {
+  margin-top: -100vh !important;
+}
+
+.slideDown-enter-active {
+  margin-top: 0 !important;
+  transition: all $time $curve;
+}
+
+.slideLeft-enter {
+  margin-left: 100vh !important;
+}
+
+.slideLeft-enter-active {
+  margin-left: 0 !important;
+  transition: all $time $curve;
+}
+
+.slideRight-enter {
+  margin-left: -100vh !important;
+}
+
+.slideRight-enter-active {
+  margin-left: 0 !important;
+  transition: all $time $curve;
+}
+
+.bounceUp-enter {
+  margin-top: 100vh !important;
+}
+
+.bounceUp-enter-active {
+  margin-top: 0 !important;
+  transition: all $time $bounce-curve;
+}
+
+.bounceDown-enter {
+  margin-top: -100vh !important;
+}
+
+.bounceDown-enter-active {
+  margin-top: 0 !important;
+  transition: all $time $bounce-curve;
+}
+
+.bounceLeft-enter {
+  margin-left: 100vh !important;
+}
+
+.bounceLeft-enter-active {
+  margin-left: 0 !important;
+  transition: all $time $bounce-curve;
+}
+
+.bounceRight-enter {
+  margin-left: -100vh !important;
+}
+
+.bounceRight-enter-active {
+  margin-left: 0 !important;
+  transition: all $time $bounce-curve;
+}
+
+.fadeIn-enter {
+  opacity: 0 !important;
+}
+
+.fadeIn-enter-active {
+  opacity: 1 !important;
+  transition: all $time $curve;
 }

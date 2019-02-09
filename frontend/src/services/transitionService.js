@@ -1,1 +1,14 @@
-export const transitions = ['none', 'zoom', 'slideUp'];
+export const transitions = [
+  'none',
+  'zoomIn',
+  'zoomOut',
+  'slideUp',
+  'slideDown',
+  'slideLeft',
+  'slideRight',
+  'bounceUp',
+  'bounceDown',
+  'bounceLeft',
+  'bounceRight',
+  'fadeIn'
+];

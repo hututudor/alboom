@@ -8,10 +8,15 @@ use Illuminate\Support\Facades\Storage;
 class FilesController extends Controller
 {
     function getFile($file_name){
-//        dd( $_SERVER);
         $filename = $file_name;
         $location = base_path().'/storage/app/files/' . $file_name;
         $mimeType = Storage::mimeType('/files/' . $file_name);
+
+        if(@is_array(getimagesize($location))) {
+            header('Content-Type:' . $mimeType);
+            header('Content-Length: ' . filesize($location));
+            readfile($location);
+        }
 
         $size = filesize($location);
         $time = date('r', filemtime($location));

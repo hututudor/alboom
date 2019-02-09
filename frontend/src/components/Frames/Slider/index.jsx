@@ -52,9 +52,8 @@ class Slider extends Component {
 
 				return (
 					<CSSTransition
-						in={true}
-						appear={true}
-						timeout={500}
+						in={!this.state.showing}
+						timeout={1000}
 						key={this.state.index}
 						classNames={this.state.resources[index].transition}
 					>
@@ -83,9 +82,8 @@ class Slider extends Component {
 				console.log('vid');
 				return (
 					<CSSTransition
-						in={true}
-						appear={true}
-						timeout={500}
+						in={!this.state.showing}
+						timeout={1000}
 						key={this.state.index}
 						classNames={this.state.resources[index].transition}
 					>

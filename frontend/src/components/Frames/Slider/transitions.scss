@@ -1,7 +1,7 @@
-.slideUp-appear {
-	opacity: 0 !important;
+.slideUp-enter {
+	opacity: 0;
 }
-.slideUp-appear.slideUp-appear-active {
-	opacity: 1 !important;
-	transition: all 0.5s;
+.slideUp-enter-active {
+	opacity: 1;
+	transition: all 1s;
 }

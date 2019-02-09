@@ -25,14 +25,20 @@ class Slider extends Component {
 				index: res.data.album.resources.length - 1
 			});
 		});
+
+		document.addEventListener('keydown', e => this.handleKeyDown(e));
+	}
+
+	componentWillUnmount() {
+		document.removeEventListener('keydown', e => this.handleKeyDown(e));
 	}
 
 	setShowing = () => {
 		this.setState({ showing: false });
 	};
 
-	autoplay = () => {
-		if (this.state.album.autoplay === 1) {
+	autoplay = index => {
+		if (this.state.album.autoplay === 1 && this.state.index === index) {
 			this.goRight();
 		}
 	};
@@ -50,7 +56,7 @@ class Slider extends Component {
 						className="file"
 						onLoad={() => {
 							this.setShowing();
-							setTimeout(() => this.autoplay(), 5000);
+							setTimeout(() => this.autoplay(this.state.index), 5000);
 						}}
 					/>
 				);
@@ -67,10 +73,9 @@ class Slider extends Component {
 					<ReactPlayer
 						url={this.getSrc(this.state.resources[this.state.index].location)}
 						playing
-						// light
 						controls
 						onStart={() => this.setShowing()}
-						onEnded={() => this.autoplay()}
+						onEnded={() => this.autoplay(this.state.index)}
 						loop={
 							this.state.resources[this.state.index].loop == 1 ? true : false
 						}
@@ -101,6 +106,14 @@ class Slider extends Component {
 			this.setState({ index: 0, showing: true });
 		} else {
 			this.setState({ index: this.state.index + 1, showing: true });
+		}
+	};
+
+	handleKeyDown = e => {
+		if (e.key === 'ArrowLeft') {
+			this.goLeft();
+		} else if (e.key === 'ArrowRight') {
+			this.goRight();
 		}
 	};
 

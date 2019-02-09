@@ -6,6 +6,7 @@ import * as http from '../../../services/httpService';
 import { Icon, Loader } from 'semantic-ui-react';
 import ReactSwipeEvents from 'react-swipe-events';
 import Logo from '../../hoc/Logo';
+import { timeout } from 'q';
 
 class Slider extends Component {
 	state = {
@@ -30,17 +31,27 @@ class Slider extends Component {
 		this.setState({ showing: false });
 	};
 
+	autoplay = () => {
+		if (this.state.album.autoplay === 1) {
+			this.goRight();
+		}
+	};
+
 	renderFile = () => {
 		if (this.state.resources.length > 0) {
 			if (
 				file.types.image.includes(this.state.resources[this.state.index].type)
 			) {
 				console.log('img');
+
 				return (
 					<img
 						src={this.getSrc(this.state.resources[this.state.index].location)}
 						className="file"
-						onLoad={() => this.setShowing()}
+						onLoad={() => {
+							this.setShowing();
+							setTimeout(() => this.autoplay(), 5000);
+						}}
 					/>
 				);
 			}
@@ -59,6 +70,7 @@ class Slider extends Component {
 						// light
 						controls
 						onStart={() => this.setShowing()}
+						onEnded={() => this.autoplay()}
 						loop={
 							this.state.resources[this.state.index].loop == 1 ? true : false
 						}

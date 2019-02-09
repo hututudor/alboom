@@ -60,7 +60,7 @@
 		}
 	}
 
-	.loader {
+	.loader-c {
 		z-index: 100000 !important;
 	}
 }
@@ -68,6 +68,18 @@
 .file {
 	// max-height: 100vh;
 	// max-width: 100%;
+	z-index: 100 !important;
+	height: 100vh !important;
+	width: auto !important;
+	position: relative;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, 0%);
+	padding: 0 !important;
+	margin: 0 !important;
+}
+
+.vid {
 	z-index: 100 !important;
 	height: 100vh !important;
 	width: auto !important;

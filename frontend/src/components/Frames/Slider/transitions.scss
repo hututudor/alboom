@@ -1,0 +1,7 @@
+.slideUp-appear {
+	opacity: 0 !important;
+}
+.slideUp-appear.slideUp-appear-active {
+	opacity: 1 !important;
+	transition: all 0.5s;
+}

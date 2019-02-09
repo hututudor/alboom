@@ -6,7 +6,8 @@ import * as http from '../../../services/httpService';
 import { Icon, Loader } from 'semantic-ui-react';
 import ReactSwipeEvents from 'react-swipe-events';
 import Logo from '../../hoc/Logo';
-import { timeout } from 'q';
+import { CSSTransition } from 'react-transition-group';
+import './transitions.scss';
 
 class Slider extends Component {
 	state = {
@@ -44,46 +45,61 @@ class Slider extends Component {
 	};
 
 	renderFile = () => {
+		let index = this.state.index;
 		if (this.state.resources.length > 0) {
-			if (
-				file.types.image.includes(this.state.resources[this.state.index].type)
-			) {
+			if (file.types.image.includes(this.state.resources[index].type)) {
 				console.log('img');
 
 				return (
-					<img
-						src={this.getSrc(this.state.resources[this.state.index].location)}
-						className="file"
-						onLoad={() => {
-							this.setShowing();
-							setTimeout(() => this.autoplay(this.state.index), 5000);
-						}}
-					/>
+					<CSSTransition
+						in={true}
+						appear={true}
+						timeout={500}
+						key={this.state.index}
+						classNames={this.state.resources[index].transition}
+					>
+						<img
+							src={this.getSrc(this.state.resources[index].location)}
+							className={
+								this.state.album &&
+								this.state.album.controls === 1 &&
+								this.state.album.autoplay === 0
+									? 'vid'
+									: 'file'
+							}
+							onLoad={() => {
+								this.setShowing();
+								setTimeout(() => this.autoplay(index), 5000);
+							}}
+						/>
+					</CSSTransition>
 				);
 			}
 
 			if (
-				file.types.video.includes(
-					this.state.resources[this.state.index].type
-				) ||
-				file.types.audio.includes(this.state.resources[this.state.index].type)
+				file.types.video.includes(this.state.resources[index].type) ||
+				file.types.audio.includes(this.state.resources[index].type)
 			) {
 				console.log('vid');
 				return (
-					<ReactPlayer
-						url={this.getSrc(this.state.resources[this.state.index].location)}
-						playing
-						controls
-						onStart={() => this.setShowing()}
-						onEnded={() => this.autoplay(this.state.index)}
-						loop={
-							this.state.resources[this.state.index].loop == 1 ? true : false
-						}
-						muted={
-							this.state.resources[this.state.index].mute == 1 ? true : false
-						}
-						className="file"
-					/>
+					<CSSTransition
+						in={true}
+						appear={true}
+						timeout={500}
+						key={this.state.index}
+						classNames={this.state.resources[index].transition}
+					>
+						<ReactPlayer
+							url={this.getSrc(this.state.resources[index].location)}
+							playing
+							controls
+							onStart={() => this.setShowing()}
+							onEnded={() => this.autoplay(index)}
+							loop={this.state.resources[index].loop == 1 ? true : false}
+							muted={this.state.resources[index].mute == 1 ? true : false}
+							className="vid"
+						/>
+					</CSSTransition>
 				);
 			}
 		}
@@ -124,7 +140,9 @@ class Slider extends Component {
 				onSwipedRight={() => this.goRight()}
 			>
 				<div className="frame_file">
-					{this.state.album && this.state.album.controls == 1 ? (
+					{this.state.album &&
+					this.state.album.controls === 1 &&
+					this.state.album.autoplay === 0 ? (
 						<React.Fragment>
 							<Icon
 								name="angle left"
@@ -153,7 +171,7 @@ class Slider extends Component {
 					{this.renderFile()}
 					<Loader
 						size="large"
-						className="loader"
+						className="loader-c"
 						color="white"
 						active={this.state.showing}
 					>

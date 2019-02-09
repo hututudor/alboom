@@ -130,6 +130,10 @@ class Slider extends Component {
       this.goLeft();
     } else if (e.key === 'ArrowRight') {
       this.goRight();
+    } else if (e.key === 'ArrowUp') {
+      this.goRight();
+    } else if (e.key === 'ArrowDown') {
+      this.goLeft();
     }
   };
 

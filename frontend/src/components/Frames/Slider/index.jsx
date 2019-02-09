@@ -4,11 +4,14 @@ import * as pub from '../../../services/publicService';
 import * as file from '../../../services/fileTypesService';
 import * as http from '../../../services/httpService';
 import { Icon, Loader } from 'semantic-ui-react';
+import ReactSwipeEvents from 'react-swipe-events';
+import Logo from '../../hoc/Logo';
 
 class Slider extends Component {
 	state = {
 		index: 0,
-		resources: []
+		resources: [],
+		showing: false
 	};
 
 	componentDidMount() {
@@ -21,6 +24,10 @@ class Slider extends Component {
 		});
 	}
 
+	setShowing = () => {
+		this.setState({ showing: false });
+	};
+
 	renderFile = () => {
 		if (this.state.resources.length > 0) {
 			if (
@@ -31,6 +38,7 @@ class Slider extends Component {
 					<img
 						src={this.getSrc(this.state.resources[this.state.index].location)}
 						className="file"
+						onLoad={() => this.setShowing()}
 					/>
 				);
 			}
@@ -46,7 +54,9 @@ class Slider extends Component {
 					<ReactPlayer
 						url={this.getSrc(this.state.resources[this.state.index].location)}
 						playing
+						// light
 						controls
+						onStart={() => this.setShowing()}
 						loop={
 							this.state.resources[this.state.index].loop == 1 ? true : false
 						}
@@ -66,41 +76,58 @@ class Slider extends Component {
 
 	goRight = () => {
 		if (this.state.index <= 0) {
-			this.setState({ index: this.state.resources.length - 1 });
+			this.setState({ index: this.state.resources.length - 1, showing: true });
 		} else {
-			this.setState({ index: this.state.index - 1 });
+			this.setState({ index: this.state.index - 1, showing: true });
 		}
 	};
 
 	goLeft = () => {
 		if (this.state.index >= this.state.resources.length - 1) {
-			this.setState({ index: 0 });
+			this.setState({ index: 0, showing: true });
 		} else {
-			this.setState({ index: this.state.index + 1 });
+			this.setState({ index: this.state.index + 1, showing: true });
 		}
 	};
 
 	render() {
 		return (
-			<div className="frame_file">
-				<Icon
-					name="angle left"
-					size="huge"
-					fitted
-					onClick={() => this.goLeft()}
-				/>
-				<Icon
-					name="angle right"
-					size="huge"
-					fitted
-					onClick={() => this.goRight()}
-				/>
-				<i>
-					{this.state.index + 1} / {this.state.resources.length}
-				</i>
-				{this.renderFile()}
-				<Loader size="large" className="loader" color="white" active />
-			</div>
+			<ReactSwipeEvents
+				onSwipedLeft={() => this.goLeft()}
+				onSwipedRight={() => this.goRight()}
+			>
+				<div className="frame_file">
+					<Icon
+						name="angle left"
+						size={this.props.match.params.type === 's' ? 'big' : 'huge'}
+						fitted
+						onClick={() => this.goLeft()}
+					/>
+					<Icon
+						name="angle right"
+						size={this.props.match.params.type === 's' ? 'big' : 'huge'}
+						fitted
+						onClick={() => this.goRight()}
+					/>
+					<i
+						className={
+							this.props.match.params.type === 's' ? 'small-ic' : 'big-ic'
+						}
+					>
+						{this.state.resources.length - this.state.index} /{' '}
+						{this.state.resources.length}
+					</i>
+					{this.renderFile()}
+					<Loader
+						size="large"
+						className="loader"
+						color="white"
+						active={this.state.showing}
+					>
+						<Logo />
+					</Loader>
+				</div>
+			</ReactSwipeEvents>
 		);
 	}
 }

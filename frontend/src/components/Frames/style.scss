@@ -20,7 +20,6 @@
 		color: white;
 		background: black;
 		margin: 0 !important;
-		padding: 0 !important;
 		text-align: center;
 		padding: auto;
 		position: fixed;
@@ -50,10 +49,19 @@
 			left: 50%;
 			transform: translate(-50%) !important;
 		}
+
+		&.small-ic {
+			font-size: 1em;
+		}
+
+		&.big-ic {
+			font-size: 2em;
+			padding: 10px 10px !important;
+		}
 	}
 
 	.loader {
-		z-index: -3 !important;
+		z-index: 100000 !important;
 	}
 }
 
@@ -61,8 +69,8 @@
 	// max-height: 100vh;
 	// max-width: 100%;
 	z-index: 100 !important;
-	height: 100vh;
-	width: auto;
+	height: 100vh !important;
+	width: auto !important;
 	position: relative;
 	top: 50%;
 	left: 50%;

@@ -10,7 +10,7 @@ class Frame extends Component {
 			<React.Fragment>
 				<Switch>
 					<Route path="/frame/file/:uuid" exact component={File} />
-					<Route path="/frame/slider/:uuid" exact component={Slider} />
+					<Route path="/frame/slider/:uuid/:type" exact component={Slider} />
 					<Redirect to="/404" />
 				</Switch>
 			</React.Fragment>

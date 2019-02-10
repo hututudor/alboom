@@ -56,68 +56,71 @@ class Resource extends Component {
 
 	render() {
 		return (
-			<Card href={imageUrl + '/' + this.props.data.location} target="_blank">
+			<Card
+				href={imageUrl + '/' + this.props.data.location}
+				style={{ overflowX: 'hidden' }}
+				target="_blank"
+			>
 				{this.getSrc()}
 				<Card.Content>
 					<Card.Header>
-						{this.props.data.name}.{this.props.data.type}
+						<div title={`${this.props.data.name}.${this.props.data.type}`}>
+							{this.props.data.name}.{this.props.data.type}
+						</div>
 					</Card.Header>
 					<Card.Meta>{moment(this.props.data.created_at).calendar()}</Card.Meta>
-					<Card.Content className="centered-buttons">
-						<Popup
-							trigger={
-								<Button color="green" onClick={event => this.shareFile(event)}>
-									<Icon name="share square" />
-								</Button>
-							}
-						>
-							<Popup.Header>
-								<Lang>dashboard.popups.share</Lang>
-							</Popup.Header>
-						</Popup>{' '}
-						<Popup
-							trigger={
-								<Button
-									color="blue"
-									onClick={event => this.downloadFile(event)}
-								>
-									<Icon name="download" />
-								</Button>
-							}
-						>
-							<Popup.Header>
-								<Lang>dashboard.popups.download</Lang>
-							</Popup.Header>
-						</Popup>{' '}
-						<Popup
-							trigger={
-								<Button
-									color="yellow"
-									onClick={event => this.openEditModal(event)}
-								>
-									<Icon name="cog" />
-								</Button>
-							}
-						>
-							<Popup.Header>
-								<Lang>dashboard.popups.edit</Lang>
-							</Popup.Header>
-						</Popup>{' '}
-						<Popup
-							trigger={
-								<Button
-									color="red"
-									onClick={event => this.openDeleteModal(event)}
-								>
-									<Icon name="remove" />
-								</Button>
-							}
-						>
-							<Popup.Header>
-								<Lang>dashboard.popups.delete</Lang>
-							</Popup.Header>
-						</Popup>
-					</Card.Content>
+				</Card.Content>
+				<Card.Content className="centered-buttons" extra>
+					<Popup
+						trigger={
+							<Button color="green" onClick={event => this.shareFile(event)}>
+								<Icon name="share square" />
+							</Button>
+						}
+					>
+						<Popup.Header>
+							<Lang>dashboard.popups.share</Lang>
+						</Popup.Header>
+					</Popup>{' '}
+					<Popup
+						trigger={
+							<Button color="blue" onClick={event => this.downloadFile(event)}>
+								<Icon name="download" />
+							</Button>
+						}
+					>
+						<Popup.Header>
+							<Lang>dashboard.popups.download</Lang>
+						</Popup.Header>
+					</Popup>{' '}
+					<Popup
+						trigger={
+							<Button
+								color="yellow"
+								onClick={event => this.openEditModal(event)}
+							>
+								<Icon name="cog" />
+							</Button>
+						}
+					>
+						<Popup.Header>
+							<Lang>dashboard.popups.edit</Lang>
+						</Popup.Header>
+					</Popup>{' '}
+					<Popup
+						trigger={
+							<Button
+								color="red"
+								onClick={event => this.openDeleteModal(event)}
+							>
+								<Icon name="remove" />
+							</Button>
+						}
+					>
+						<Popup.Header>
+							<Lang>dashboard.popups.delete</Lang>
+						</Popup.Header>
+					</Popup>
 				</Card.Content>
 			</Card>
 		);

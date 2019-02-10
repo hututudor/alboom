@@ -15,7 +15,7 @@ class AddAlbumModalForm extends FormClass {
 	state = {
 		data: {
 			name: '',
-			color: '',
+			color: color.colors[0],
 			public: true,
 			controls: true,
 			autoplay: false

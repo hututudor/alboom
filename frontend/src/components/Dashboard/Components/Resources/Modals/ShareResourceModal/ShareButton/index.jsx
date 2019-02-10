@@ -7,7 +7,7 @@ class ShareButton extends Component {
 		return (
 			<Tab.Pane>
 				<kbd>
-					{`<a href="${http.url}frame/file/${
+					{`<a href="${http.baseUrl}frame/file/${
 						this.props.data.uuid
 					}">AlBoom Resource</a>`}
 				</kbd>

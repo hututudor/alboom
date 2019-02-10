@@ -29,6 +29,7 @@ class Album extends Component {
 				color={this.props.color}
 				as={Link}
 				to={'/dashboard/albums/' + this.props.data.uuid}
+				style={{ overflowX: 'hidden' }}
 			>
 				<Card.Content>
 					<Card.Header>{this.props.data.name}</Card.Header>

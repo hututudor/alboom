@@ -9,7 +9,7 @@ class ShareFrame extends Component {
 				<kbd>
 					{`<iframe `}
 					<br />
-					{`src="${http.url}frame/slider/${this.props.data.uuid}/s"`}
+					{`src="${http.baseUrl}frame/slider/${this.props.data.uuid}/s"`}
 					<br />
 					{'width="640px" height="360px>'}
 					<br />

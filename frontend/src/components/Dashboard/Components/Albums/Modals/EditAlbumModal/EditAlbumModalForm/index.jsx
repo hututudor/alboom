@@ -106,7 +106,6 @@ class EditAlbumModalForm extends FormClass {
 									value={this.state.data.color}
 									className={this.getClass('color')}
 								>
-									<option value="" />
 									{color.colors.map((color, index) => (
 										<option key={index} value={color}>
 											{color.charAt(0).toUpperCase() + color.slice(1)}

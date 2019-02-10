@@ -114,7 +114,6 @@ class EditResourceModalForm extends FormClass {
 									value={this.state.data.transition}
 									className={this.getClass('transition')}
 								>
-									<option value="" />
 									{transition.transitions.map((transition, index) => (
 										<option key={index} value={transition}>
 											{transition.charAt(0).toUpperCase() + transition.slice(1)}

@@ -89,7 +89,6 @@ class BasicForm extends FormClass {
 							value={this.state.data.theme}
 							className={this.getClass('theme')}
 						>
-							<option value="" />
 							{color.colors.map((color, index) => (
 								<option key={index} value={color}>
 									{color.charAt(0).toUpperCase() + color.slice(1)}

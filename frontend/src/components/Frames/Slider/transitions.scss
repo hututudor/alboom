@@ -3,99 +3,197 @@ $curve: ease-out;
 $bounce-curve: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
 .zoomIn-enter {
-  height: 200vh !important;
+	height: 200vh !important;
 }
 .zoomIn-enter-active {
-  height: 100vh !important;
-  transition: all $time $curve;
+	height: 100vh !important;
+	transition: all $time $curve;
+}
+
+.zoomIn-appear {
+	height: 200vh !important;
+}
+.zoomIn-appear-active {
+	height: 100vh !important;
+	transition: all $time $curve;
 }
 
 .zoomOut-enter {
-  height: 50vh !important;
+	height: 50vh !important;
 }
 
 .zoomOut-enter-active {
-  height: 100vh !important;
-  transition: all $time $curve;
+	height: 100vh !important;
+	transition: all $time $curve;
+}
+
+.zoomOut-appear {
+	height: 50vh !important;
+}
+
+.zoomOut-appear-active {
+	height: 100vh !important;
+	transition: all $time $curve;
 }
 
 .slideUp-enter {
-  margin-top: 100vh !important;
+	margin-top: 100vh !important;
 }
 
 .slideUp-enter-active {
-  margin-top: 0 !important;
-  transition: all $time $curve;
+	margin-top: 0 !important;
+	transition: all $time $curve;
+}
+
+.slideUp-appear {
+	margin-top: 100vh !important;
+}
+
+.slideUp-appear-active {
+	margin-top: 0 !important;
+	transition: all $time $curve;
 }
 
 .slideDown-enter {
-  margin-top: -100vh !important;
+	margin-top: -100vh !important;
 }
 
 .slideDown-enter-active {
-  margin-top: 0 !important;
-  transition: all $time $curve;
+	margin-top: 0 !important;
+	transition: all $time $curve;
+}
+
+.slideDown-appear {
+	margin-top: -100vh !important;
+}
+
+.slideDown-appear-active {
+	margin-top: 0 !important;
+	transition: all $time $curve;
 }
 
 .slideLeft-enter {
-  margin-left: 100vh !important;
+	margin-left: 100vh !important;
 }
 
 .slideLeft-enter-active {
-  margin-left: 0 !important;
-  transition: all $time $curve;
+	margin-left: 0 !important;
+	transition: all $time $curve;
+}
+
+.slideLeft-appear {
+	margin-left: 100vh !important;
+}
+
+.slideLeft-appear-active {
+	margin-left: 0 !important;
+	transition: all $time $curve;
 }
 
 .slideRight-enter {
-  margin-left: -100vh !important;
+	margin-left: -100vh !important;
 }
 
 .slideRight-enter-active {
-  margin-left: 0 !important;
-  transition: all $time $curve;
+	margin-left: 0 !important;
+	transition: all $time $curve;
+}
+
+.slideRight-appear {
+	margin-left: -100vh !important;
+}
+
+.slideRight-appear-active {
+	margin-left: 0 !important;
+	transition: all $time $curve;
 }
 
 .bounceUp-enter {
-  margin-top: 100vh !important;
+	margin-top: 100vh !important;
 }
 
 .bounceUp-enter-active {
-  margin-top: 0 !important;
-  transition: all $time $bounce-curve;
+	margin-top: 0 !important;
+	transition: all $time $bounce-curve;
+}
+
+.bounceUp-appear {
+	margin-top: 100vh !important;
+}
+
+.bounceUp-appear-active {
+	margin-top: 0 !important;
+	transition: all $time $bounce-curve;
 }
 
 .bounceDown-enter {
-  margin-top: -100vh !important;
+	margin-top: -100vh !important;
 }
 
 .bounceDown-enter-active {
-  margin-top: 0 !important;
-  transition: all $time $bounce-curve;
+	margin-top: 0 !important;
+	transition: all $time $bounce-curve;
+}
+
+.bounceDown-appear {
+	margin-top: -100vh !important;
+}
+
+.bounceDown-appear-active {
+	margin-top: 0 !important;
+	transition: all $time $bounce-curve;
 }
 
 .bounceLeft-enter {
-  margin-left: 100vh !important;
+	margin-left: 100vh !important;
 }
 
 .bounceLeft-enter-active {
-  margin-left: 0 !important;
-  transition: all $time $bounce-curve;
+	margin-left: 0 !important;
+	transition: all $time $bounce-curve;
+}
+
+.bounceLeft-appear {
+	margin-left: 100vh !important;
+}
+
+.bounceLeft-appear-active {
+	margin-left: 0 !important;
+	transition: all $time $bounce-curve;
 }
 
 .bounceRight-enter {
-  margin-left: -100vh !important;
+	margin-left: -100vh !important;
 }
 
 .bounceRight-enter-active {
-  margin-left: 0 !important;
-  transition: all $time $bounce-curve;
+	margin-left: 0 !important;
+	transition: all $time $bounce-curve;
+}
+
+.bounceRight-appear {
+	margin-left: -100vh !important;
+}
+
+.bounceRight-appear-active {
+	margin-left: 0 !important;
+	transition: all $time $bounce-curve;
 }
 
 .fadeIn-enter {
-  opacity: 0 !important;
+	opacity: 0 !important;
 }
 
 .fadeIn-enter-active {
-  opacity: 1 !important;
-  transition: all $time $curve;
+	opacity: 1 !important;
+	transition: all $time $curve;
+}
+
+.fadeIn-appear {
+	opacity: 0 !important;
+}
+
+.fadeIn-appear-active {
+	opacity: 1 !important;
+	transition: all $time $curve;
 }

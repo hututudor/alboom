@@ -55,9 +55,9 @@
 				"all": {
 					"name": "Name",
 					"color": "Color",
-					"public": "Make this album public (can be accessed from the CLI)",
+					"public": "Make this album public",
 					"controls": "Enable controls",
-					"autoplay": "The slider needs to be clicked to be played",
+					"autoplay": "Autoplay",
 					"settings": "Slider settings"
 				},
 				"delete": {
@@ -92,7 +92,7 @@
 				"all": {
 					"name": "Name",
 					"transition": "Transition type",
-					"mute": "Starts muted by default",
+					"mute": "Starts muted",
 					"muted": "Cannot be unmuted",
 					"loop": "Loop",
 					"settings": "Settings for movie or audio files"

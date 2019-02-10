@@ -162,7 +162,7 @@ class EditResourceModalForm extends FormClass {
 									<br />
 									<br />
 
-									<div className="ui toggle checkbox">
+									{/* <div className="ui toggle checkbox">
 										<input
 											type="checkbox"
 											name="muted"
@@ -173,7 +173,7 @@ class EditResourceModalForm extends FormClass {
 										<label>
 											<Lang>dashboard.resources.modals.all.muted</Lang>
 										</label>
-									</div>
+									</div> */}
 								</React.Fragment>
 							)}
 						</Form>

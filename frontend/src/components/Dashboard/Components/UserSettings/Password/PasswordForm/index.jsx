@@ -88,7 +88,7 @@ class PasswordForm extends FormClass {
 						positive
 						onClick={event => this.handleSubmit(event)}
 					>
-						<Icon name="cloud upload" />
+						<Icon name="save" />
 						<Lang>actions.update</Lang>
 					</Button>
 				</div>

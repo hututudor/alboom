@@ -26,7 +26,7 @@ class File extends Component {
 				return (
 					<img
 						src={this.getSrc(this.state.resource.location)}
-						className="file"
+						className="vid"
 					/>
 				);
 			}

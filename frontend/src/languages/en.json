@@ -63,6 +63,15 @@
 				"delete": {
 					"title": "Delete album",
 					"message": "Are you sure you want to do this. This action is irreversible."
+				},
+				"share": {
+					"title": "Share album",
+					"frame": {
+						"title": "Share as iframe"
+					},
+					"button": {
+						"title": "Share as link"
+					}
 				}
 			}
 		},
@@ -93,12 +102,12 @@
 					"message": "Are you sure you want to do this. This action is irreversible."
 				},
 				"share": {
-					"title": "Export resource",
+					"title": "Share resource",
 					"frame": {
 						"title": "Share as iframe"
 					},
 					"button": {
-						"title": "Share as clickable button"
+						"title": "Share as link"
 					}
 				}
 			}

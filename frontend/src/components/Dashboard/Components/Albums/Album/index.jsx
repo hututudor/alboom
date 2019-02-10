@@ -18,6 +18,11 @@ class Album extends Component {
 		this.props.openEditModal();
 	};
 
+	openShareModal = event => {
+		event.preventDefault();
+		this.props.openShareModal();
+	};
+
 	render() {
 		return (
 			<Card
@@ -29,6 +34,20 @@ class Album extends Component {
 					<Card.Header>{this.props.data.name}</Card.Header>
 					<Card.Meta>{moment(this.props.data.created_at).calendar()}</Card.Meta>
 					<Card.Content className="centered-buttons">
+						<Popup
+							trigger={
+								<Button
+									color="green"
+									onClick={event => this.openShareModal(event)}
+								>
+									<Icon name="share square" />
+								</Button>
+							}
+						>
+							<Popup.Header>
+								<Lang>dashboard.popups.share</Lang>
+							</Popup.Header>
+						</Popup>{' '}
 						<Popup
 							trigger={
 								<Button
@@ -75,6 +94,11 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 		openEditModal: () => {
 			dispatch(
 				actions.modals.toggleModal('editAlbums', true, { ...ownProps.data })
+			);
+		},
+		openShareModal: () => {
+			dispatch(
+				actions.modals.toggleModal('shareAlbums', true, { ...ownProps.data })
 			);
 		}
 	};

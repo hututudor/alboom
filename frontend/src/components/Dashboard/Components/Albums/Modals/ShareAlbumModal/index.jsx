@@ -9,14 +9,14 @@ import * as lang from '../../../../../../services/langService';
 import ShareFrame from './ShareFrame';
 import ShareButton from './ShareButton';
 
-class ShareResourceModal extends Component {
+class ShareAlbumModal extends Component {
 	panes = [
 		{
-			menuItem: lang.get('dashboard.resources.modals.share.frame.title'),
+			menuItem: lang.get('dashboard.albums.modals.share.frame.title'),
 			render: () => <ShareFrame data={this.props.options} />
 		},
 		{
-			menuItem: lang.get('dashboard.resources.modals.share.button.title'),
+			menuItem: lang.get('dashboard.albums.modals.share.button.title'),
 			render: () => <ShareButton data={this.props.options} />
 		}
 	];
@@ -33,7 +33,7 @@ class ShareResourceModal extends Component {
 				size="massive"
 			>
 				<Modal.Header>
-					<Lang>dashboard.resources.modals.share.title</Lang>
+					<Lang>dashboard.albums.modals.share.title</Lang>
 				</Modal.Header>
 				<Modal.Content>
 					<Tab panes={this.panes} menu={{ secondary: true, pointing: true }} />
@@ -56,19 +56,18 @@ class ShareResourceModal extends Component {
 
 const mapStateToProps = state => {
 	return {
-		open: state.modals.shareResource,
-		options: state.modals.shareResourceOptions
+		open: state.modals.shareAlbums,
+		options: state.modals.shareAlbumsOptions
 	};
 };
 
 const mapDispatchToProps = dispatch => {
 	return {
-		closeModal: () =>
-			dispatch(actions.modals.toggleModal('shareResource', false))
+		closeModal: () => dispatch(actions.modals.toggleModal('shareAlbums', false))
 	};
 };
 
 export default connect(
 	mapStateToProps,
 	mapDispatchToProps
-)(ShareResourceModal);
+)(ShareAlbumModal);

@@ -9,6 +9,7 @@ import AddAlbumModal from './Modals/AddAlbumModal';
 import DeleteAlbumModal from './Modals/DeleteAlbumModal';
 import EditAlbumModal from './Modals/EditAlbumModal';
 import Spinner from '../../../hoc/Spinner';
+import ShareAlbumModal from './Modals/ShareAlbumModal';
 
 class Albums extends Component {
 	state = {
@@ -39,6 +40,7 @@ class Albums extends Component {
 						<EditAlbumModal />
 						<DeleteAlbumModal />
 						<AddAlbumModal />
+						<ShareAlbumModal />
 						{this.props.albums.map((album, index) => (
 							<Album key={index} data={album} color={album.color} />
 						))}

@@ -42,7 +42,7 @@ class File extends Component {
 						controls
 						loop={this.state.resource.loop == 1 ? true : false}
 						muted={this.state.resource.muted == 1 ? true : false}
-						className="file"
+						className="vid"
 					/>
 				);
 			}

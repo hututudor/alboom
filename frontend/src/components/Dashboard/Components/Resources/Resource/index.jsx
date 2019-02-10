@@ -49,6 +49,11 @@ class Resource extends Component {
 		window.location.href = imageUrl + '/download/' + this.props.data.location;
 	};
 
+	shareFile = event => {
+		event.preventDefault();
+		this.props.openShareModal();
+	};
+
 	render() {
 		return (
 			<Card href={imageUrl + '/' + this.props.data.location} target="_blank">
@@ -59,6 +64,17 @@ class Resource extends Component {
 					</Card.Header>
 					<Card.Meta>{moment(this.props.data.created_at).calendar()}</Card.Meta>
 					<Card.Content className="centered-buttons">
+						<Popup
+							trigger={
+								<Button color="green" onClick={event => this.shareFile(event)}>
+									<Icon name="share square" />
+								</Button>
+							}
+						>
+							<Popup.Header>
+								<Lang>dashboard.popups.share</Lang>
+							</Popup.Header>
+						</Popup>{' '}
 						<Popup
 							trigger={
 								<Button
@@ -119,6 +135,11 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 		openEditModal: () => {
 			dispatch(
 				actions.modals.toggleModal('editResources', true, { ...ownProps.data })
+			);
+		},
+		openShareModal: () => {
+			dispatch(
+				actions.modals.toggleModal('shareResource', true, { ...ownProps.data })
 			);
 		}
 	};

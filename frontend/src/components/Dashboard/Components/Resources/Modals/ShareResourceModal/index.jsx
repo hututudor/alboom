@@ -1,12 +1,26 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import actions from '../../../../../../redux/actions';
-import { Image, Modal, Header, Button, Icon } from 'semantic-ui-react';
+import { Image, Modal, Header, Button, Icon, Tab } from 'semantic-ui-react';
 import Lang from '../../../../../hoc/Lang/index';
 import * as resources from '../../../../../../services/resourcesService';
 import * as notification from '../../../../../../services/notificationService';
+import * as lang from '../../../../../../services/langService';
+import ShareFrame from './ShareFrame';
+import ShareButton from './ShareButton';
 
-class DeleteAlbumModal extends Component {
+class ShareResourceModal extends Component {
+	panes = [
+		{
+			menuItem: lang.get('dashboard.resources.modals.share.frame.title'),
+			render: () => <ShareFrame data={this.props.options} />
+		},
+		{
+			menuItem: lang.get('dashboard.resources.modals.share.button.title'),
+			render: () => <ShareButton data={this.props.options} />
+		}
+	];
+
 	closeModal = () => {
 		this.props.closeModal();
 	};
@@ -32,32 +46,23 @@ class DeleteAlbumModal extends Component {
 			<Modal
 				open={this.props.open}
 				onClose={() => this.closeModal()}
-				size="tiny"
+				size="massive"
 			>
 				<Modal.Header>
-					<Lang>dashboard.albums.modals.delete.title</Lang>
+					<Lang>dashboard.resources.modals.share.title</Lang>
 				</Modal.Header>
 				<Modal.Content>
-					<Lang>dashboard.albums.modals.delete.message</Lang>
+					<Tab panes={this.panes} menu={{ secondary: true, pointing: true }} />
 				</Modal.Content>
 				<Modal.Actions>
-					<Button
-						labelPosition="left"
-						icon
-						negative
-						onClick={() => this.closeModal()}
-					>
-						<Icon name="remove" />
-						<Lang>actions.no</Lang>
-					</Button>
 					<Button
 						labelPosition="right"
 						icon
 						positive
-						onClick={() => this.deleteResource()}
+						onClick={() => this.closeModal()}
 					>
-						<Icon name="checkmark" />
-						<Lang>actions.yes</Lang>
+						<Icon name="remove" />
+						<Lang>actions.close</Lang>
 					</Button>
 				</Modal.Actions>
 			</Modal>
@@ -67,20 +72,19 @@ class DeleteAlbumModal extends Component {
 
 const mapStateToProps = state => {
 	return {
-		open: state.modals.deleteResources,
-		options: state.modals.deleteResourcesOptions
+		open: state.modals.shareResource,
+		options: state.modals.shareResourceOptions
 	};
 };
 
 const mapDispatchToProps = dispatch => {
 	return {
 		closeModal: () =>
-			dispatch(actions.modals.toggleModal('deleteResources', false)),
-		deleteResource: uuid => dispatch(actions.resources.deleteResource(uuid))
+			dispatch(actions.modals.toggleModal('shareResource', false))
 	};
 };
 
 export default connect(
 	mapStateToProps,
 	mapDispatchToProps
-)(DeleteAlbumModal);
+)(ShareResourceModal);

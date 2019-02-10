@@ -25,7 +25,8 @@
 		"popups": {
 			"delete": "Delete",
 			"edit": "Edit",
-			"download": "Download"
+			"download": "Download",
+			"share": "Share"
 		},
 		"titles": {
 			"dashboard": "Dashboard",
@@ -90,6 +91,15 @@
 				"delete": {
 					"title": "Delete resource",
 					"message": "Are you sure you want to do this. This action is irreversible."
+				},
+				"share": {
+					"title": "Export resource",
+					"frame": {
+						"title": "Share as iframe"
+					},
+					"button": {
+						"title": "Share as clickable button"
+					}
 				}
 			}
 		},
@@ -116,6 +126,7 @@
 		"add": "Add",
 		"update": "Save",
 		"cancel": "Cancel",
+		"close": "Close",
 		"yes": "Yes",
 		"no": "No"
 	},

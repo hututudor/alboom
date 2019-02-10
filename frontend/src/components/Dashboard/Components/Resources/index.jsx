@@ -11,6 +11,7 @@ import AddResourceModal from './Modals/AddResourceModal';
 import DeleteResourceModal from './Modals/DeleteResourceModal';
 import EditResourceModal from './Modals/EditResourceModal';
 import Spinner from '../../../hoc/Spinner';
+import ShareResourceModal from './Modals/ShareResourceModal';
 
 class Resources extends Component {
 	state = {
@@ -62,9 +63,7 @@ class Resources extends Component {
 						<AddResourceModal uuid={this.props.match.params.uuid} />
 						<DeleteResourceModal />
 						<EditResourceModal />
-						{/* <EditAlbumModal />
-						<DeleteAlbumModal /> */}
-						{/* <AddAlbumModal /> */}
+						<ShareResourceModal />
 						{this.props.resources.map((resource, index) => (
 							<Resource key={index} data={resource} />
 						))}

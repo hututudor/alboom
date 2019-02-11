@@ -25,7 +25,13 @@ class CLIController extends Controller
     }
 
     public function searchAlbums(Request $request){
-        $albums = Album::where('name', 'LIKE', '%' . $request->name . '%')->get();
+        $validator = Validator::make($request->all(), [
+            'name' => ['required', 'string', 'max:255']
+        ]);
+        if($validator->fails() ) {
+            return response()->json($validator->errors(), 400);
+        }
+        $albums = Album::where('name', 'LIKE', '%' . $request->name . '%')->where('public', '1')->get();
         return response(compact('albums'),200);
     }
 

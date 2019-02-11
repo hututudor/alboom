@@ -6,6 +6,10 @@ def getAlbum(id):
   req = requests.get('http://localhost:8000/api/cli/albums/' + id)
   return req
 
+def getResource(id): 
+  req = requests.get('http://localhost:8000/api/cli/resources/' + id)
+  return req
+
 # the cli commands
 @click.group()
 def cli():
@@ -35,6 +39,27 @@ def albums(id, info):
         click.echo('    - mute: ' + str((res['mute'] == 1) and 'true' or 'false'))
   else:
     click.echo('The album was not found.')
+
+
+@cli.command()
+@click.argument('id')
+@click.option('--info', '-n', help="Show resource info", is_flag=True)
+def resources(id, info):
+  res = getResource(id)
+  if res.status_code == 200:
+    res = res.json()['resource']
+    if info:
+      click.echo('Resource \'' + res['name'] + '.' + res['type'] + '\':')
+      click.echo('- id: ' + str(res['uuid']))
+      click.echo('- name: ' + str(res['name']))
+      click.echo('- type: ' + str(res['type']))
+      click.echo('- transition: ' + str(res['transition']))
+      click.echo('- loop: ' + str((res['loop'] == 1) and 'true' or 'false'))
+      click.echo('- mute: ' + str((res['mute'] == 1) and 'true' or 'false'))
+
+  else: 
+    click.echo('The resource was not found')
+
 
 if __name__ == "__main__":
   cli()

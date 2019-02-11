@@ -19,6 +19,9 @@ Route::post('login', 'AuthController@authenticate');
 Route::get('public/resources/{uuid}', 'PublicController@getResource');
 Route::get('public/albums/{uuid}', 'PublicController@getAlbum');
 
+Route::get('cli/albums/{uuid}', 'CLIController@getAlbum');
+Route::get('cli/resources/{uuid}', 'CLIController@getResource');
+Route::post('cli/albums', 'CLIController@searchAlbum');
 // middleware for auth-only routes
 Route::group(['middleware' => ['jwt.verify']], function() {
     Route::get('user', 'AuthController@getAuthenticatedUser');

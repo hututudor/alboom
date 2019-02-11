@@ -24,10 +24,9 @@ class CLIController extends Controller
         return response()->json(compact('album'), 200);
     }
 
-    public function searchAlbum(Request $request){
-        $album = Album::where('name', 'LIKE', $request->name);
-        //return response(compact('album'),200);
-        return response(compact('request'), 200);
+    public function searchAlbums(Request $request){
+        $albums = Album::where('name', 'LIKE', '%' . $request->name . '%')->get();
+        return response(compact('albums'),200);
     }
 
     public function getResource($uuid){

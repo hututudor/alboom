@@ -5,13 +5,12 @@ namespace App\Http\Controllers;
 use App\Album;
 use App\Resource;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class CLIController extends Controller
 {
     public function getAlbum($uuid){
-
-        $album = Album::where('uuid', $uuid)->with('resources')->first();
-
+        $album = Album::with('user')->where('uuid', $uuid)->with('resources')->first();
 
         if(!$album){
             return response()->json('', 404);
@@ -31,7 +30,7 @@ class CLIController extends Controller
         if($validator->fails() ) {
             return response()->json($validator->errors(), 400);
         }
-        $albums = Album::where('name', 'LIKE', '%' . $request->name . '%')->where('public', '1')->get();
+        $albums = Album::with('user')->where('name', 'LIKE', '%' . $request->name . '%')->where('public', '1')->get();
         return response(compact('albums'),200);
     }
 

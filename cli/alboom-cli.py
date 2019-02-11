@@ -1,5 +1,7 @@
 import click
 import requests
+import urllib
+import os
 
 # the requests module
 def getAlbum(id):
@@ -10,6 +12,10 @@ def getResource(id):
   req = requests.get('http://localhost:8000/api/cli/resources/' + id)
   return req
 
+def dwn(loc, name):
+  url = "http://localhost:8000/image/" + loc
+  urllib.urlretrieve(url, name)
+
 # the cli commands
 @click.group()
 def cli():
@@ -18,18 +24,19 @@ def cli():
 @cli.command()
 @click.argument('id')
 @click.option('--info', '-n', help="Show album info", is_flag=True)
-def albums(id, info):
+@click.option('--download', '-d', help="Download all resources from this album", is_flag=True)
+def album(id, info, download):
   album = getAlbum(id)
   if album.status_code == 200:
-    album = album.json()
+    album = album.json()['album']
     if info:
-      click.echo('Album \'' + album['album']['name'] + '\':')
-      click.echo('- color: ' + album['album']['color'])
-      click.echo('- public: ' + str((album['album']['public'] == 1) and 'true' or 'false'))
-      click.echo('- controls: ' + str((album['album']['controls'] == 1) and 'true' or 'false'))
-      click.echo('- autoplay: ' + str((album['album']['autoplay'] == 1) and 'true' or 'false'))
-      click.echo('- resources: ' + str(len(album['album']['resources'])))
-      for res in album['album']['resources']:
+      click.echo('Album \'' + album['name'] + '\':')
+      click.echo('- color: ' + album['color'])
+      click.echo('- public: ' + str((album['public'] == 1) and 'true' or 'false'))
+      click.echo('- controls: ' + str((album['controls'] == 1) and 'true' or 'false'))
+      click.echo('- autoplay: ' + str((album['autoplay'] == 1) and 'true' or 'false'))
+      click.echo('- resources: ' + str(len(album['resources'])))
+      for res in album['resources']:
         click.echo('  - ' + res['name'] + '.' + res['type'])
         click.echo('    - id: ' + str(res['uuid']))
         click.echo('    - name: ' + str(res['name']))
@@ -37,6 +44,11 @@ def albums(id, info):
         click.echo('    - transition: ' + str(res['transition']))
         click.echo('    - loop: ' + str((res['loop'] == 1) and 'true' or 'false'))
         click.echo('    - mute: ' + str((res['mute'] == 1) and 'true' or 'false'))
+    if download:
+      os.mkdir(album["name"])
+      for res in album['resources']:
+        dwn(res['location'], album["name"] + '/' + str(res['name'] + '.' + res['type']))
+      click.echo("Successfull downloaded in " + album["name"] + " directory")
   else:
     click.echo('The album was not found.')
 
@@ -44,9 +56,12 @@ def albums(id, info):
 @cli.command()
 @click.argument('id')
 @click.option('--info', '-n', help="Show resource info", is_flag=True)
-def resources(id, info):
+@click.option('--album', '-a', help="Show album info too", is_flag=True)
+@click.option('--download', '-d', help="Download the resource", is_flag=True)
+def resource(id, info, album, download):
   res = getResource(id)
   if res.status_code == 200:
+    alb = res.json()['resource']['album']
     res = res.json()['resource']
     if info:
       click.echo('Resource \'' + res['name'] + '.' + res['type'] + '\':')
@@ -56,7 +71,15 @@ def resources(id, info):
       click.echo('- transition: ' + str(res['transition']))
       click.echo('- loop: ' + str((res['loop'] == 1) and 'true' or 'false'))
       click.echo('- mute: ' + str((res['mute'] == 1) and 'true' or 'false'))
-
+    if album:
+      click.echo('Album \'' + alb['name'] + '\':')
+      click.echo('- color: ' + alb['color'])
+      click.echo('- public: ' + str((alb['public'] == 1) and 'true' or 'false'))
+      click.echo('- controls: ' + str((alb['controls'] == 1) and 'true' or 'false'))
+      click.echo('- autoplay: ' + str((alb['autoplay'] == 1) and 'true' or 'false'))
+    if download:
+      dwn(res['location'], str(res['name'] + '.' + res['type']))
+      click.echo('Successfully downloaded as ' + str(res['name'] + '.' + res['type']))
   else: 
     click.echo('The resource was not found')
 

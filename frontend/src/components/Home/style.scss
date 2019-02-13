@@ -1,24 +1,30 @@
 .img__header {
-  background: linear-gradient(rgba(black, 0.4), rgba(black, 0.6)),
-    url('/img/album.jpg');
-  background-size: cover;
-  position: relative;
-  height: 95vh;
-  width: 100%;
+	background: linear-gradient(rgba(black, 0.4), rgba(black, 0.6)),
+		url('/img/album.jpg');
+	background-size: cover;
+	position: relative;
+	height: 95vh;
+	width: 100%;
 
-  div {
-    position: relative;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
+	div {
+		position: relative;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		text-align: center;
 
-    span:not(:first-child) {
-      display: block;
-      font-size: 30px;
-      letter-spacing: 1.8px;
-      line-height: 1.5em;
-      color: white;
-    }
-  }
+		span:not(:first-child) {
+			display: block;
+			font-size: 30px;
+			letter-spacing: 1.8px;
+			line-height: 1.5em;
+			color: white;
+		}
+	}
+}
+
+.pros {
+	text-align: center;
+	background: url('/img/pipes.png');
+	padding: 4em 1em;
 }

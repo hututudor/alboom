@@ -2,6 +2,18 @@
 	"home": {
 		"title": "Store your media files in virtual albums.",
 		"subtitle": "Made by developers for developers.",
+		"cli": "Download the CLI",
+		"clidesc": "A fast CLI for public albums, for fast downloads.",
+		"clidown": "Download now",
+		"pros": {
+			"title": "Why to choose us?",
+			"1": "User friendly",
+			"2": "Lightning fast",
+			"3": "Configurable",
+			"4": "Multi-langual",
+			"5": "Mobile ready",
+			"6": "Multiple formats"
+		},
 		"buttons": {
 			"home": "Home",
 			"dashboard": "Dashboard"

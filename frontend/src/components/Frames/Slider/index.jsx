@@ -7,7 +7,6 @@ import { Icon, Loader } from 'semantic-ui-react';
 import ReactSwipeEvents from 'react-swipe-events';
 import Logo from '../../hoc/Logo';
 import { CSSTransition } from 'react-transition-group';
-import './transitions.scss';
 
 class Slider extends Component {
 	state = {

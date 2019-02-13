@@ -9,6 +9,7 @@ import Register from './components/Auth/Register';
 import Dashboard from './components/Dashboard';
 import Logout from './components/hoc/Logout';
 import Frame from './components/Frames';
+import './components/Frames/Slider/transitions.scss';
 
 class App extends Component {
 	render() {

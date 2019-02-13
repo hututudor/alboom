@@ -28,7 +28,7 @@ class Home extends Component {
 						</span>
 					</div>
 				</div>
-				<Segment vertical style={{ textAlign: 'center', padding: '7em 2em' }}>
+				<Segment vertical className="cli">
 					<h1>
 						<Lang>home.cli</Lang>
 					</h1>
@@ -48,7 +48,7 @@ class Home extends Component {
 					</h1>
 					<Container>
 						<Card.Group stackable centered itemsPerRow={3}>
-							<Card color="green">
+							<Card color="orange">
 								<Card.Content style={{ textAlign: 'center' }}>
 									<h1>
 										<Icon name="users" />
@@ -58,7 +58,7 @@ class Home extends Component {
 									</h4>
 								</Card.Content>
 							</Card>
-							<Card color="green">
+							<Card color="orange">
 								<Card.Content style={{ textAlign: 'center' }}>
 									<h1>
 										<Icon name="lightning" />
@@ -68,7 +68,7 @@ class Home extends Component {
 									</h4>
 								</Card.Content>
 							</Card>
-							<Card color="green">
+							<Card color="orange">
 								<Card.Content style={{ textAlign: 'center' }}>
 									<h1>
 										<Icon name="cogs" />
@@ -78,7 +78,7 @@ class Home extends Component {
 									</h4>
 								</Card.Content>
 							</Card>
-							<Card color="green">
+							<Card color="orange">
 								<Card.Content style={{ textAlign: 'center' }}>
 									<h1>
 										<Icon name="flag" />
@@ -88,7 +88,7 @@ class Home extends Component {
 									</h4>
 								</Card.Content>
 							</Card>
-							<Card color="green">
+							<Card color="orange">
 								<Card.Content style={{ textAlign: 'center' }}>
 									<h1>
 										<Icon name="phone" />
@@ -98,7 +98,7 @@ class Home extends Component {
 									</h4>
 								</Card.Content>
 							</Card>
-							<Card color="green">
+							<Card color="orange">
 								<Card.Content style={{ textAlign: 'center' }}>
 									<h1>
 										<Icon name="folder" />
@@ -110,6 +110,11 @@ class Home extends Component {
 							</Card>
 						</Card.Group>
 					</Container>
+				</div>
+				<div className="about">
+					<h1>
+						<Lang>home.we.title</Lang>
+					</h1>
 				</div>
 			</React.Fragment>
 		);

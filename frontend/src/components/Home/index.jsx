@@ -115,6 +115,32 @@ class Home extends Component {
 					<h1>
 						<Lang>home.we.title</Lang>
 					</h1>
+					<Container>
+						<Card.Group stackable centered itemsPerRow={2}>
+							<Card>
+								<Card.Content>
+									<h1>Hutu Tudor</h1>
+									<h3>Frontend</h3>
+								</Card.Content>
+								<Card.Content>
+									<Button color="blue" icon>
+										<Icon name="facebook f" />
+									</Button>
+								</Card.Content>
+							</Card>
+							<Card>
+								<Card.Content>
+									<h1>Baroncea Andrei</h1>
+									<h3>Backend</h3>
+								</Card.Content>
+								<Card.Content>
+									<Button color="blue" icon>
+										<Icon name="facebook f" />
+									</Button>
+								</Card.Content>
+							</Card>
+						</Card.Group>
+					</Container>
 				</div>
 			</React.Fragment>
 		);

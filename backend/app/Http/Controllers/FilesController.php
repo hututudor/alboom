@@ -80,6 +80,8 @@ class FilesController extends Controller
 
         if($platform == 'win') {
             $file = base_path().'/storage/app/cli/acli.exe';
+        } else {
+            $file = base_path().'/storage/app/cli/acli';
         }
 
         return Response::download($file);

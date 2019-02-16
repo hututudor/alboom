@@ -48,7 +48,12 @@ class Home extends Component {
 						<Icon name="download" />
 						Windows
 					</Button>
-					<Button color="green" icon labelPosition="left">
+					<Button
+						color="green"
+						icon
+						labelPosition="left"
+						href={http.cliUrl + '/unix'}
+					>
 						<Icon name="download" />
 						Linux
 					</Button>

@@ -3,7 +3,7 @@
 		url('/img/album.jpg');
 	background-size: cover;
 	position: relative;
-	height: 95vh;
+	height: 100vh;
 	width: 100%;
 
 	div {
@@ -37,4 +37,12 @@
 .about {
 	text-align: center;
 	padding: 4em 1em;
+}
+
+.footer {
+	padding: 2.6em 1em;
+	background: #111;
+	text-align: center;
+	color: #eee;
+	font-size: 1.8em;
 }

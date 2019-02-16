@@ -9,7 +9,8 @@ import {
 	Button,
 	Icon,
 	Card,
-	Container
+	Container,
+	Image
 } from 'semantic-ui-react';
 
 class Home extends Component {
@@ -118,6 +119,7 @@ class Home extends Component {
 					<Container>
 						<Card.Group stackable centered itemsPerRow={2}>
 							<Card>
+								<Image src="/img/face.gif" />
 								<Card.Content>
 									<h1>Hutu Tudor</h1>
 									<h3>Frontend</h3>
@@ -126,9 +128,13 @@ class Home extends Component {
 									<Button color="blue" icon>
 										<Icon name="facebook f" />
 									</Button>
+									<Button color="black" icon>
+										<Icon name="github" />
+									</Button>
 								</Card.Content>
 							</Card>
 							<Card>
+								<Image src="/img/face.gif" />
 								<Card.Content>
 									<h1>Baroncea Andrei</h1>
 									<h3>Backend</h3>
@@ -137,10 +143,17 @@ class Home extends Component {
 									<Button color="blue" icon>
 										<Icon name="facebook f" />
 									</Button>
+									<Button color="black" icon>
+										<Icon name="github" />
+									</Button>
 								</Card.Content>
 							</Card>
 						</Card.Group>
 					</Container>
+				</div>
+				<div className="footer">
+					<Lang>home.footer.copyright</Lang> &copy; {new Date().getFullYear()}{' '}
+					NuLL
 				</div>
 			</React.Fragment>
 		);

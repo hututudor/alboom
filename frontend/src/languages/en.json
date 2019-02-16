@@ -17,6 +17,9 @@
 		"we": {
 			"title": "Who are we?"
 		},
+		"footer": {
+			"copyright": "Copyright"
+		},
 		"buttons": {
 			"home": "Home",
 			"dashboard": "Dashboard"

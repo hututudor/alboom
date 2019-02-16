@@ -65,6 +65,12 @@ class Register extends FormClass {
 			});
 	};
 
+	componentDidMount() {
+		if (localStorage.getItem('token')) {
+			this.props.history.push('/');
+		}
+	}
+
 	toogleShowPassword = () => {
 		this.setState({ showPassword: !this.state.showPassword });
 	};

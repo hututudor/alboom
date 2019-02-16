@@ -54,6 +54,12 @@ class Login extends FormClass {
 			});
 	};
 
+	componentDidMount() {
+		if (localStorage.getItem('token')) {
+			this.props.history.push('/');
+		}
+	}
+
 	render() {
 		return (
 			<Grid textAlign="center" verticalAlign="middle" className="auth">

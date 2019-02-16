@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
 
 class FilesController extends Controller
@@ -72,6 +73,16 @@ class FilesController extends Controller
         header('Content-Type:' . $type);
         header('Content-Length: ' . filesize($file));
         readfile($file);
+    }
+
+    function downloadCLI($platform) {
+        $file = '';
+
+        if($platform == 'win') {
+            $file = base_path().'/storage/app/cli/acli.exe';
+        }
+
+        return Response::download($file);
     }
 
     static function uploadFile($request, $field_name, $directory, $allowed_extensions = array(), $multiple = false) {

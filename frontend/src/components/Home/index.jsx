@@ -12,6 +12,7 @@ import {
 	Container,
 	Image
 } from 'semantic-ui-react';
+import * as http from '../../services/httpService';
 
 class Home extends Component {
 	render() {
@@ -38,9 +39,18 @@ class Home extends Component {
 							<Lang>home.clidesc</Lang>
 						</b>
 					</h4>
-					<Button color="blue" icon labelPosition="left">
+					<Button
+						color="blue"
+						icon
+						labelPosition="left"
+						href={http.cliUrl + '/win'}
+					>
 						<Icon name="download" />
-						<Lang>home.clidown</Lang>
+						Windows
+					</Button>
+					<Button color="green" icon labelPosition="left">
+						<Icon name="download" />
+						Linux
 					</Button>
 				</Segment>
 				<div className="pros">
@@ -125,10 +135,18 @@ class Home extends Component {
 									<h3>Frontend</h3>
 								</Card.Content>
 								<Card.Content>
-									<Button color="blue" icon>
+									<Button
+										color="blue"
+										icon
+										href="https://www.facebook.com/tudor.hutu.14"
+									>
 										<Icon name="facebook f" />
 									</Button>
-									<Button color="black" icon>
+									<Button
+										color="black"
+										icon
+										href="https://github.com/hututudor"
+									>
 										<Icon name="github" />
 									</Button>
 								</Card.Content>
@@ -140,10 +158,18 @@ class Home extends Component {
 									<h3>Backend</h3>
 								</Card.Content>
 								<Card.Content>
-									<Button color="blue" icon>
+									<Button
+										color="blue"
+										icon
+										href="https://www.facebook.com/baronceaa"
+									>
 										<Icon name="facebook f" />
 									</Button>
-									<Button color="black" icon>
+									<Button
+										color="black"
+										icon
+										href="https://github.com/TinaSnipesU"
+									>
 										<Icon name="github" />
 									</Button>
 								</Card.Content>

@@ -18,4 +18,4 @@ Route::get('/', function () {
 Route::get('/image/{file_name}', 'FilesController@getFile');
 Route::get('/image/download/{file_name}', 'FilesController@downloadFile');
 
-Route::get('/cli/download');
+Route::get('/cli/download/{platform}', 'FilesController@downloadCLI');

@@ -4,6 +4,7 @@ import * as token from './tokenService';
 export const apiUrl = '/api';
 export const baseUrl = 'http://localhost:3000/';
 export const imageUrl = 'http://localhost:8000/image';
+export const cliUrl = 'http://localhost:8000/cli/download';
 
 const getAuth = () => {
 	return {

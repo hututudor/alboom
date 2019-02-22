@@ -19,6 +19,7 @@ class LanguageDropdown extends Component {
             />{' '}
             {this.props.lang.name === 'en' ? <Lang>languages.en</Lang> : null}
             {this.props.lang.name === 'ro' ? <Lang>languages.ro</Lang> : null}
+            {this.props.lang.name === 'es' ? <Lang>languages.es</Lang> : null}
           </React.Fragment>
         }
         item
@@ -31,6 +32,10 @@ class LanguageDropdown extends Component {
           <Dropdown.Item onClick={() => this.changeLanguage('ro')}>
             <Flag name="ro" />
             <Lang>languages.ro</Lang>
+          </Dropdown.Item>
+          <Dropdown.Item onClick={() => this.changeLanguage('es')}>
+            <Flag name="es" />
+            <Lang>languages.es</Lang>
           </Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>

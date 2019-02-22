@@ -1,7 +1,24 @@
 {
   "home": {
     "title": "Stocheaza-ti fisierele media in albume virtuale.",
-    "subtitle": "Facut de dezvoltatori pentru dezvoltatori.",
+    "subtitle": "Facut de catre dezvoltatori pentru dezvoltatori",
+    "cli": "Descarca CLI-ul",
+    "clidesc": "Un CLI rapid pentru albume publice.",
+    "pros": {
+      "title": "De ce noi?",
+      "1": "Design prietenos",
+      "2": "Foarte rapid",
+      "3": "Configurabil",
+      "4": "Accessibil",
+      "5": "Pentru mobil",
+      "6": "Multe formaturi"
+    },
+    "we": {
+      "title": "Cine suntem noi?"
+    },
+    "footer": {
+      "copyright": "Copyright"
+    },
     "buttons": {
       "home": "Acasa",
       "dashboard": "Panou de control"
@@ -15,31 +32,185 @@
   },
   "dashboard": {
     "buttons": {
-      "back": "Inapoi acasa",
-      "logout": "Deconectare"
+      "home": "Acasa",
+      "back": "Inapoi",
+      "albums": "Albume",
+      "logout": "Deconectare",
+      "dashboard": "Panou de control",
+      "user": "Setari"
+    },
+    "popups": {
+      "delete": "Sterge",
+      "edit": "Modifica",
+      "download": "Descarca",
+      "share": "Distribuie"
+    },
+    "titles": {
+      "dashboard": "Panou de control",
+      "albums": "Albume",
+      "album": "Album",
+      "user": "Setarile utilizatorului"
+    },
+    "first": {
+      "title": "Panou de control",
+      "hello": "Buna ziua",
+      "message": "Ce doriti sa faceti astazi?",
+      "buttons": {
+        "albums": "Gestionati albumele",
+        "settings": "Schimbati setarile"
+      }
+    },
+    "albums": {
+      "add": "Adaugare",
+      "modals": {
+        "add": {
+          "title": "Adauga un album nou"
+        },
+        "edit": {
+          "title": "Modifica albumul"
+        },
+        "all": {
+          "name": "Nume",
+          "color": "Culoare",
+          "public": "Fa albumul public",
+          "controls": "Afisarea controalelor",
+          "autoplay": "Reda automat",
+          "settings": "Setari pentru slider"
+        },
+        "delete": {
+          "title": "Sterge album",
+          "message": "Esti sigur ca vrei sa faci asta? Actiunea aceasta este ireversibila"
+        },
+        "share": {
+          "title": "Partajeaza album",
+          "frame": {
+            "title": "Partajeaza ca iframe"
+          },
+          "button": {
+            "title": "Partajeaza ca link"
+          }
+        }
+      }
+    },
+    "resources": {
+      "modals": {
+        "add": {
+          "title": "Adauga o resursa noua",
+          "message": "POti sa adaugi resurse de tipul ",
+
+          "drop": {
+            "on": "Lasa fisierele aici",
+            "off": "Incearca sa lasi fisierele aici, sau apasa pentru a incarca",
+            "unsupported": "Fisiere necunoscut"
+          }
+        },
+        "edit": {
+          "title": "Modifica albumul"
+        },
+        "all": {
+          "name": "Nume",
+          "transition": "Tipul tranzitiei",
+          "mute": "Porneste fara sunet",
+          "muted": "Nu are sunet",
+          "loop": "Repeta",
+          "settings": "Setari pentru filme sau muzica"
+        },
+        "delete": {
+          "title": "Sterge resursa",
+          "message": "Esti sigur ca vrei sa faci asta? Actiunea aceasta este ireversibila"
+        },
+        "share": {
+          "title": "Partajeaza resursa",
+          "frame": {
+            "title": "Partajeaza ca iframe"
+          },
+          "button": {
+            "title": "Partajeaza ca link"
+          }
+        }
+      }
+    },
+    "user": {
+      "tabs": {
+        "basic": "Setari generale",
+        "password": "Setari pentru parola"
+      },
+      "password": {
+        "password": "Parola curenta",
+        "new": "Parola noua",
+        "success": "Parola schimbata cu success",
+        "error": "Parola nu a fost schimbata. Verifica parola curenta din nou"
+      },
+      "basic": {
+        "name": "Nume",
+        "theme": "Tema",
+        "success": "Setari salvate cu success"
+      }
     }
+  },
+  "actions": {
+    "add": "Adauga",
+    "update": "Salveaza",
+    "cancel": "Anuleaza",
+    "close": "Inchide",
+    "yes": "Da",
+    "no": "Nu"
+  },
+  "messages": {
+    "album": {
+      "add": "Albumul a fost adaugat cu success",
+      "edit": "Albumul a fost salvat cu success",
+      "delete": "Albumul a fost sters cu success"
+    },
+    "resource": {
+      "add": "Fisierul a fost adaugat cu success",
+      "adderror": "Fisierul nu a fost incarcat. Posibil ca tipul fisierului sa nu fie corect",
+      "edit": "Fisierul a fost salvat cu success",
+      "delete": "Fisierul a fost sters cu success"
+    },
+    "error": "Ceva nu a functionat corect. Va rugam sa incercati din nou sau sa reincarcati pagina"
+  },
+  "colors": {
+    "red": "Rosu",
+    "orange": "Portocaliu",
+    "yellow": "Galben",
+    "olive": "Masliniu",
+    "green": "Verde",
+    "teal": "Turcoaz",
+    "blue": "Albastru",
+    "violet": "Violet",
+    "purple": "Mov",
+    "pink": "Roz",
+    "brown": "Maro",
+    "grey": "Gri",
+    "black": "Negru"
+  },
+  "transitions": {
+    "none": "Niciuna",
+    "zoom": "Zoom",
+    "slideUp": "Slide up"
   },
   "auth": {
     "errors": "Erori",
     "login": {
       "title": "Autentificare",
       "button": "Trimite",
-      "message": "Nu ai un cont?",
+      "message": "Nu am un cont",
       "register": "Inregistrare",
       "back": "Inapoi"
     },
     "register": {
       "title": "Inregistrare",
       "button": "Trimite",
-      "message": "Ai deja un cont?",
+      "message": "Am deja un cont",
       "login": "Autentificare",
       "back": "Inapoi"
     },
     "messages": {
-      "taken": "Email-ul este deja luat",
-      "\"Email\" is not allowed to be empty": "Email-ul nu trebuie sa fie gol",
-      "\"Email\" must be a valid email": "Email-ul trebuie sa fie valid",
-      "\"Password\" is not allowed to be empty": "Parola nu poate fi goala"
+      "taken": "Emailul este deja luat",
+      "\"Email\" is not allowed to be empty": "Emailul nu are voie sa fie gol",
+      "\"Email\" must be a valid email": "Emailul trebuie sa fie valid",
+      "\"Password\" is not allowed to be empty": "Parola nu are voie sa fie goala"
     },
     "placeholders": {
       "email": "Adresa de email",
@@ -49,9 +220,13 @@
   },
   "languages": {
     "en": "Engleza",
-    "ro": "Romana"
+    "ro": "Romana",
+    "es": "Spaniola"
+  },
+  "loading": {
+    "title": "Incarcare"
   },
   "404": {
-    "message": "Ati ajuns la capatul internetului"
+    "message": "Ai ajuns la finalul internetului"
   }
 }

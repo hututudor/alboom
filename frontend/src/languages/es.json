@@ -1,0 +1,231 @@
+{
+  "home": {
+    "title": "Almanece tus archivos media en albumes virtuales.",
+    "subtitle": "Hecho de desarrolladores para desarolladores.",
+    "cli": "Descarga el CLI",
+    "clidesc": "Un CLI rapido para albumes publicos, para descargas rapidas.",
+    "pros": {
+      "title": "¿Por que elejirnos?",
+      "1": "Facil de usar",
+      "2": "Muy rapido",
+      "3": "Configurable",
+      "4": "Multi-idioma",
+      "5": "Para moviles",
+      "6": "Formatos multiples"
+    },
+    "we": {
+      "title": "¿Quien somos?"
+    },
+    "footer": {
+      "copyright": "Copyright"
+    },
+    "buttons": {
+      "home": "Pagina de inicio",
+      "dashboard": "Tablero"
+    },
+    "account": {
+      "account": "Cuenta",
+      "login": "Login",
+      "register": "Register",
+      "logout": "Logout"
+    }
+  },
+  "dashboard": {
+    "buttons": {
+      "home": "Pagina de inicio",
+      "back": "Atras",
+      "albums": "Albumes",
+      "logout": "Logout",
+      "dashboard": "Tablero",
+      "user": "Ajustes"
+    },
+    "popups": {
+      "delete": "Borrar",
+      "edit": "Editar",
+      "download": "Descargar",
+      "share": "Comparte"
+    },
+    "titles": {
+      "dashboard": "Tablero",
+      "albums": "Albumes",
+      "album": "Album",
+      "user": "Ajustes usuario"
+    },
+    "first": {
+      "title": "Tablero",
+      "hello": "Hola",
+      "message": "¿Que quieres hacer hoy?",
+      "buttons": {
+        "albums": "Administra albumes",
+        "settings": "Cambia tus ajustes"
+      }
+    },
+    "albums": {
+      "add": "Añadir",
+      "modals": {
+        "add": {
+          "title": "Añade un album nuevo"
+        },
+        "edit": {
+          "title": "Modificar album"
+        },
+        "all": {
+          "name": "Nombre",
+          "color": "Color",
+          "public": "Haz este album publico",
+          "controls": "Enable controls",
+          "autoplay": "Autoplay",
+          "settings": "Slider settings"
+        },
+        "delete": {
+          "title": "Borra el album",
+          "message": "¿Estas seguro que quieres hacer esto? Esta accion es irreversible."
+        },
+        "share": {
+          "title": "Comparte el album",
+          "frame": {
+            "title": "Comparte como iframe"
+          },
+          "button": {
+            "title": "Comparte como link"
+          }
+        }
+      }
+    },
+    "resources": {
+      "modals": {
+        "add": {
+          "title": "Nuevo recurso",
+          "message": "Puedes subir solo archivos de tipo ",
+          "drop": {
+            "on": "Solta los archivos aqui...",
+            "off": "Intenta soltar unos archivos aqui, o pincha para selectar los archivos para subir.",
+            "unsupported": "Tipo de archivo incompatible"
+          }
+        },
+        "edit": {
+          "title": "Editar album"
+        },
+        "all": {
+          "name": "Nombre",
+          "transition": "Tipo transicion",
+          "mute": "Empieza silenciado",
+          "muted": "No puede ser silenciado",
+          "loop": "Repite",
+          "settings": "Ajustes para archivos de tipo pelicula o musica"
+        },
+        "delete": {
+          "title": "Borra recurso",
+          "message": "¿Estas seguro que quieres hacer esto? Esta accion es irreversible."
+        },
+        "share": {
+          "title": "Comparte recurso",
+          "frame": {
+            "title": "Comparte como iframe"
+          },
+          "button": {
+            "title": "Comparte como link"
+          }
+        }
+      }
+    },
+    "user": {
+      "tabs": {
+        "basic": "Ajustes basicos",
+        "password": "Ajustes contraseña"
+      },
+      "password": {
+        "password": "Contraseña actual",
+        "new": "Nueva contraseña",
+        "success": "Contraseña cambiada",
+        "error": "La contraseña no pudo ser cambiada. Averigua la contraseña actual"
+      },
+      "basic": {
+        "name": "Nombre",
+        "theme": "Tema",
+        "success": "Los ajustes se han guardado"
+      }
+    }
+  },
+  "actions": {
+    "add": "Añadir",
+    "update": "Guardar",
+    "cancel": "Cancelar",
+    "close": "Cerrar",
+    "yes": "Si",
+    "no": "No"
+  },
+  "messages": {
+    "album": {
+      "add": "El album ha sido añadido",
+      "edit": "El album se ha guardado",
+      "delete": "El album ha sido borrado"
+    },
+    "resource": {
+      "add": "El archivo ha sido añadido",
+      "adderror": "El archivo no ha sido subido. Averigua su extension.",
+      "edit": "El archivo se ha guardado",
+      "delete": "El archivo ha sido borrado"
+    },
+    "error": "Algo no ha functionado. Por favor intenta reiniciar la pagina"
+  },
+  "colors": {
+    "red": "Rojo",
+    "orange": "Naranja",
+    "yellow": "Amarillo",
+    "olive": "Verde oliva",
+    "green": "Verde",
+    "teal": "Verde azulado",
+    "blue": "Azul",
+    "violet": "Violeta",
+    "purple": "Purpura",
+    "pink": "Rosa",
+    "brown": "Marron",
+    "grey": "Gris",
+    "black": "Negro"
+  },
+  "transitions": {
+    "none": "Nada",
+    "zoom": "Zoom",
+    "slideUp": "Slide up"
+  },
+  "auth": {
+    "errors": "Errores",
+    "login": {
+      "title": "Login",
+      "button": "Enviar",
+      "message": "¿No tienes una cuenta?",
+      "register": "Regristar",
+      "back": "Atras"
+    },
+    "register": {
+      "title": "Registrar",
+      "button": "Enviar",
+      "message": "¿Ya tienes una cuenta?",
+      "login": "Login",
+      "back": "Atras"
+    },
+    "messages": {
+      "taken": "El correo electronico ya ha sido utilisado",
+      "\"Email\" is not allowed to be empty": "El correo electronico no puede ser vacio",
+      "\"Email\" must be a valid email": "El correo electronico tiene que ser valido",
+      "\"Password\" is not allowed to be empty": "La contraseña no puede ser vacia"
+    },
+    "placeholders": {
+      "email": "Correo electronico",
+      "name": "Nombre",
+      "password": "Contraseña"
+    }
+  },
+  "languages": {
+    "en": "Ingels",
+    "ro": "Rumano",
+    "es": "Spanish"
+  },
+  "loading": {
+    "title": "Cargando"
+  },
+  "404": {
+    "message": "Has llegado al final del internet"
+  }
+}

@@ -142,13 +142,13 @@ class Slider extends Component {
   };
 
   touchGoLeft = () => {
-    if (this.state.album.autoplay == 0) {
+    if (this.state.album && this.state.album.autoplay == 0) {
       this.goLeft();
     }
   };
 
   touchGoRight = () => {
-    if (this.state.album.autoplay == 0) {
+    if (this.state.album && this.state.album.autoplay == 0) {
       this.goRight();
     }
   };

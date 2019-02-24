@@ -23,8 +23,7 @@ class FilesController extends Controller
         $time = date('r', filemtime($location));
 
         $fm = @fopen($location, 'rb');
-        if (!$fm)
-        {
+        if (!$fm) {
             header ("HTTP/1.1 505 Internal server error");
             return;
         }

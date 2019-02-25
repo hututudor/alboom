@@ -133,7 +133,7 @@ class AddResourceModalForm extends FormClass {
             <b>
               <p>
                 <Lang>dashboard.resources.modals.add.message</Lang>
-                <em>JPG, PNG, SVG, GIF, MP3, MP4</em>.
+                <em>JPG, PNG, SVG, GIF, MP3, MP4, MPG, MPEG</em>.
               </p>
             </b>
 

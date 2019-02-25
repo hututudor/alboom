@@ -81,7 +81,6 @@ class Slider extends Component {
         file.types.video.includes(this.state.resources[index].type) ||
         file.types.audio.includes(this.state.resources[index].type)
       ) {
-        console.log('vid');
         return (
           <CSSTransition
             in={!this.state.showing}

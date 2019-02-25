@@ -40,12 +40,18 @@ class ResourcesController extends Controller {
             return response()->json('', 400);
         }
 
+        $c = 0;
+        if($request->file('location')->getClientMimeType() == 'video/mpeg') {
+            shell_exec("ffmpeg -i " . storage_path() . '/app/files/' . $location . " -c:a copy -c:v libx264 -preset superfast -profile:v baseline " . storage_path() . '/app/files/' . explode('.', $location)[0] . '.mp4');
+            $c = 1;
+        }
+
         $resource = new Resource();
         $resource->album_id = $album->id;
-        $resource->uuid =str_replace('-', '', Uuid::generate(4));
+        $resource->uuid = str_replace('-', '', Uuid::generate(4));
         $resource->name = pathinfo($request->file('location')->getClientOriginalName(), PATHINFO_FILENAME);
-        $resource->location = $location;
-        $resource->type = $request->file('location')->getClientOriginalExtension();
+        $resource->location = $c == 0 ? $location : explode('.', $location)[0] . '.mp4';
+        $resource->type = $c == 0 ? $request->file('location')->getClientOriginalExtension() : 'mpg';
         $resource->transition = "none";
         $resource->loop = 0;
         $resource->mute = 0;

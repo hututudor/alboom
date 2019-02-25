@@ -43,6 +43,7 @@ class ResourcesController extends Controller {
         $c = 0;
         if($request->file('location')->getClientMimeType() == 'video/mpeg') {
             shell_exec("ffmpeg -i " . storage_path() . '/app/files/' . $location . " -c:a copy -c:v libx264 -preset superfast -profile:v baseline " . storage_path() . '/app/files/' . explode('.', $location)[0] . '.mp4');
+            shell_exec("rm -f " . storage_path() . '/app/files/' . $location);
             $c = 1;
         }
 

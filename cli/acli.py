@@ -4,28 +4,28 @@ import urllib
 import os
 
 # the default url which is used
-url = 'localhost:8000';
+url2 = 'localhost:8000';
 
 # the requests module
 def getAlbum(id):
-  req = requests.get('http://' + url + '/api/cli/albums/' + id)
+  req = requests.get('http://' + url2 + '/api/cli/albums/' + id)
   return req
 
 def getResource(id): 
-  req = requests.get('http://' + url + '/api/cli/resources/' + id)
+  req = requests.get('http://' + url2 + '/api/cli/resources/' + id)
   return req
 
 def searchAlbum(name):
-  req = requests.post('http://' + url + '/api/cli/albums/', data={"name": name})
+  req = requests.post('http://' + url2 + '/api/cli/albums/', data={"name": name})
   return req
 
 def dwn(loc, name):
-  url = 'http://' + url  + '/image/' + loc
+  url = 'http://' + url2  + '/image/' + loc
   urllib.urlretrieve(url, name)
 
 # the cli commands
 @click.group()
-def cli(host):
+def cli():
   """The official AlBoom CLI"""
   pass
 

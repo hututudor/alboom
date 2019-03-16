@@ -73,9 +73,9 @@
           "name": "Nombre",
           "color": "Color",
           "public": "Haz este album publico",
-          "controls": "Enable controls",
-          "autoplay": "Autoplay",
-          "settings": "Slider settings"
+          "controls": "Perimitir controles",
+          "autoplay": "Reproduz automaticamente",
+          "settings": "Ajustes deslizador"
         },
         "delete": {
           "title": "Borra el album",

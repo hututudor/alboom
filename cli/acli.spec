@@ -4,7 +4,7 @@ block_cipher = None
 
 
 a = Analysis(['acli.py'],
-             pathex=['/home/tudor/projects/alboom/cli'],
+             pathex=['C:\\Users\\Tudor\\projects\\alboom\\cli'],
              binaries=[],
              datas=[],
              hiddenimports=[],

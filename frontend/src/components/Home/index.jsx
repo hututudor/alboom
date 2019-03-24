@@ -134,7 +134,7 @@ class Home extends Component {
 					<Container>
 						<Card.Group stackable centered itemsPerRow={2}>
 							<Card>
-								<Image src="/img/face.gif" />
+								<Image src="/img/tudor.png" />
 								<Card.Content>
 									<h1>Hutu Tudor</h1>
 									<h3>Frontend</h3>
@@ -157,7 +157,7 @@ class Home extends Component {
 								</Card.Content>
 							</Card>
 							<Card>
-								<Image src="/img/face.gif" />
+								<Image src="/img/andrei.png" />
 								<Card.Content>
 									<h1>Baroncea Andrei</h1>
 									<h3>Backend</h3>

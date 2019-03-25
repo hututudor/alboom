@@ -18,7 +18,7 @@ class FirstPage extends Component {
             <Lang>dashboard.first.title</Lang>
           </h2>
           <h4>
-            <Lang>dashboard.first.hello</Lang> {this.props.user.name},{' '}
+            <Lang>dashboard.first.hello</Lang>, {this.props.user.name}.{' '}
             <Lang>dashboard.first.message</Lang>
           </h4>
           <div>

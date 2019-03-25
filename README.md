@@ -1,6 +1,16 @@
 # AlBoom
 The easiest way to add an interactive multi-media album to your webpage.
 
+## How it works
+
+ - To add an album to your webpage, you must make an account first.
+ - After that, if you enter the dahboard, in the albums section, you can create a new album.
+ - Click the album and enter the resources section. You can add the files you want to be displayed here.
+ - You can set transition to them and other properties.
+ - If you want to export individual resources, click the export button on the resource and copy the iframe component in your html file.
+ - You can export an album by clicking the export button on the album.
+ - If you make an album private, it will no longer show in your page.
+
 ## Instalation
 
 1. Install [ffmpeg](https://ffmpeg.org/), [node](https://nodejs.org/en/), [composer](https://getcomposer.org/), [php](http://php.net) 

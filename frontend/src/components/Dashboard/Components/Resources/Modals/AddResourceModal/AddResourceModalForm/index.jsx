@@ -198,7 +198,7 @@ class AddResourceModalForm extends FormClass {
             onClick={() => this.closeModal()}
           >
             <Icon name="remove" />
-            <Lang>actions.cancel</Lang>
+            <Lang>actions.close</Lang>
           </Button>
           <Button
             labelPosition="right"

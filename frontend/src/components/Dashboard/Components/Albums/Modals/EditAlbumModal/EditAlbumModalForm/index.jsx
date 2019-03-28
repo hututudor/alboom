@@ -108,7 +108,7 @@ class EditAlbumModalForm extends FormClass {
                 >
                   {color.colors.map((color, index) => (
                     <option key={index} value={color}>
-                      {color.charAt(0).toUpperCase() + color.slice(1)}
+                      {lang.get('colors.' + color)}
                     </option>
                   ))}
                 </select>

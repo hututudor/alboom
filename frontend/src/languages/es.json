@@ -25,9 +25,9 @@
     },
     "account": {
       "account": "Cuenta",
-      "login": "Login",
-      "register": "Register",
-      "logout": "Logout"
+      "login": "Autenticación",
+      "register": "Registrar",
+      "logout": "Cierre de sesión"
     }
   },
   "dashboard": {
@@ -35,7 +35,7 @@
       "home": "Pagina de inicio",
       "back": "Atras",
       "albums": "Albumes",
-      "logout": "Logout",
+      "logout": "Cierre de sesión",
       "dashboard": "Tablero",
       "user": "Ajustes"
     },
@@ -192,7 +192,7 @@
   "auth": {
     "errors": "Errores",
     "login": {
-      "title": "Login",
+      "title": "Autenticación",
       "button": "Enviar",
       "message": "¿No tienes una cuenta?",
       "register": "Regristar",
@@ -202,7 +202,7 @@
       "title": "Registrar",
       "button": "Enviar",
       "message": "¿Ya tienes una cuenta?",
-      "login": "Login",
+      "login": "Autenticación",
       "back": "Atras"
     },
     "messages": {
@@ -220,7 +220,7 @@
   "languages": {
     "en": "Ingels",
     "ro": "Rumano",
-    "es": "Spanish"
+    "es": "Español"
   },
   "loading": {
     "title": "Cargando"

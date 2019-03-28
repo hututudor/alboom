@@ -24,6 +24,7 @@ The easiest way to add an interactive multi-media album to your webpage.
   - `php artisan migrate:fresh`
   - `php artisan serve`
   - This should open a webserver on localhost, port 8000
+  - It is recommended that you chnge the php.ini `MAX_POST_SIZE` and `MAX_FILE_UPLOAD_SIZE` to allow large files to be uploaded.
 
 3. Frontend
   - `cd frontend`
